@@ -1,5 +1,9 @@
 body {
-    background-color: red;
+        background: linear-gradient(
+        112.72013189013455deg,
+        rgba(240, 92, 7, 0.253) 4.927083333333334%,
+        rgba(30, 189, 176, 0.671) 97.84374999999999%
+    );
     color: black;
     margin: 0;
 }
@@ -15,4 +19,69 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+.imgScr {  
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border-style:groove;
+    border-width:thin;
+    padding: 25px; 
+    border-bottom: transparent;
+    box-shadow: 0 0 10px black;
+    transition: 1s; 
+} 
+
+.imgScr:hover {
+    border:transparent;
+    padding: 28px; 
+    width:220px;
+    height:220px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none; 
+}
+
+
+
+.name {
+    font-size: 40px;
+    color:black;
+    transition:0.8s;
+}
+
+.name:hover {
+    color:crimson;
+
+}
+
+.selectedProject { 
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-left: 1px;
+    border-right:1px;
+    border-bottom: transparent;
+    opacity: 80%;
+    border-radius: 50%;
+    border-color: black;
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
+    font-family:fantasy;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top:5vh;
+    cursor:pointer;
+}
+
+.selectedProject:hover {
+    opacity: 100%;
+    border-color:black;
+    box-shadow: 0 0 50px rgba(0, 0, 0);
+    transition:0.3s;
 }

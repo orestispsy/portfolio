@@ -7,8 +7,11 @@ class App extends React.Component {
             <div className="appContainer">
                 <div className="appBox">
                     <div>Welcome </div>
+                    <div className="selectedProject">
+                        <div className="name">Yolo</div>
+                        <img className="imgScr" src="astro.png"></img>
+                    </div>
                 </div>
-                ;
             </div>
         );
     }
