@@ -18,6 +18,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgb(0, 0, 0);
+  
 }
 
 .appBox {
@@ -25,6 +26,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+
+
+.hot {
+    align-self:flex-end;
+    width:3vmax;
+    height:4vmax;
+    background-size: cover;
+    margin:0 0 0.5vmax -13vmax;
+    z-index: 2567234643;
+      animation: blinkerHot 2s linear infinite;
+
 }
 
 .imgScr {
@@ -36,7 +50,7 @@ body {
     padding: 25px;
     border-bottom: transparent;
     box-shadow: 0 0 10px black;
-    animation: blinker 4s linear infinite;
+    animation: blinker 7s linear infinite;
     transition: 2s;
     background-color: white;
 }
@@ -52,13 +66,12 @@ body {
 }
 
 .name {
-    color: black;
-    transition: 0.8s;
+      color: rgb(216, 22, 60);
+   text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
 }
 
-.name:hover {
-    color: crimson;
-}
+
 
 .introMenu {
     display: flex;
@@ -93,7 +106,7 @@ body {
 }
 
 .introTitles {
-    margin-top: 2vmax;
+    margin:4vmax 0 0 0;
     color: black;
     font-size: 2vmax;
     width: 48vmax;
@@ -105,7 +118,7 @@ body {
 
 .intro {
     font-family: "Poller One", cursive;
-    margin-top: 1vmax;
+    margin-top: 2vmax;
     font-size: 2vmax;
     padding: 1vmax;
     text-align: center;
@@ -119,7 +132,7 @@ body {
     width: 95vw;
     border: 2px solid black;
     border-radius: 5vh;
-    height: 20vmax;
+    height: 18vmax;
     margin: 1vmax;
     background-color: rgba(255, 217, 0, 0.363);
 }
@@ -134,13 +147,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-style: solid;
-    border-left: 1px;
-    border-right: 1px;
+    border: 1px solid black;
     border-bottom: transparent;
     opacity: 80%;
     border-radius: 50%;
-    border-color: black;
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     font-family: "Bangers", cursive;
@@ -162,9 +172,18 @@ body {
 @keyframes blinker {
     50% {
         padding: 28px;
-        width: 10vmax;
-        height: 10vmax;
-        background-color: rgba(0, 0, 0, 0.13);
+        width: 11vmax;
+        height: 11vmax;
+        background-color: rgba(51, 255, 0, 0.281);
+    }
+}
+
+@keyframes blinkerHot {
+    50% {
+     
+        width: 3.5vmax;
+        height: 4.5vmax;
+       
     }
 }
 
@@ -173,11 +192,11 @@ body {
 }
 
 #two {
-    animation-delay: 0s !important;
+    animation-delay: 3s !important;
 }
 
 #three {
-    animation-delay: 3s !important;
+    animation-delay: 5s !important;
 }
 
 #four {

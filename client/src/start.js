@@ -34,18 +34,21 @@ class App extends React.Component {
                 </div>
                 <div className="projectBoxBack">
                     <div className="projectBox">
-                        <a
-                            href="https://thousandgigs.herokuapp.com"
-                            className="project"
-                            target="_blank"
-                        >
-                            <div className="name">The Gig Guide</div>
-                            <img
-                                className="imgScr"
-                                src="preview1kgg.jpg"
-                                id="three"
-                            ></img>
-                        </a>
+                   
+                            <a
+                                href="https://thousandgigs.herokuapp.com"
+                                className="project"
+                                target="_blank"
+                            >
+                                <div className="name">The Gig Guide</div>
+                                <img
+                                    className="imgScr"
+                                    src="preview1kgg.jpg"
+                                    id="three"
+                                ></img>
+                            </a>
+                            <img src="./hot.png" className="hot"></img>
+                 
                         <a
                             href="/spotiFIRE/index.html"
                             className="project"
