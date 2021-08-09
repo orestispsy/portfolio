@@ -8,7 +8,7 @@ module.exports = {
     entry: [
         "@babel/polyfill",
         path.join(__dirname, "client", "style.css"),
-        path.join(__dirname, "client","src", "index.js"),
+        path.join(__dirname, "client", "index.js"),
     ],
 
     output: {
@@ -59,7 +59,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./client/src/index.html",
+            template: "./client/index.html",
             filename: "./index.html",
         }),
         new MiniCssExtractPlugin({
