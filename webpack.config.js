@@ -7,8 +7,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
     entry: [
         "@babel/polyfill",
-        path.join(__dirname, "src", "style.css"),
-        path.join(__dirname, "src", "index.js"),
+        path.join(__dirname, "client", "style.css"),
+        path.join(__dirname, "client","src", "index.js"),
     ],
 
     output: {
@@ -59,7 +59,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./src/index.html",
+            template: "./client/src/index.html",
             filename: "./index.html",
         }),
         new MiniCssExtractPlugin({
