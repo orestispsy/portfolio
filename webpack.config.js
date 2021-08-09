@@ -8,7 +8,7 @@ module.exports = {
     entry: [
         "@babel/polyfill",
         path.join(__dirname, "client", "style.css"),
-        path.join(__dirname, "client", "index.js"),
+        path.join(__dirname, "client", "src", "start.js"),
     ],
 
     output: {

@@ -3,12 +3,12 @@ var express = require("express");
 
 var app = express();
 
-   app.use(express.static(path.join(__dirname, "dist")));
+   app.use(express.static(path.join(__dirname, "..", "client", "public")));
 app.set("port", process.env.PORT || 3001);
 
 app.get("*", function (req, res) {
 
-        res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
+        res.sendFile(path.join(__dirname, "..", "client", "index.html"));
     
 });
 
