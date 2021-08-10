@@ -142,6 +142,7 @@ body {
 
 .projectBoxBack {
     background: rgb(255, 255, 255);
+
 }
 
 .projectBack {
@@ -257,10 +258,12 @@ body {
 
     .projectBack {
         height:28vmax !important;
+        
     }
 
       .projectBoxBack {
-          padding: 1vmax !important
+          padding: 3vmax !important
+          
       }
     .projectBox {
         flex-direction: column !important;
@@ -287,4 +290,19 @@ body {
         align-items: center;
         justify-content: center;
     }
+}
+
+
+
+@media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .projectBoxBack {
+          padding: 3vmax !important;
+      }
+
+       .projectBox {
+             height:40vh !important;
+      }
+
+
+    
 }
