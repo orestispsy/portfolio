@@ -22,20 +22,20 @@
                 defaultImage = apiItems[i].images[0].url;
             }
             resultsHTML +=
-                "<div>" +
+                "<div class='details'>" +
                 "<a href=" +
                 apiItems[i].external_urls.spotify +
                 ">" +
-                apiItems[i].name +
-                "</a>" +
-                "</div>" +
+                "<div class='title'>" + apiItems[i].name +
+                "</div></a>" +
                 "<a href=" +
                 apiItems[i].external_urls.spotify +
                 ">" +
                 '<img src="' +
                 defaultImage +
                 '" />' +
-                "</a>";
+                "</a>" +
+                "</div>";
         }
         return resultsHTML;
     }
@@ -61,9 +61,9 @@
                     $(".searchINFO").css("visibility", "visible");
                     $(".searchINFO").html(
                         "<div>" +
-                            "WE've got " +
+                            "We've got " +
                             apiResponse.total +
-                            " results for you !" +
+                            " results !" +
                             "</div>"
                     );
                 }

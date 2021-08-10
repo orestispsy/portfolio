@@ -14,7 +14,7 @@
         "name": "spotiFIRE!",
         "description": "This is an AMAZING Project !",
         "preview": "./../spotiFIRE/preview.jpg",
-        "url": "/spotiFIRE/index.html",
+        "url": "/spotiFIRE/index.html?scroll=infinite",
         "git": "https://github.com/orestispsy/Spicy-Javascript/tree/Orestis/week4/spotiFIRE"
     },
     {
