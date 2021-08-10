@@ -29,12 +29,12 @@ body {
 }
 
 .hot {
-    align-self: flex-end;
-    width: 3vmax;
-    height: 4vmax;
+    position:sticky;
+    width: 4vmax;
+    height: 5vmax;
     background-size: cover;
-    margin: 0vmax 4vmax 0 -8vmax;
     z-index: 2567234643;
+    margin-top: -3vmax
 
 }
 
@@ -58,14 +58,21 @@ body {
     height: 13vmax;
     background-color: rgba(251, 255, 0, 0.233);
     animation: none;
-    transition: 1s;
+    transition: 3s;
     animation: blinker 2s linear infinite;
+}
+
+
+.imgScr:active {
+    background-color: rgba(255, 0, 0, 0.418);
 }
 
 .name {
     color: rgb(216, 22, 60);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
+        
+ 
 }
 
 .introMenu {
@@ -109,6 +116,7 @@ body {
 .introTitles {
     margin: 2vmax 0 0 0;
     color: black;
+    font-weight: 700;
     font-size: 2vmax;
     width: 48vmax;
     height:5vmax;
@@ -116,6 +124,7 @@ body {
     background-color: rgb(255, 255, 255);
     border-radius: 1vh;
     text-align: center;
+
 }
 
 .intro {
@@ -135,45 +144,51 @@ body {
     border: 2px solid black;
     border-radius: 5vh;
     min-height: 19vmax;
-
-    background-color: rgba(255, 217, 0, 0.363);
+  
     padding: 1vmax 0;
 }
 
 .projectBoxBack {
-    background: rgb(255, 255, 255);
-
+  background-color: rgb(255, 255, 255);
+    border-radius:5vh;
+ 
 }
 
 .projectBack {
     display:flex;
+    justify-content: center;
+         background-color: rgba(255, 255, 255, 0.795);
+         border-radius:5vh;
+           width: 18vw;
+           margin: 0 2vmax;
 }
 
 .project {
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+ 
     border-bottom: transparent;
     border-radius: 50%;
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     font-family: "Bangers", cursive;
-    box-shadow: 0 0 50px rgb(255, 255, 255);
+
     text-decoration: none;
     color: black;
     font-size: 3vmax;
     cursor: pointer;
-    width: 14vw;
-    margin: 0 4vmax;
+    width: 15vw;
+    height:20vmax;
+ 
+    
 }
 
 .project:hover {
 
     border-color: black;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.349);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.349);
     transition: 0.5s;
 }
 
@@ -189,7 +204,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 65vw;
-    height: 53.3vh;
+    height: 55.5vh;
     font-size: 2vmax;
     color: white;
     text-align: center;
@@ -295,14 +310,12 @@ body {
 
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-      .projectBoxBack {
-          padding: 3vmax !important;
-      }
+   .projectBox{
+       min-height:40vh;
+   }
 
-       .projectBox {
-             height:40vh !important;
-      }
+   .projectPreview{
+       height: 60vh;
+   }
 
-
-    
 }

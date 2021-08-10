@@ -1,7 +1,20 @@
 import { useState, useEffect } from "react";
 import React from "react";
 
-export default function Projects({setProject, selectedProject}) {
+import useSound from "use-sound";
+
+import music from "./../public/music.mp3";
+
+export default function Projects({ setProject, selectedProject }) {
+    const [mute, setMute] = useState(false);
+
+    const [play, { stop }] = useSound(music, { volume: 0.75 });
+
+    const letMusic = (e) => {
+        if (!mute) {
+            play();
+        }
+    };
 
     let projects = require("./tools/projects.json");
 
@@ -20,6 +33,7 @@ export default function Projects({setProject, selectedProject}) {
                                                 setProject(0);
                                             } else {
                                                 setProject(project.id);
+                                                setMute(true);
                                             }
                                         }}
                                     >
@@ -37,20 +51,28 @@ export default function Projects({setProject, selectedProject}) {
                                                             : undefined
                                                     }
                                                 ></img>
+                                                {project.id == 1 &&
+                                                    selectedProject == 0 && (
+                                                        <img
+                                                            src="./hot.png"
+                                                            className="hot"
+                                                            onClick={() =>
+                                                                letMusic()
+                                                            }
+                                                        ></img>
+                                                    )}
                                             </div>
-                                            {project.id == 1 &&
-                                                selectedProject == 0 && (
-                                                    <img
-                                                        src="./hot.png"
-                                                        className="hot"
-                                                    ></img>
-                                                )}
                                         </div>
                                     </div>
                                 )}
                                 {selectedProject == project.id && (
                                     <div className="projectPreview">
-                                        <div className="projectText"  onClick={(e)=>setProject(0)}>
+                                        <div
+                                            className="projectText"
+                                            onClick={(e) => {
+                                                setProject(0);
+                                            }}
+                                        >
                                             {project.description}
                                         </div>
                                         <div className="descLinks">
