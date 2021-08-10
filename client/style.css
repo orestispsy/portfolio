@@ -58,7 +58,7 @@ body {
     background-color: rgba(251, 255, 0, 0.233);
     animation: none;
     transition: 1s;
-    animation: blinker 2s linear infinite;
+    animation: blinker 1s linear infinite;
 }
 
 .name {
@@ -240,6 +240,14 @@ body {
 
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
+
+    .description {
+        flex-direction: column !important;
+    }
+
+    .projectBack {
+        height:28vmax !important;
+    }
 
       .projectBoxBack {
           padding: 0.5vmax !important
