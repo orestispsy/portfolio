@@ -240,12 +240,17 @@ body {
 
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
+
+      .projectBoxBack {
+          padding: 0.5vmax !important
+      }
     .projectBox {
         flex-direction: column !important;
         justify-content: flex-start;
         height: unset;
         height: 60vh !important;
         overflow-y: scroll;
+     
     }
 
     .project {
@@ -259,8 +264,7 @@ body {
     }
 
     .extLinks {
-        display: flex;
-        flex-direction: column-reverse;
+
         align-items: center;
         justify-content: center;
     }
