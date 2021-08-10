@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import Projects from "./projects";
+
 class App extends React.Component {
     render() {
         return (
@@ -8,10 +10,10 @@ class App extends React.Component {
                 <div className="appBox">
                     <div className="introMenu">
                         <div className="introText">Orestis Psycharis</div>
-                        <div>
+                        <div className="extLinks">
                             <a href="#">
                                 <img
-                                    src="./linkedIn.png"
+                                    src="./in.png"
                                     className="linkedIn"
                                 ></img>
                             </a>
@@ -20,7 +22,7 @@ class App extends React.Component {
                                 target="_blank"
                             >
                                 <img
-                                    src="./gitHub.png"
+                                    src="./git.png"
                                     className="gitHub"
                                 ></img>
                             </a>
@@ -32,62 +34,7 @@ class App extends React.Component {
                     </div>
                     <div className="intro">LATEST PROJECTS</div>
                 </div>
-                <div className="projectBoxBack">
-                    <div className="projectBox">
-                   
-                            <a
-                                href="https://thousandgigs.herokuapp.com"
-                                className="project"
-                                target="_blank"
-                            >
-                                <div className="name">The Gig Guide</div>
-                                <img
-                                    className="imgScr"
-                                    src="preview1kgg.jpg"
-                                    id="three"
-                                ></img>
-                            </a>
-                            <img src="./hot.png" className="hot"></img>
-                 
-                        <a
-                            href="/spotiFIRE/index.html"
-                            className="project"
-                            target="_blank"
-                        >
-                            <div className="name">SpotiFIRE!</div>
-                            <img
-                                className="imgScr"
-                                src="./spotiFIRE/preview.jpg"
-                                id="one"
-                            ></img>
-                        </a>
-
-                        <a
-                            href="/connect4/index.html"
-                            className="project"
-                            target="_blank"
-                        >
-                            <div className="name">Connect4</div>
-                            <img
-                                className="imgScr"
-                                src="/connect4/preview.jpg"
-                                id="two"
-                            ></img>
-                        </a>
-                        <a
-                            href="https://warm-spire-33241.herokuapp.com/"
-                            className="project"
-                            target="_blank"
-                        >
-                            <div className="name">Petition</div>
-                            <img
-                                className="imgScr"
-                                src="previewPetition.jpg"
-                                id="four"
-                            ></img>
-                        </a>
-                    </div>
-                </div>
+       <Projects/>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 body {
     color: rgb(255, 255, 255);
-
+    max-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgb(0, 0, 0);
-  
 }
 
 .appBox {
@@ -28,16 +27,13 @@ body {
     justify-content: center;
 }
 
-
-
 .hot {
-    align-self:flex-end;
-    width:3vmax;
-    height:4vmax;
+    align-self: flex-end;
+    width: 3vmax;
+    height: 4vmax;
     background-size: cover;
-    margin:0 0 0.5vmax -13vmax;
+    margin: 0vmax 4vmax 0 -8vmax;
     z-index: 2567234643;
-      animation: blinkerHot 2s linear infinite;
 
 }
 
@@ -50,7 +46,6 @@ body {
     padding: 25px;
     border-bottom: transparent;
     box-shadow: 0 0 10px black;
-    animation: blinker 7s linear infinite;
     transition: 2s;
     background-color: white;
 }
@@ -63,38 +58,43 @@ body {
     background-color: rgba(251, 255, 0, 0.233);
     animation: none;
     transition: 1s;
+    animation: blinker 2s linear infinite;
 }
 
 .name {
-      color: rgb(216, 22, 60);
-   text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+    color: rgb(216, 22, 60);
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
 }
-
-
 
 .introMenu {
     display: flex;
 
     justify-content: space-between;
+
     width: 90vw;
     border-bottom: 2px solid white;
 }
 
+.extLinks {
+    display: flex;
+    align-items: flex-end;
+}
+
 .linkedIn {
-    margin: 1vmax 0;
-    width: 7vmax;
-    height: 2vmax;
+    margin: 0 0 1vmax 0;
+    width: 3vmax;
+    height: 3vmax;
     background-size: cover;
+    background-color: white;
+    filter: invert(100%);
 }
 
 .gitHub {
-    background-color: white;
-    margin: 1vmax;
-    width: 7vmax;
-    height: 4vmax;
+    margin: 0 1vmax 1vmax 1vmax;
+    width: 3vmax;
+    height: 3vmax;
     background-size: cover;
-    filter: invert(100%);
 }
 
 .introText {
@@ -106,7 +106,7 @@ body {
 }
 
 .introTitles {
-    margin:4vmax 0 0 0;
+    margin: 4vmax 0 0 0;
     color: black;
     font-size: 2vmax;
     width: 48vmax;
@@ -128,17 +128,22 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 95vw;
     border: 2px solid black;
     border-radius: 5vh;
     height: 18vmax;
     margin: 1vmax;
     background-color: rgba(255, 217, 0, 0.363);
+    padding: 1vmax 0;
 }
 
 .projectBoxBack {
     background: rgb(255, 255, 255);
+}
+
+.projectBack {
+    display:flex;
 }
 
 .project {
@@ -160,6 +165,7 @@ body {
     font-size: 3vmax;
     cursor: pointer;
     width: 14vw;
+    margin: 0 4vmax;
 }
 
 .project:hover {
@@ -167,6 +173,59 @@ body {
     border-color: black;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.349);
     transition: 0.5s;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectPreview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65vw;
+    height: 30vh;
+    font-size: 2vmax;
+    color: white;
+    text-align: center;
+    border-radius: 5vh;
+    background-color: black;
+}
+
+.projectText {
+    width: 50vw;
+    height: 20vh;
+}
+
+.descLinks {
+    align-self: flex-end;
+}
+
+.git {
+    padding: 0 1vmax;
+}
+
+.git img {
+    width: 2vmax;
+    height: 2vmax;
+    background-size: cover;
+}
+
+.linkPreview img {
+    width: 3vmax;
+    height: 2vmax;
+    background-color: white;
+    filter: invert(100%);
+}
+
+#one,
+#two,
+#three,
+#four {
+    animation: blinker 2s linear infinite;
 }
 
 @keyframes blinker {
@@ -178,34 +237,31 @@ body {
     }
 }
 
-@keyframes blinkerHot {
-    50% {
-     
-        width: 3.5vmax;
-        height: 4.5vmax;
-       
-    }
-}
 
-#one {
-    animation-delay: 1s !important;
-}
-
-#two {
-    animation-delay: 3s !important;
-}
-
-#three {
-    animation-delay: 5s !important;
-}
-
-#four {
-    animation-delay: 2s !important;
-}
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .projectBox {
         flex-direction: column !important;
+        justify-content: flex-start;
         height: unset;
+        height: 60vh !important;
+        overflow-y: scroll;
+    }
+
+    .project {
+        margin: 2vmax !important;
+        width: 35vw !important;
+    }
+
+    .hot {
+        width: 6vmax !important;
+        height: 8vmax !important;
+    }
+
+    .extLinks {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
     }
 }
