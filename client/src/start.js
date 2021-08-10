@@ -4,6 +4,22 @@ import ReactDOM from "react-dom";
 import Projects from "./projects";
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedProject: 0
+        };
+    }
+
+    setProject(e) {
+        this.setState(
+            {
+               selectedProject: e
+            }
+            // () => console.log("State after setState: ", this.state)
+        );
+    }
+
     render() {
         return (
             <div className="appContainer">
@@ -12,29 +28,28 @@ class App extends React.Component {
                         <div className="introText">Orestis Psycharis</div>
                         <div className="extLinks">
                             <a href="#">
-                                <img
-                                    src="./in.png"
-                                    className="linkedIn"
-                                ></img>
+                                <img src="./in.png" className="linkedIn"></img>
                             </a>
                             <a
                                 href="https://github.com/orestispsy/"
                                 target="_blank"
                             >
-                                <img
-                                    src="./git.png"
-                                    className="gitHub"
-                                ></img>
+                                <img src="./git.png" className="gitHub"></img>
                             </a>
                         </div>
                     </div>
-                    <div className="introTitles">
-                        Javascript Developer, focused on React.js | Node.js |
-                        Express.js | Redux | PostgreSQL | Socket.io
-                    </div>
+                    {this.state.selectedProject == 0 && (
+                        <div className="introTitles">
+                            Javascript Developer, focused on React.js | Node.js
+                            | Express.js | Redux | PostgreSQL | Socket.io
+                        </div>
+                    )}
                     <div className="intro">LATEST PROJECTS</div>
                 </div>
-       <Projects/>
+                <Projects
+                    setProject={(e) => this.setProject(e)}
+                    selectedProject={this.state.selectedProject}
+                />
             </div>
         );
     }

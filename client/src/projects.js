@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import React from "react";
 
-export default function Projects({}) {
-    const [selectedProject, setSelectedProject] = useState(0);
+export default function Projects({setProject, selectedProject}) {
 
     let projects = require("./tools/projects.json");
-
 
     return (
         <div>
@@ -19,9 +17,9 @@ export default function Projects({}) {
                                     <div
                                         onClick={(e) => {
                                             if (selectedProject) {
-                                                setSelectedProject(0);
+                                                setProject(0);
                                             } else {
-                                                setSelectedProject(project.id);
+                                                setProject(project.id);
                                             }
                                         }}
                                     >
@@ -40,34 +38,35 @@ export default function Projects({}) {
                                                     }
                                                 ></img>
                                             </div>
-                                            {project.id == 1 && selectedProject==0 && (
-                                                <img
-                                                    src="./hot.png"
-                                                    className="hot"
-                                                ></img>
-                                            )}
+                                            {project.id == 1 &&
+                                                selectedProject == 0 && (
+                                                    <img
+                                                        src="./hot.png"
+                                                        className="hot"
+                                                    ></img>
+                                                )}
                                         </div>
                                     </div>
                                 )}
                                 {selectedProject == project.id && (
                                     <div className="projectPreview">
-                                        <div className="projectText">
+                                        <div className="projectText"  onClick={(e)=>setProject(0)}>
                                             {project.description}
                                         </div>
                                         <div className="descLinks">
-                                            <a
-                                                className="linkPreview"
-                                                href={project.url}
-                                                target="_blank"
-                                            >
-                                                <img src="./linkPreview.png"></img>
-                                            </a>
                                             <a
                                                 className="git"
                                                 href={project.git}
                                                 target="_blank"
                                             >
                                                 <img src="./git.png"></img>
+                                            </a>
+                                            <a
+                                                className="linkPreview"
+                                                href={project.url}
+                                                target="_blank"
+                                            >
+                                                <img src="./linkPreview.png"></img>
                                             </a>
                                         </div>
                                     </div>

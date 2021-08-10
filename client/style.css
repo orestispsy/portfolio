@@ -7,6 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.507);
+    user-select: none;
 }
 
 .appContainer {
@@ -53,12 +54,12 @@ body {
 .imgScr:hover {
     border: transparent;
     padding: 14px;
-    width: 12vmax;
-    height: 12vmax;
+    width: 13vmax;
+    height: 13vmax;
     background-color: rgba(251, 255, 0, 0.233);
     animation: none;
     transition: 1s;
-    animation: blinker 1s linear infinite;
+    animation: blinker 2s linear infinite;
 }
 
 .name {
@@ -106,10 +107,11 @@ body {
 }
 
 .introTitles {
-    margin: 4vmax 0 0 0;
+    margin: 2vmax 0 0 0;
     color: black;
     font-size: 2vmax;
     width: 48vmax;
+    height:5vmax;
     padding: 1vmax;
     background-color: rgb(255, 255, 255);
     border-radius: 1vh;
@@ -118,7 +120,7 @@ body {
 
 .intro {
     font-family: "Poller One", cursive;
-    margin-top: 2vmax;
+    margin-top: 1vmax;
     font-size: 2vmax;
     padding: 1vmax;
     text-align: center;
@@ -132,8 +134,8 @@ body {
     width: 95vw;
     border: 2px solid black;
     border-radius: 5vh;
-    height: 18vmax;
-    margin: 1vmax;
+    min-height: 19vmax;
+
     background-color: rgba(255, 217, 0, 0.363);
     padding: 1vmax 0;
 }
@@ -154,7 +156,6 @@ body {
     justify-content: center;
     border: 1px solid black;
     border-bottom: transparent;
-    opacity: 80%;
     border-radius: 50%;
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
@@ -169,7 +170,7 @@ body {
 }
 
 .project:hover {
-    opacity: 100%;
+
     border-color: black;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.349);
     transition: 0.5s;
@@ -187,24 +188,26 @@ body {
     justify-content: center;
     align-items: center;
     width: 65vw;
-    height: 30vh;
+    height: 53.3vh;
     font-size: 2vmax;
     color: white;
     text-align: center;
     border-radius: 5vh;
     background-color: black;
+    margin:1vmax 0
 }
 
 .projectText {
     width: 50vw;
-    height: 20vh;
+    height: 45vh;
+    cursor:pointer;
 }
 
 .descLinks {
     align-self: flex-end;
 }
 
-.git {
+.linkPreview {
     padding: 0 1vmax;
 }
 
@@ -226,6 +229,13 @@ body {
 #three,
 #four {
     animation: blinker 2s linear infinite;
+}
+
+#one:hover,
+#two:hover,
+#three:hover,
+#four:hover {
+    animation: none;
 }
 
 @keyframes blinker {
@@ -250,7 +260,7 @@ body {
     }
 
       .projectBoxBack {
-          padding: 0.5vmax !important
+          padding: 1vmax !important
       }
     .projectBox {
         flex-direction: column !important;
@@ -258,6 +268,7 @@ body {
         height: unset;
         height: 60vh !important;
         overflow-y: scroll;
+        width:80vw !important
      
     }
 
