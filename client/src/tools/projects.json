@@ -22,7 +22,7 @@
         "id": "3",
         "flag": "three",
         "name": "Connect4",
-        "description": "What to say about this project ! You were a kid too, right !? Connect4 ! The classic game made from scratch with the use of jQuery. Go for Horizontal, Vertical & Diagonal victories in 2-Player Mode. Watch my first steps playing with animation events and don't forget to click the ''Hit Me'' Button !  ",
+        "description": "What to say about this project ! You were a kid too, right !? Connect4 ! The classic game made from scratch with the use of jQuery. Go for Horizontal, Vertical & Diagonal victories in 2-Player Mode. Watch my first steps playing with animation events and don't forget to click the 'Hit Me' Button !  ",
         "preview": "./../connect4/preview.jpg",
         "url": "/connect4/index.html",
         "git": "https://github.com/orestispsy/zero-psy/tree/master/client/public/connect4"
@@ -31,7 +31,7 @@
         "id": "4",
         "flag": "four",
         "name": "Petition",
-        "description": "A project made through my days in the Spiced Academy Bootcamp in Berlin. Starting coding back-end with Node.js & Express.js. Introducing register/login Section for Users, CRUD operations & Canvas drawing ! Built with Vanilla Javascript & Handlebars.",
+        "description": "A project made through my days in the Spiced Academy Bootcamp. Starting coding back-end with Node.js & Express.js, introducing register/login Section, CRUD operations & HTML Canvas drawing for the signing user ! Built with Javascript & Handlebars.",
         "preview": "./../previewPetition.jpg",
         "url": "https://warm-spire-33241.herokuapp.com/",
         "git": "https://github.com/orestispsy/Bootcamp-Petition-Project"
