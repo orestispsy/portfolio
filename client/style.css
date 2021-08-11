@@ -274,9 +274,9 @@ body {
         width: 80vw !important;
     }
     .imgScr{
-        padding:5vw !important;
+        padding:2vw !important;
         width:25vw !important;
-        height:25vh !important;
+        height:27vh !important;
     }
 
     .introMenu{
@@ -294,8 +294,12 @@ body {
         flex-direction: column !important;
     }
 
+    .projectPreview {
+        width:80vw !important;
+    }
+
     .projectBack {
-        height:28vmax !important;
+        height:25vmax !important;
         
         
     }
@@ -326,6 +330,12 @@ body {
         align-items: center;
         justify-content: center;
     }
+
+       .projectText {
+       font-size: 2vmax !important;
+       z-index: 234562345234 !important;
+     
+   }
 }
 
 
@@ -339,10 +349,14 @@ body {
        height: 60vh;
    }
 
+   .projectText {
+       font-size: 2.2vmax !important;
+   }
+
    .imgScr {
        padding:2vmax !important;
        width:15vw !important;
-       height:20vh !important;
+       height:25vh !important;
    }
 
 }
