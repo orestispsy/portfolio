@@ -286,6 +286,7 @@ body {
     .introTitles{
         width:70vw !important;
         height: 6.5vh !important;
+        padding-bottom: 1vmax !important;
         
     }
 
