@@ -71,7 +71,6 @@ body {
     color: rgb(216, 22, 60);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
-        
  
 }
 
@@ -217,14 +216,18 @@ body {
     width: 50vw;
     height: 45vh;
     cursor:pointer;
+    text-align: justify;
+    font-family: 'Darker Grotesque', sans-serif;
 }
 
 .descLinks {
     align-self: flex-end;
+     margin-bottom:-2vmax;
 }
 
-.linkPreview {
-    padding: 0 1vmax;
+.git{
+   
+    padding: 0 2vmax 0 1.5vmax;
 }
 
 .git img {

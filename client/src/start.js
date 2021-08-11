@@ -33,6 +33,7 @@ class App extends React.Component {
                             <a
                                 href="https://github.com/orestispsy/"
                                 target="_blank"
+                                title="GitHub Repos"
                             >
                                 <img src="./git.png" className="gitHub"></img>
                             </a>
@@ -41,7 +42,7 @@ class App extends React.Component {
                     {this.state.selectedProject == 0 && (
                         <div className="introTitles">
                             Javascript Developer, focused on React.js | Node.js
-                            | Express.js | Redux | PostgreSQL | Socket.io
+                            | Express.js | Redux | Socket.io | PostgreSQL
                         </div>
                     )}
                     <div className="intro">LATEST PROJECTS</div>

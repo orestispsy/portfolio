@@ -2,8 +2,9 @@
     {
         "id": "1",
         "flag": "one",
+        "hot": true,
         "name": "The Gig Guide",
-        "description": "This is an AMAZING Project !",
+        "description": "The main idea behind the Gig Guide was to bring some order in the life of a rock n roll band that tours the planet, helping them store their own concert agenda. Too many gigs, needing a database and then some magic to happen ! With the use of the sum of all my practices in Vanilla Javascript, React.js, Express.js, Redux, Socket.io & PostgreSQL. CRUD operations, Google Maps Api, AWS Cloud Services. User Live interactions through chatting, commenting and photo gallery contributions, made the Old School way !",
         "preview": "./../preview1kgg.jpg",
         "url": "https://thousandgigs.herokuapp.com",
         "git": "https://github.com/orestispsy/thousandgigsguide"
@@ -12,7 +13,7 @@
         "id": "2",
         "flag": "two",
         "name": "spotiFIRE!",
-        "description": "This is an AMAZING Project !",
+        "description": "The SpotiFIRE ! In this project I am practicing with asynchronous HTTP/Ajax requests with jQuery for the first time. Calling an external api which retrieves data libraries from Spotify and throws the results on screen. A Spotify search-engine, just outside of it ! Give it a try and have patience for a couple of seconds while waiting for the results. Sometimes free data has a long way home ! ",
         "preview": "./../spotiFIRE/preview.jpg",
         "url": "/spotiFIRE/index.html?scroll=infinite",
         "git": "https://github.com/orestispsy/Spicy-Javascript/tree/Orestis/week4/spotiFIRE"
@@ -21,7 +22,7 @@
         "id": "3",
         "flag": "three",
         "name": "Connect4",
-        "description": "This is an AMAZING Project !",
+        "description": "What to say about this project ! You were a kid too, right !? Connect4 ! The classic game made from scratch with the use of jQuery. Go for Horizontal, Vertical & Diagonal victories in 2-Player Mode. Watch my first steps playing with animation events and don't forget to click the ''Hit Me'' Button !  ",
         "preview": "./../connect4/preview.jpg",
         "url": "/connect4/index.html",
         "git": "https://github.com/orestispsy/Spicy-Javascript/tree/Orestis/Week3/connect4"
@@ -30,7 +31,7 @@
         "id": "4",
         "flag": "four",
         "name": "Petition",
-        "description": "This is an AMAZING Project !",
+        "description": "A project made through my days in the Spiced Academy Bootcamp in Berlin. Starting coding back-end with Node.js & Express.js. Introducing register/login Section for Users, CRUD operations & Canvas drawing ! Built with Vanilla Javascript & Handlebars.",
         "preview": "./../previewPetition.jpg",
         "url": "https://warm-spire-33241.herokuapp.com/",
         "git": "https://github.com/orestispsy/Bootcamp-Petition-Project"

@@ -51,7 +51,7 @@ export default function Projects({ setProject, selectedProject }) {
                                                             : undefined
                                                     }
                                                 ></img>
-                                                {project.id == 1 &&
+                                                {project.hot &&
                                                     selectedProject == 0 && (
                                                         <img
                                                             src="./hot.png"
@@ -77,18 +77,20 @@ export default function Projects({ setProject, selectedProject }) {
                                         </div>
                                         <div className="descLinks">
                                             <a
-                                                className="git"
-                                                href={project.git}
-                                                target="_blank"
-                                            >
-                                                <img src="./git.png"></img>
-                                            </a>
-                                            <a
                                                 className="linkPreview"
                                                 href={project.url}
                                                 target="_blank"
+                                                title="Open Project"
                                             >
                                                 <img src="./linkPreview.png"></img>
+                                            </a>
+                                            <a
+                                                className="git"
+                                                href={project.git}
+                                                target="_blank"
+                                                title="Check Code"
+                                            >
+                                                <img src="./git.png"></img>
                                             </a>
                                         </div>
                                     </div>
