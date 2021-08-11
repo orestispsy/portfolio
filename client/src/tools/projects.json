@@ -4,7 +4,7 @@
         "flag": "one",
         "hot": true,
         "name": "The Gig Guide",
-        "description": "The main idea behind the Gig Guide was to bring some order in the life of a rock n roll band that tours the planet, helping them store their own concert agenda. Too many gigs, needing a database and then some magic to happen ! With the use of the sum of all my practices in Vanilla Javascript, React.js, Express.js, Redux, Socket.io & PostgreSQL. CRUD operations, Google Maps Api, AWS Cloud Services. User Live interactions through chatting, commenting and photo gallery contributions, made the Old School way !",
+        "description": "The main idea behind the Gig Guide was to bring some order in the life of a rock n roll band touring the planet, helping them store their own concert agenda. Too many gigs, needing a database and then some Javascript magic to happen ! With the use of all my experience till now in React.js, Express.js, Redux, Socket.io & PostgreSQL. CRUD operations, Google Maps Api, AWS Cloud Services. User Live interactions through chatting, commenting and photo gallery contributions, made the Old School way !",
         "preview": "./../preview1kg.jpg",
         "url": "https://thousandgigs.herokuapp.com",
         "git": "https://github.com/orestispsy/thousandgigsguide"

@@ -275,8 +275,7 @@ body {
     }
     .imgScr{
         padding:2vw !important;
-        width:25vw !important;
-        height:27vh !important;
+     
     }
 
     .introMenu{
@@ -292,6 +291,7 @@ body {
 
     .description {
         flex-direction: column !important;
+      
     }
 
     .projectPreview {
@@ -304,6 +304,10 @@ body {
         
     }
 
+    .name{
+       margin-bottom: 1vmax !important;
+    }
+
     .projectBox {
         flex-direction: column !important;
         justify-content: flex-start;
@@ -311,7 +315,8 @@ body {
         height: 60vh !important;
         overflow-y: scroll;
         width:90vw !important;
-        margin-top: 2vmax !important
+        margin-top: 2vmax !important;
+          flex-wrap: wrap;
         
      
     }
@@ -337,6 +342,12 @@ body {
        z-index: 234562345234 !important;
      
    }
+
+      .projectBack {
+
+    width: unset !important; 
+   margin: 0 !important;
+}
 }
 
 
@@ -345,6 +356,8 @@ body {
    .projectBox{
        min-height:40vh;   
    }
+
+
 
    .projectPreview{
        height: 60vh;
@@ -356,8 +369,11 @@ body {
 
    .imgScr {
        padding:2vmax !important;
-       width:15vw !important;
-       height:25vh !important;
+  
    }
+
+       .name{
+       margin-bottom: 0.5vmax !important;
+    }
 
 }
