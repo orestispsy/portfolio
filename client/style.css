@@ -270,6 +270,25 @@ body {
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
 
+    .appContainer{
+        width: 80vw !important;
+    }
+    .imgScr{
+        padding:5vw !important;
+        width:25vw !important;
+        height:25vh !important;
+    }
+
+    .introMenu{
+        width:80vw !important;
+    }
+
+    .introTitles{
+        width:70vw !important;
+        height: 6.5vh !important;
+        
+    }
+
     .description {
         flex-direction: column !important;
     }
@@ -277,19 +296,17 @@ body {
     .projectBack {
         height:28vmax !important;
         
+        
     }
 
-      .projectBoxBack {
-          padding: 3vmax !important
-          
-      }
     .projectBox {
         flex-direction: column !important;
         justify-content: flex-start;
         height: unset;
         height: 60vh !important;
         overflow-y: scroll;
-        width:80vw !important
+        width:90vw !important;
+        
      
     }
 
@@ -304,7 +321,7 @@ body {
     }
 
     .extLinks {
-
+        margin-bottom: -1vmax;
         align-items: center;
         justify-content: center;
     }
@@ -314,11 +331,17 @@ body {
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
    .projectBox{
-       min-height:40vh;
+       min-height:40vh;   
    }
 
    .projectPreview{
        height: 60vh;
+   }
+
+   .imgScr {
+       padding:2vmax !important;
+       width:15vw !important;
+       height:20vh !important;
    }
 
 }
