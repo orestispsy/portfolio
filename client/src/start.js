@@ -27,7 +27,11 @@ class App extends React.Component {
                     <div className="introMenu">
                         <div className="introText">Orestis Psycharis</div>
                         <div className="extLinks">
-                            <a href="https://www.linkedin.com/in/orestis-psycharis">
+                            <a
+                                href="https://www.linkedin.com/in/orestis-psycharis"
+                                target="_blank"
+                                title="LinkedIn"
+                            >
                                 <img src="./in.png" className="linkedIn"></img>
                             </a>
                             <a

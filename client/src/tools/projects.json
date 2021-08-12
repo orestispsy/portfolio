@@ -49,7 +49,7 @@
         "id": "6",
         "flag": "six",
         "name": "spotiFIRE!",
-        "description": "The SpotiFIRE ! In this project I am practicing with asynchronous HTTP/Ajax requests with jQuery for the first time. Calling an external api which retrieves data libraries from Spotify and throws the results on screen. A Spotify search-engine, just outside of it ! Give it a try and have patience for a couple of seconds while waiting for the results. Sometimes free data has a long way home ! ",
+        "description": "The SpotiFIRE ! In this project I am practicing with asynchronous HTTP/Ajax requests with jQuery for the first time. Calling an external api which retrieves data libraries from Spotify and throws the results on screen. A Spotify search-engine, just outside of it ! Give it a try and have patience for a couple of seconds while waiting for the results. Sometimes free data needs time on its way back home ! ",
         "preview": "./../spotiFIRE/preview.jpg",
         "url": "/spotiFIRE/index.html?scroll=infinite",
         "git": "https://github.com/orestispsy/zero-psy/tree/master/client/public/spotiFIRE"

@@ -33,13 +33,12 @@ body {
 }
 
 .hot {
-    position:sticky;
+    position: sticky;
     width: 4vmax;
     height: 5vmax;
     background-size: cover;
     z-index: 2567234643;
-    margin-top: -3vmax
-
+    margin-top: -3vmax;
 }
 
 .imgScr {
@@ -66,7 +65,6 @@ body {
     animation: blinker 2s linear infinite;
 }
 
-
 .imgScr:active {
     background-color: rgba(255, 0, 0, 0.418);
 }
@@ -76,7 +74,6 @@ body {
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     text-align: center;
- 
 }
 
 .introMenu {
@@ -123,12 +120,11 @@ body {
     font-weight: 700;
     font-size: 2vmax;
     width: 48vmax;
-    height:5vmax;
+    height: 5vmax;
     padding: 1vmax;
     background-color: rgb(255, 255, 255);
     border-radius: 1vh;
     text-align: center;
-
 }
 
 .intro {
@@ -148,26 +144,24 @@ body {
     border: 2px solid black;
     border-radius: 5vh;
     min-height: 19vmax;
-     flex-wrap: wrap;
+    flex-wrap: wrap;
     padding: 1vmax 0;
-   
-    overflow-y:scroll;
-        scrollbar-width: none;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .projectBoxBack {
-  background-color: rgb(255, 255, 255);
-    border-radius:5vh;
-
+    background-color: rgb(255, 255, 255);
+    border-radius: 5vh;
 }
 
 .projectBack {
-    display:flex;
+    display: flex;
     justify-content: center;
-         background-color: rgba(255, 255, 255, 0.795);
-         border-radius:5vh;
-           width: 18vw;
-           margin: 0 2vmax;
+    background-color: rgba(255, 255, 255, 0.795);
+    border-radius: 5vh;
+    width: 18vw;
+    margin: 0 2vmax;
 }
 
 .project {
@@ -175,25 +169,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
- 
     border-bottom: transparent;
     border-radius: 50%;
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     font-family: "Bangers", cursive;
-
     text-decoration: none;
     color: black;
     font-size: 3vmax;
     cursor: pointer;
-
-    height:20vmax;
- 
-    
+    height: 20vmax;
 }
 
 .project:hover {
-
     border-color: black;
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.349);
     transition: 0.5s;
@@ -217,24 +205,23 @@ body {
     text-align: center;
     border-radius: 5vh;
     background-color: black;
-    margin:1vmax 0
+    margin: 1vmax 0;
 }
 
 .projectText {
     width: 50vw;
     height: 45vh;
-    cursor:pointer;
+    cursor: pointer;
     text-align: justify;
-    font-family: 'Darker Grotesque', sans-serif;
+    font-family: "Darker Grotesque", sans-serif;
 }
 
 .descLinks {
     align-self: flex-end;
-     margin-bottom:-2vmax;
+    margin-bottom: -2vmax;
 }
 
-.git{
-   
+.git {
     padding: 0 2vmax 0 1.5vmax;
 }
 
@@ -263,7 +250,9 @@ body {
 #one:hover,
 #two:hover,
 #three:hover,
-#four:hover,#five:hover,#six:hover {
+#four:hover,
+#five:hover,
+#six:hover {
     animation: none;
 }
 
@@ -276,42 +265,34 @@ body {
     }
 }
 
-
-
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
-
-    .appContainer{
+    .appContainer {
         width: 80vw !important;
     }
-    .imgScr{
-        padding:2vw !important;
-     
+    .imgScr {
+        padding: 2vw !important;
     }
 
-    .introMenu{
-        width:80vw !important;
+    .introMenu {
+        width: 80vw !important;
     }
 
-    .introTitles{
-        width:70vw !important;
+    .introTitles {
+        width: 70vw !important;
         height: 7.5vh !important;
-       
-        
     }
 
     .description {
         flex-direction: column !important;
-      
     }
 
     .projectPreview {
-        width:80vw !important;
+        width: 80vw !important;
         margin-left: 0vmax !important;
     }
 
-
-    .name{
-       margin-bottom: 1vmax !important;
+    .name {
+        margin-bottom: 1vmax !important;
     }
 
     .projectBox {
@@ -320,11 +301,8 @@ body {
         height: unset;
         height: 60vh !important;
         overflow-y: scroll;
-        width:90vw !important;
+        width: 90vw !important;
         margin-top: 2vmax !important;
-    
-        
-     
     }
 
     .project {
@@ -343,43 +321,36 @@ body {
         justify-content: center;
     }
 
-       .projectText {
-       font-size: 2vmax !important;
-       z-index: 234562345234 !important;
-     
-   }
-
-      .projectBack {
-       height:25vmax !important;
-    width: unset !important; 
-   margin: 0 !important;
-}
-}
-
-
-
-@media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-   .projectBox{
-       min-height:40vh;   
-   }
-
-
-
-   .projectPreview{
-       height: 60vh;
-   }
-
-   .projectText {
-       font-size: 2.2vmax !important;
-   }
-
-   .imgScr {
-       padding:2vmax !important;
-  
-   }
-
-       .name{
-       margin-bottom: 0.5vmax !important;
+    .projectText {
+        font-size: 2vmax !important;
+        z-index: 234562345234 !important;
     }
 
+    .projectBack {
+        height: 25vmax !important;
+        width: unset !important;
+        margin: 0 !important;
+    }
+}
+
+@media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .projectBox {
+        min-height: 40vh;
+    }
+
+    .projectPreview {
+        height: 60vh;
+    }
+
+    .projectText {
+        font-size: 2.2vmax !important;
+    }
+
+    .imgScr {
+        padding: 2vmax !important;
+    }
+
+    .name {
+        margin-bottom: 0.5vmax !important;
+    }
 }
