@@ -12,20 +12,20 @@
     {
         "id": "2",
         "flag": "two",
-        "name": "spotiFIRE!",
-        "description": "The SpotiFIRE ! In this project I am practicing with asynchronous HTTP/Ajax requests with jQuery for the first time. Calling an external api which retrieves data libraries from Spotify and throws the results on screen. A Spotify search-engine, just outside of it ! Give it a try and have patience for a couple of seconds while waiting for the results. Sometimes free data has a long way home ! ",
-        "preview": "./../spotiFIRE/preview.jpg",
-        "url": "/spotiFIRE/index.html?scroll=infinite",
-        "git": "https://github.com/orestispsy/zero-psy/tree/master/client/public/spotiFIRE"
+        "name": "Social Network",
+        "description": "Under The Surface - Social Network. In this project I am landing into the React World. Understanding Component & State Use. Practicing Redux to build features like make/accept/deny friend requests & Socket.io to implement my first Chat Room ever !",
+        "preview": "./../previewSocialNetwork.jpg",
+        "url": false,
+        "git": "https://github.com/orestispsy/UnderTheSea-SocialNetwork"
     },
     {
         "id": "3",
         "flag": "three",
-        "name": "Connect4",
-        "description": "What to say about this project ! You were a kid too, right !? Connect4 ! The classic game made from scratch with the use of jQuery. Go for Horizontal, Vertical & Diagonal victories in 2-Player Mode. Watch my first steps playing with animation events and don't forget to click the 'Hit Me' Button !  ",
-        "preview": "./../connect4/preview.jpg",
-        "url": "/connect4/index.html",
-        "git": "https://github.com/orestispsy/zero-psy/tree/master/client/public/connect4"
+        "name": "Imageboard",
+        "description": "My very first steps into Vue.js. In this application I am building an imageboard while using Amazon Web Services to store User photos on the Cloud.",
+        "preview": "./../previewImageboard.jpg",
+        "url": "https://calm-island-91653.herokuapp.com/",
+        "git": "https://github.com/orestispsy/vue-imageboard"
     },
     {
         "id": "4",
@@ -35,5 +35,23 @@
         "preview": "./../previewPetition.jpg",
         "url": "https://warm-spire-33241.herokuapp.com/",
         "git": "https://github.com/orestispsy/Bootcamp-Petition-Project"
+    },
+    {
+        "id": "5",
+        "flag": "five",
+        "name": "Connect4",
+        "description": "What to say about this project ! You were a kid too, right !? Connect4 ! The classic game made from scratch with the use of jQuery. Go for Horizontal, Vertical & Diagonal victories in 2-Player Mode. Watch my first steps playing with animation events and don't forget to click the 'Hit Me' Button !  ",
+        "preview": "./../connect4/preview.jpg",
+        "url": "/connect4/index.html",
+        "git": "https://github.com/orestispsy/zero-psy/tree/master/client/public/connect4"
+    },
+    {
+        "id": "6",
+        "flag": "six",
+        "name": "spotiFIRE!",
+        "description": "The SpotiFIRE ! In this project I am practicing with asynchronous HTTP/Ajax requests with jQuery for the first time. Calling an external api which retrieves data libraries from Spotify and throws the results on screen. A Spotify search-engine, just outside of it ! Give it a try and have patience for a couple of seconds while waiting for the results. Sometimes free data has a long way home ! ",
+        "preview": "./../spotiFIRE/preview.jpg",
+        "url": "/spotiFIRE/index.html?scroll=infinite",
+        "git": "https://github.com/orestispsy/zero-psy/tree/master/client/public/spotiFIRE"
     }
 ]

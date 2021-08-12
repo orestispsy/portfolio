@@ -21,7 +21,12 @@ export default function Projects({ setProject, selectedProject }) {
     return (
         <div>
             <div className="projectBoxBack">
-                <div className="projectBox">
+                <div
+                    className="projectBox"
+                    style={{
+                        height: selectedProject == 0 && `19vh`,
+                    }}
+                >
                     {projects &&
                         projects.map((project) => (
                             <div key={project.id} className="description">
@@ -76,14 +81,16 @@ export default function Projects({ setProject, selectedProject }) {
                                             {project.description}
                                         </div>
                                         <div className="descLinks">
-                                            <a
-                                                className="linkPreview"
-                                                href={project.url}
-                                                target="_blank"
-                                                title="Open Project"
-                                            >
-                                                <img src="./linkPreview.png"></img>
-                                            </a>
+                                            {project.url && (
+                                                <a
+                                                    className="linkPreview"
+                                                    href={project.url}
+                                                    target="_blank"
+                                                    title="Open Project"
+                                                >
+                                                    <img src="./linkPreview.png"></img>
+                                                </a>
+                                            )}
                                             <a
                                                 className="git"
                                                 href={project.git}

@@ -10,6 +10,10 @@ body {
     user-select: none;
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 .appContainer {
     margin-top: 4vh;
     height: 96vh;
@@ -71,6 +75,7 @@ body {
     color: rgb(216, 22, 60);
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
+    text-align: center;
  
 }
 
@@ -143,14 +148,17 @@ body {
     border: 2px solid black;
     border-radius: 5vh;
     min-height: 19vmax;
-  
+     flex-wrap: wrap;
     padding: 1vmax 0;
+   
+    overflow-y:scroll;
+        scrollbar-width: none;
 }
 
 .projectBoxBack {
   background-color: rgb(255, 255, 255);
     border-radius:5vh;
- 
+
 }
 
 .projectBack {
@@ -178,7 +186,7 @@ body {
     color: black;
     font-size: 3vmax;
     cursor: pointer;
-    width: 15vw;
+
     height:20vmax;
  
     
@@ -246,14 +254,16 @@ body {
 #one,
 #two,
 #three,
-#four {
+#four,
+#five,
+#six {
     animation: blinker 2s linear infinite;
 }
 
 #one:hover,
 #two:hover,
 #three:hover,
-#four:hover {
+#four:hover,#five:hover,#six:hover {
     animation: none;
 }
 
@@ -296,27 +306,23 @@ body {
 
     .projectPreview {
         width:80vw !important;
+        margin-left: 0vmax !important;
     }
 
-    .projectBack {
-        height:25vmax !important;
-        
-        
-    }
 
     .name{
        margin-bottom: 1vmax !important;
     }
 
     .projectBox {
-        flex-direction: column !important;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;
         height: unset;
         height: 60vh !important;
         overflow-y: scroll;
         width:90vw !important;
         margin-top: 2vmax !important;
-          flex-wrap: wrap;
+    
         
      
     }
@@ -344,7 +350,7 @@ body {
    }
 
       .projectBack {
-
+       height:25vmax !important;
     width: unset !important; 
    margin: 0 !important;
 }
