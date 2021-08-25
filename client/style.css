@@ -52,6 +52,7 @@ body {
     box-shadow: 0 0 10px black;
     transition: 2s;
     background-color: white;
+    margin-top:0.5vmax;
 }
 
 .imgScr:hover {
@@ -78,9 +79,7 @@ body {
 
 .introMenu {
     display: flex;
-
     justify-content: space-between;
-
     width: 90vw;
     border-bottom: 2px solid white;
 }
@@ -168,7 +167,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-bottom: transparent;
     border-radius: 50%;
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
