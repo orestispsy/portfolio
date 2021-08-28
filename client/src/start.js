@@ -9,7 +9,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             selectedProject: 0,
-            emailForm: true,
+            emailForm: false,
         };
     }
 
