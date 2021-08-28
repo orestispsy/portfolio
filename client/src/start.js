@@ -2,20 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Projects from "./projects";
+import EmailForm from "./emailForm";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedProject: 0
+            selectedProject: 0,
+            emailForm: true,
         };
     }
 
     setProject(e) {
+        this.setState({
+            selectedProject: e,
+        });
+    }
+
+    toggleEmailForm() {
         this.setState(
             {
-               selectedProject: e
+                emailForm: !this.state.emailForm,
             }
+            // ,
             // () => console.log("State after setState: ", this.state)
         );
     }
@@ -43,18 +52,33 @@ class App extends React.Component {
                             </a>
                         </div>
                     </div>
-                    {this.state.selectedProject == 0 && (
-                        <div className="introTitles">
-                            Javascript Developer, focused on React.js | Node.js
-                            | Express.js | Redux | Socket.io | PostgreSQL
-                        </div>
+                    <div className="mailBack">
+                        <div
+                            className="mail"
+                            onClick={() => this.toggleEmailForm()}
+                        ></div>
+                    </div>
+                    {this.state.selectedProject == 0 &&
+                        !this.state.emailForm && (
+                            <div className="introTitles">
+                                Javascript Developer focused on React.js |
+                                Node.js | Express.js | Redux | Socket.io |
+                                PostgreSQL
+                            </div>
+                        )}
+                    {!this.state.emailForm && (
+                        <div className="intro">LATEST PROJECTS</div>
                     )}
-                    <div className="intro">LATEST PROJECTS</div>
                 </div>
-                <Projects
-                    setProject={(e) => this.setProject(e)}
-                    selectedProject={this.state.selectedProject}
-                />
+                {!this.state.emailForm && (
+                    <Projects
+                        setProject={(e) => this.setProject(e)}
+                        selectedProject={this.state.selectedProject}
+                    />
+                )}
+                {this.state.emailForm && (
+                    <EmailForm toggleEmailForm={() => this.toggleEmailForm()} />
+                )}
             </div>
         );
     }
