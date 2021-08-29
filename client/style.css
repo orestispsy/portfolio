@@ -53,6 +53,8 @@ body {
     transition: 2s;
     background-color: white;
     margin-top: 0.5vmax;
+        background-color: white;
+    margin-top: 1vmax;
 }
 
 .imgScr:hover {
@@ -60,7 +62,7 @@ body {
     padding: 14px;
     width: 13vmax;
     height: 13vmax;
-    background-color: rgba(251, 255, 0, 0.233);
+     margin-top: 0;
     animation: none;
     transition: 3s;
     animation: blinker 2s linear infinite;
@@ -91,16 +93,26 @@ body {
 .mailBack {
     display: flex;
     width: 90vw;
+    justify-content: flex-end ;
 }
 
 .mail {
-    margin: 0 1vmax 1vmax 1vmax;
+    margin: 1vmax 3vmax 1vmax 1vmax;
     width: 3vmax;
     height: 3vmax;
     background-image: url("mail.png");
     background-size: cover;
     cursor: pointer;
+        filter: invert(100%);
 }
+
+.mail:hover, .gitHub:hover { filter: invert(50%);}
+
+ .linkedIn:hover {
+
+   background-color: rgba(255, 255, 255, 0.349);
+   filter: invert(60%);
+ }
 
 .linkedIn {
     margin: 0 0 1vmax 0;
@@ -130,14 +142,18 @@ body {
     color: black;
     font-size: 2vmax;
     width: 48vmax;
-    height: 5vmax;
-    padding: 1vmax 0 2vmax 0;
+    height: fit-content;
+    padding: 1vmax;
     background-color: rgb(255, 255, 255);
     border-radius: 1vh;
     text-align: center;
     font-family: "Saira Semi Condensed", sans-serif;
     font-weight: lighter;
     letter-spacing: 1px;
+        background-color: rgb(208, 255, 0);
+        text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
+        
 }
 
 .intro {
@@ -146,6 +162,7 @@ body {
     font-size: 2vmax;
     padding: 1vmax;
     text-align: center;
+    color:yellow
 }
 
 .projectBox {
@@ -166,15 +183,17 @@ body {
 .projectBoxBack {
     background-color: rgb(255, 255, 255);
     border-radius: 5vh;
+
 }
 
 .projectBack {
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.795);
+
     border-radius: 5vh;
     width: 18vw;
     margin: 0 2vmax;
+    
 }
 
 .project {
@@ -182,8 +201,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    border-bottom: transparent;
-    border-radius: 50%;
     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     font-family: "Bangers", cursive;
@@ -192,13 +209,9 @@ body {
     font-size: 3vmax;
     cursor: pointer;
     height: 20vmax;
+  
 }
 
-.project:hover {
-    border-color: black;
-    box-shadow: 0 0 50px rgba(255, 255, 255, 0.349);
-    transition: 0.5s;
-}
 
 .description {
     display: flex;
@@ -218,7 +231,6 @@ body {
     text-align: center;
     border-radius: 5vh;
     background-color: black;
-    margin: 1vmax 0;
 }
 
 .projectText {
@@ -227,6 +239,7 @@ body {
     cursor: pointer;
     text-align: justify;
     font-family: "Darker Grotesque", sans-serif;
+    
 }
 
 .descLinks {
@@ -274,7 +287,7 @@ body {
         padding: 28px;
         width: 11vmax;
         height: 11vmax;
-        background-color: rgba(51, 255, 0, 0.281);
+      
     }
 }
 
@@ -292,7 +305,7 @@ body {
 
     .introTitles {
         width: 70vw !important;
-        height: 7.5vh !important;
+        margin-top: 1vmax !important;
     }
 
     .description {
@@ -315,7 +328,7 @@ body {
         height: 60vh !important;
         overflow-y: scroll;
         width: 90vw !important;
-        margin-top: 2vmax !important;
+       
     }
 
     .project {
@@ -353,11 +366,20 @@ body {
         height:75vh !important;
         flex-direction: column;
         width:90vw !important;
-        border: 2px solid black;
+        border: 2px solid black !important;
     }
 
     .contact {
         font-size: 5vmax !important;
+    }
+
+    .inputHeadline {
+        font-size: 3vmax !important;
+    }
+
+    input {
+        width:60vw !important;
+        margin-bottom: 1vmax !important;
     }
 
     textarea{
@@ -368,6 +390,15 @@ body {
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+    .introTitles {
+        margin-top:-2vmax;
+    }
+
+    .project {
+          margin-bottom: 3vmax;
+    }
+
     .projectBox {
         min-height: 40vh;
     }
@@ -410,7 +441,7 @@ body {
         height:55vh !important;
         justify-content: space-evenly !important;
         width:90vw !important;
-        border: 2px solid black;
+        border: 2px solid black !important;
     }
 }
 
@@ -433,11 +464,21 @@ body {
     background-color: rgb(208, 255, 0);
     border-radius: 1vh;
     padding: 2vmax;
+    border: 1px solid white;
 }
 
 .contact {
     font-size: 3vmax;
-    margin-bottom: 3vmax;
+    margin-bottom: 1vmax;
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
+}
+
+.inputHeadline {
+     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
+    font-size: 2vmax;
+   
 }
 
 .userDetails {
@@ -465,6 +506,7 @@ textarea {
     outline: none;
     border-radius: 1vh;
     padding: 1vh;
+        border: 1px solid white;
 }
 
 input {

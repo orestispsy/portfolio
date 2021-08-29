@@ -54,13 +54,13 @@ export default function EmailForm({ toggleEmailForm }) {
             <div className="emailFormContainer">
                 <div className="userDetails">
                     <div className="contact">Get In Touch !</div>
-                    <div>Your Name</div>
+                    <div className="inputHeadline">Your Name</div>
                     <input
                         autoComplete="none"
                         placeholder="Name"
                         onChange={(e) => handleNameChange(e)}
                     ></input>
-                    <div>Your Email</div>
+                    <div className="inputHeadline">Your Email</div>
                     <input
                         autoComplete="none"
                         placeholder="Email"
@@ -80,7 +80,7 @@ export default function EmailForm({ toggleEmailForm }) {
                     onClick={() => {
                         setSending(true);
                         sendEmail();
-                        setError(false)
+                        setError(false);
                     }}
                 >
                     Send

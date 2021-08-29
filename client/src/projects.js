@@ -19,7 +19,7 @@ export default function Projects({ setProject, selectedProject }) {
     let projects = require("./tools/projects.json");
 
     return (
-        <div>
+        <>
             <div className="projectBoxBack">
                 <div
                     className="projectBox"
@@ -106,6 +106,6 @@ export default function Projects({ setProject, selectedProject }) {
                         ))}
                 </div>
             </div>
-        </div>
+        </>
     );
 }
