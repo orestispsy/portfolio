@@ -42,12 +42,35 @@ export default function Project({
                 style={{
                     marginTop: selectedProject ? "4vmax" : "none",
                 }}
+                ref={galRef}
             >
+                {!toggleGallery && (
+                    <Link
+                        to={"/"}
+                        className="closeTab"
+                        onClick={() => {
+                            setMute(true);
+                            setProjectView(true);
+                        }}
+                    >
+                        X
+                    </Link>
+                )}
+                {toggleGallery && (
+                    <div
+                        className="closeTab"
+                        onClick={() => {
+                            setToggleGallery(false);
+                        }}
+                    >
+                        X
+                    </div>
+                )}
                 {projects &&
                     projects.map((project) => (
                         <React.Fragment key={project.id}>
                             {selectedProject == project.id && (
-                                <div className="projectBox" ref={galRef}>
+                                <div className="projectBox" id="projectBox">
                                     <Gallery
                                         projects={projects}
                                         selectedProject={selectedProject}
@@ -123,22 +146,21 @@ export default function Project({
                                                 className="projectDown"
                                                 title="Up"
                                                 onMouseDown={() => {
-                                                  var i = 10;
-                                                  var int = setInterval(
-                                                      function () {
-                                                          elemRef.current.scrollTop =
-                                                              elemRef.current
-                                                                  .scrollTop -
-                                                              i;
-                                                          i += 10;
-                                                          if (i >= 200)
-                                                              clearInterval(
-                                                                  int
-                                                              );
-                                                      },
-                                                      20
-                                                  );
-                                                    
+                                                    var i = 10;
+                                                    var int = setInterval(
+                                                        function () {
+                                                            elemRef.current.scrollTop =
+                                                                elemRef.current
+                                                                    .scrollTop -
+                                                                i;
+                                                            i += 10;
+                                                            if (i >= 200)
+                                                                clearInterval(
+                                                                    int
+                                                                );
+                                                        },
+                                                        20
+                                                    );
                                                 }}
                                             >
                                                 ⮝
@@ -147,7 +169,6 @@ export default function Project({
                                             <div
                                                 className="projectDown"
                                                 title="Down"
-                                                
                                                 onMouseDown={() => {
                                                     var i = 0;
                                                     var int = setInterval(
@@ -164,34 +185,10 @@ export default function Project({
                                                         },
                                                         20
                                                     );
-                                                    
                                                 }}
                                             >
                                                 ⮟
                                             </div>
-                                        </div>
-                                    )}
-
-                                    {!toggleGallery && (
-                                        <Link
-                                            to={"/"}
-                                            className="closeTab"
-                                            onClick={() => {
-                                                setMute(true);
-                                                setProjectView(true);
-                                            }}
-                                        >
-                                            X
-                                        </Link>
-                                    )}
-                                    {toggleGallery && (
-                                        <div
-                                            className="closeTab"
-                                            onClick={() => {
-                                                setToggleGallery(false);
-                                            }}
-                                        >
-                                            X
                                         </div>
                                     )}
                                 </div>
