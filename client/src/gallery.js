@@ -87,28 +87,30 @@ export default function Gallery({
                         </div>
                     )}
 
-                    {projects[selectedProject].url &&
+                    {projects[selectedProject] &&
                         !toggleGallery &&
                         projects.map((project) => (
                             <React.Fragment key={project.id}>
                                 {projects[selectedProject].id == project.id && (
                                     <div className="descLinks" key={project.id}>
-                                        <a
-                                            className="linkPreview"
-                                            href={project.url}
-                                            target="_blank"
-                                            title="Open Project"
-                                        >
-                                            <img src="./linkPreview.png"></img>
-                                        </a>
-                                        <a
+                                        {project.url && (
+                                            <a
+                                                className="linkPreview"
+                                                href={project.url}
+                                                target="_blank"
+                                                title="Open Project"
+                                            >
+                                                <img src="./linkPreview.png"></img>
+                                            </a>
+                                        )}
+                                     {project.git &&    <a
                                             className="git"
                                             href={project.git}
                                             target="_blank"
                                             title="Check Code"
                                         >
                                             <img src="./git.png"></img>
-                                        </a>
+                                        </a>}
                                     </div>
                                 )}
                             </React.Fragment>

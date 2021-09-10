@@ -405,7 +405,7 @@ body {
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .appContainer {
-        width: 80vw !important;
+        width: 75vw !important;
     }
     .imgScr {
         padding: 2vw !important;
@@ -416,17 +416,27 @@ body {
     }
 
     .introTitles {
-        width: 70vw !important;
+        width: 90vw !important;
+        height:40vh !important;
+        overflow-y:scroll !important;
         margin-top: 1vmax !important;
+    }
+
+    .bio {
+        width:70vw;
+          text-indent: 10px;
+          font-size:3vmax;
     }
 
     .description {
         flex-direction: column !important;
+        height:fit-content !important;
     }
 
     .projectPreview {
-        width: 80vw !important;
+        width: 70vw !important;
         margin-left: 0vmax !important;
+        height: unset !important;
     }
 
     .name {
@@ -437,9 +447,10 @@ body {
         align-items: center;
         justify-content: center;
         height: unset;
-        height: 60vh !important;
+        min-height:60vh !important;
         overflow-y: scroll;
-        width: 90vw !important;
+        width:90vw !important;
+  
     }
 
     .project {
@@ -453,14 +464,31 @@ body {
     }
 
     .extLinks {
-        margin-bottom: -1vmax;
-        align-items: center;
-        justify-content: center;
+        margin:1vmax !important;
+        width: 60vw !important;
     }
 
     .projectText {
         font-size: 2vmax !important;
         z-index: 234562345234 !important;
+        margin-right:-6vmax !important;
+        width:55vw !important;
+        height:unset !important;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .featuresContainer {
+          display:flex;
+        flex-direction: column;
+        align-items:center;
+           text-align: center;
+    }
+
+    #features {
+        width: unset !important;
+     
     }
 
     .projectBack {
@@ -475,37 +503,110 @@ body {
 
     .emailFormContainer {
         height: 75vh !important;
-        flex-direction: column;
-        width: 90vw !important;
+        flex-direction: column-reverse;
+        width: 80vw !important;
         border: 2px solid black !important;
+        border-radius: 2vh !important;
     }
+
+    #closeTab { 
+        align-self: flex-end !important;
+        font-size:2.5vmax;
+        padding:0.4vmax 0.8vmax;
+        }
+
+   .closeTab { 
+        margin-left:-2vmax !important;
+        font-size:2.5vmax !important;
+        padding:0.4vmax 0.8vmax !important;
+        }
+
 
     .inputHeadline {
         font-size: 3vmax !important;
+        margin-bottom:1vmax !important;
     }
 
-    input {
-        width: 60vw !important;
-        margin-bottom: 1vmax !important;
+    .userDetails input {
+        width: 30vw !important;
+        height:5vh !important;
+    
     }
 
     textarea {
-        width: 80vw !important;
-        height: 45vh !important;
+        width: 75vw !important;
+        height: 36vh !important;
     }
+
+    #mail{
+        margin:2vmax;
+    }
+
+    .techStack {
+        width:60vw !important;
+        flex-wrap:wrap;
+    } 
+
+    .sendButton, .sendButtonDisabled {
+        font-size: 4vmax !important;
+    }
+
+    .galleryPic {
+    width: 62vw !important;
+    height: 36vw !important;}
+
+    .galleryPicWide{
+         width: 75vw !important;
+    height: 55vw !important;
+    }
+
+    .galleryNumbers{
+        font-size:1vmax !important;
+    }
+
+    .projectScroll{
+        align-self: center !important;
+        visibility: hidden;
+    }
+
+   .git img {
+    width: 3vmax !important;
+    height: 3vmax !important;
+
+}
+
+.descLinks {
+    margin:2vmax 0 1vmax 0 !important;
+}
+
+.linkPreview img {
+    width: 4vmax !important;
+    height: 3vmax !important;
+
+}
+  .galleryControls {
+        margin-top:2vmax !important;
+    }
+
+    .rangeInput {
+        width:unset !important;
+    }
+
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-    .introTitles {
-        margin-top: -2vmax;
-    }
-
     .project {
         margin-bottom: 3vmax;
     }
 
+       .projectBoxBack {
+        width:94vw !important;
+    }
+
+
     .projectBox {
         min-height: 40vh;
+        width:94vw !important;
     }
 
     .projectPreview {
@@ -542,6 +643,13 @@ body {
         justify-content: space-evenly !important;
         width: 90vw !important;
         border: 2px solid black !important;
+    }
+    .galleryNumbers{
+        font-size:1vmax !important;
+    }
+
+    .galleryControls {
+        margin-top:1vmax !important;
     }
 }
 
@@ -738,7 +846,7 @@ input {
 
 .rangeInput {
     height: 1vmax !important;
-    width: 20vmax !important;
+    width: 20vmax;
     margin: 0 0.5vmax !important;
 }
 
