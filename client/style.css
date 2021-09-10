@@ -237,6 +237,10 @@ body {
     animation: blinker2 6s linear infinite;
 }
 
+#projectBox {
+    padding-top:1vmax;
+}
+
 .projectBox {
     display: flex;
     flex-direction: row;
@@ -245,7 +249,7 @@ body {
     width: 95vw;
     min-height: 19vmax;
     flex-wrap: wrap;
-    padding: 1vmax 0;
+    padding: 2vmax 0 1vmax 0;
     overflow-y: scroll;
     scrollbar-width: none;
     background-color: rgba(255, 255, 255, 0);
@@ -694,8 +698,16 @@ body {
         height: 3vmax !important;
     }
 
+        .closeTab{
+        margin-right: 2vmax !important;
+        font-size:2vmax !important;
+            padding: 0.4vmax 0.8vmax;
+    }
+
     #closeTab{
         margin-right: -3vmax !important;
+        font-size:2vmax !important;
+            padding: 0.4vmax 0.8vmax;
     }
 
     .error {
@@ -914,12 +926,23 @@ input {
     cursor: pointer;
 }
 
-.projectDown {
-    color: grey;
+.projectUp {
+    background-image: url("up.png");
+    background-size: cover;
+    width:3vmax;
+    height:3vmax;
     cursor: pointer;
 }
-.projectDown:hover {
-    color: black;
+
+.projectDown {
+    background-image: url("down.png");
+    background-size: cover;
+    width:3vmax;
+    height:3vmax;
+    cursor: pointer;
+}
+.projectDown:hover, .projectUp:hover {
+  filter:invert(50%)
 }
 
 .techStack {

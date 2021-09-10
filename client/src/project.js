@@ -147,8 +147,8 @@ export default function Project({
                                     {project.features && !toggleGallery && (
                                         <div className="projectScroll">
                                             <div
-                                                className="projectDown"
-                                                title="Up"
+                                                className="projectUp"
+                                                title="Top"
                                                 onMouseDown={() => {
                                                     var i = 10;
                                                     var int = setInterval(
@@ -167,12 +167,12 @@ export default function Project({
                                                     );
                                                 }}
                                             >
-                                                ⯅
+                                                
                                             </div>
 
                                             <div
                                                 className="projectDown"
-                                                title="Down"
+                                                title="Scroll Down"
                                                 onMouseDown={() => {
                                                     var i = 0;
                                                     var int = setInterval(
@@ -181,8 +181,8 @@ export default function Project({
                                                                 elemRef.current
                                                                     .scrollTop +
                                                                 i;
-                                                            i += 10;
-                                                            if (i >= 200)
+                                                            i += 1;
+                                                            if (i >= 20)
                                                                 clearInterval(
                                                                     int
                                                                 );
@@ -191,7 +191,7 @@ export default function Project({
                                                     );
                                                 }}
                                             >
-                                                ⯆
+                                                
                                             </div>
                                         </div>
                                     )}
