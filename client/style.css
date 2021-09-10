@@ -441,9 +441,14 @@ body {
         align-items: center;
         justify-content: center;
         height: unset;
-        min-height: 50vh !important;
+        min-height: 42vh !important;
         overflow-y: scroll;
         width: 90vw !important;
+    }
+
+    
+    .projectBoxBack {
+        margin-top:2vmax !important;
     }
 
     .project {
@@ -604,6 +609,7 @@ body {
 
     .projectBoxBack {
         width: 94vw !important;
+        margin-top:2vmax !important;
     }
 
     #projectBox {
@@ -698,6 +704,11 @@ body {
     .sendButton,
     .sendButtonDisabled {
         font-size: 3vmax !important;
+    }
+
+    .galleryPicWide {
+        width: 60vw !important;
+        height: 36vw !important;
     }
 }
 

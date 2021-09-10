@@ -21,6 +21,10 @@ export default function Project({
     useEffect(function () {
         setProject(match.params.id);
         setProjectView(false);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     }, []);
 
     useEffect(
@@ -163,7 +167,7 @@ export default function Project({
                                                     );
                                                 }}
                                             >
-                                                ⮝
+                                                ⯅
                                             </div>
 
                                             <div
@@ -177,8 +181,8 @@ export default function Project({
                                                                 elemRef.current
                                                                     .scrollTop +
                                                                 i;
-                                                            i += 1;
-                                                            if (i >= 30)
+                                                            i += 10;
+                                                            if (i >= 200)
                                                                 clearInterval(
                                                                     int
                                                                 );
@@ -187,7 +191,7 @@ export default function Project({
                                                     );
                                                 }}
                                             >
-                                                ⮟
+                                                ⯆
                                             </div>
                                         </div>
                                     )}
