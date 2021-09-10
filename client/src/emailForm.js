@@ -1,14 +1,23 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import React from "react";
 import emailjs from "emailjs-com";
 
-export default function EmailForm({ toggleEmailForm }) {
+export default function EmailForm({ setProjectView}) {
     const [name, setName] = useState(false);
     const [email, setEmail] = useState(false);
     const [emailText, setEmailText] = useState(false);
     const [sending, setSending] = useState(false);
     const [success, setSuccess] = useState(false);
-     const [error, setError] = useState(false);
+    const [error, setError] = useState(false);
+
+        useEffect(
+            function () {
+               setProjectView(false)
+            },
+            []
+        );
+
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -53,7 +62,14 @@ export default function EmailForm({ toggleEmailForm }) {
         <div className="emailFormContainerBack">
             <div className="emailFormContainer">
                 <div className="userDetails">
-                    <div className="contact">Get In Touch !</div>
+                    <div
+                        title="Send Quick Message"
+                        className="mail"
+                        id="mail"
+                        onClick={() => {
+                            this.setProject(false);
+                        }}
+                    ></div>
                     <div className="inputHeadline">Your Name</div>
                     <input
                         autoComplete="none"
@@ -66,6 +82,27 @@ export default function EmailForm({ toggleEmailForm }) {
                         placeholder="Email"
                         onChange={(e) => handleEmailChange(e)}
                     ></input>
+                    {(!name || !email || !emailText) && (
+                        <div className="sendButtonDisabled">Send</div>
+                    )}
+                    {name && email && emailText && !sending && !success && (
+                        <div
+                            className="sendButton"
+                            onClick={() => {
+                                setSending(true);
+                                sendEmail();
+                                setError(false);
+                            }}
+                        >
+                            Send
+                        </div>
+                    )}
+                    {sending && <div className="sending"></div>}
+                    {success && (
+                        <Link to={"/"} className="sent">
+                            Done !
+                        </Link>
+                    )}
                 </div>
                 <div className="textAreaBack">
                     <textarea
@@ -73,41 +110,16 @@ export default function EmailForm({ toggleEmailForm }) {
                         onChange={(e) => handleEmailTextChange(e)}
                     ></textarea>
                 </div>
+                <Link to={"/"} className="closeTab" id="closeTab">
+                    X
+                </Link>
             </div>
-            {name && email && emailText && !sending && !success && (
-                <div
-                    className="sendButton"
-                    onClick={() => {
-                        setSending(true);
-                        sendEmail();
-                        setError(false);
-                    }}
-                >
-                    Send
-                </div>
-            )}
-            {success && (
-                <div
-                    onClick={() => {
-                        toggleEmailForm();
-                    }}
-                    className="sent"
-                >
-                    Done !
-                </div>
-            )}
+
             {error && (
-                <div
-                    onClick={() => {
-                        toggleEmailForm();
-                    }}
-                    className="error"
-                >
+                <div className="error">
                     Something Went Wrong, Please Try Again
                 </div>
             )}
-
-            {sending && <div className="sending"></div>}
         </div>
     );
 }

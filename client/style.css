@@ -1,6 +1,5 @@
 body {
     color: rgb(255, 255, 255);
-    max-height: 100vh;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -16,13 +15,20 @@ body {
 
 .appContainer {
     margin-top: 4vh;
-    height: 96vh;
+    min-height: 96vh;
     width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     background-color: rgb(0, 0, 0);
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .appBox {
@@ -53,7 +59,7 @@ body {
     transition: 2s;
     background-color: white;
     margin-top: 0.5vmax;
-        background-color: white;
+    background-color: rgba(251, 255, 0, 0.144);
     margin-top: 1vmax;
 }
 
@@ -62,7 +68,6 @@ body {
     padding: 14px;
     width: 13vmax;
     height: 13vmax;
-     margin-top: 0;
     animation: none;
     transition: 3s;
     animation: blinker 2s linear infinite;
@@ -73,61 +78,82 @@ body {
 }
 
 .name {
-    color: rgb(216, 22, 60);
-
+    background-color: black;
+    border-radius: 2px;
+    color: white;
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, 1px 1px 0 black,
+        -1px -1px 0 black;
     text-align: center;
+    letter-spacing: 1px;
+    border: 2px solid black;
+}
+
+.name:hover {
+    color: rgba(229, 255, 0, 0.877);
 }
 
 .introMenu {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     width: 90vw;
     border-bottom: 2px solid white;
 }
 
 .extLinks {
     display: flex;
-    align-items: flex-end;
-}
-
-.mailBack {
-    display: flex;
-    width: 90vw;
-    justify-content: flex-end ;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 1vmax;
+    width: 25vw;
 }
 
 .mail {
-    margin: 1vmax 3vmax 1vmax 1vmax;
-    width: 3vmax;
-    height: 3vmax;
-    background-image: url("mail.png");
+    width: 4.5vmax;
+    height: 2.5vmax;
+    background-image: url("email.png");
     background-size: cover;
     cursor: pointer;
-        filter: invert(100%);
+    filter: saturate(60%);
+    transform: scale(-1, 1);
 }
 
-.mail:hover, .gitHub:hover { filter: invert(50%);}
-
- .linkedIn:hover {
-
-   background-color: rgba(255, 255, 255, 0.349);
-   filter: invert(60%);
- }
-
-.linkedIn {
-    margin: 0 0 1vmax 0;
+.linkedIn,
+.email,
+.phone {
     width: 3vmax;
     height: 3vmax;
-    background-size: cover;
-    background-color: white;
     filter: invert(100%);
 }
 
+.email {
+    background-color: transparent;
+}
+
 .gitHub {
-    margin: 0 1vmax 1vmax 1vmax;
     width: 3vmax;
     height: 3vmax;
-    background-size: cover;
+}
+
+.gitHub:hover {
+    filter: invert(50%);
+}
+
+.mail:hover {
+    filter: saturate(100%);
+}
+
+.linkedIn:hover {
+    background-color: rgba(255, 255, 255, 0.349);
+    filter: invert(60%);
+}
+
+.phone:hover {
+    filter: invert(50%);
+}
+
+.email:hover {
+    filter: invert(20%);
 }
 
 .introText {
@@ -136,33 +162,80 @@ body {
     margin-top: 1vmax;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.226);
+    padding: 0 1vmax;
+    color: white;
+    text-decoration: none;
 }
 
 .introTitles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: black;
     font-size: 2vmax;
-    width: 48vmax;
+    width: 60vw;
+    border: 2px solid black;
+    border-radius: 2vh;
     height: fit-content;
-    padding: 1vmax;
     background-color: rgb(255, 255, 255);
-    border-radius: 1vh;
     text-align: center;
-    font-family: "Saira Semi Condensed", sans-serif;
-    font-weight: lighter;
+    font-family: "Darker Grotesque", sans-serif;
+    font-weight: bold;
     letter-spacing: 1px;
-        background-color: rgb(208, 255, 0);
-        text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+    background-color: rgb(208, 255, 0);
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
-        
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
+        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+}
+
+.introTitles div:nth-child(1) {
+    font-family: "Poller One", cursive;
+    background-color: rgba(0, 247, 255, 0.507);
+    font-size: 2vmax;
+
+    padding: 1vmax;
+    width: fit-content;
+    align-self: center;
+    margin: 1vmax;
+    color: black;
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+        -1px -1px 0 white;
+}
+
+.bio{
+    width: 50vw;
+    text-indent: 50px;
+    padding-bottom: 1vmax;
+    text-align: justify;
+}
+
+.introTitles div:nth-child(3) {
+    padding-bottom: 3vmax;
 }
 
 .intro {
+    display: flex;
+    justify-content: center;
     font-family: "Poller One", cursive;
-    margin-top: 1vmax;
     font-size: 2vmax;
-    padding: 1vmax;
     text-align: center;
-    color:yellow
+    color: yellow;
+    width: 60vw;
+}
+
+@keyframes blinker2 {
+    50% {
+        color: rgb(220, 20, 60);
+    }
+  
+}
+
+.intro div {
+    background-color: black;
+    width: 50vw !important;
+    padding: 1vmax 2vmax;
+    animation: blinker2 6s linear infinite;
 }
 
 .projectBox {
@@ -170,7 +243,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 95vw;
+    width: 96vw;
     border: 2px solid black;
     border-radius: 5vh;
     min-height: 19vmax;
@@ -178,22 +251,37 @@ body {
     padding: 1vmax 0;
     overflow-y: scroll;
     scrollbar-width: none;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
+        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
 }
+
+.projectBox a {
+    text-decoration: none;
+}
+
+
 
 .projectBoxBack {
     background-color: rgb(255, 255, 255);
     border-radius: 5vh;
+    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5vh;
+
 
 }
 
 .projectBack {
     display: flex;
     justify-content: center;
-
-    border-radius: 5vh;
-    width: 18vw;
+    width: 22vw;
+    padding: 0.5vmax;
     margin: 0 2vmax;
-    
+   
 }
 
 .project {
@@ -209,59 +297,84 @@ body {
     font-size: 3vmax;
     cursor: pointer;
     height: 20vmax;
-  
 }
-
 
 .description {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1vmax;
 }
 
 .projectPreview {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 65vw;
-    height: 55.5vh;
+    width: 55vw;
+    height: 55vh;
     font-size: 2vmax;
-    color: white;
     text-align: center;
     border-radius: 5vh;
-    background-color: black;
 }
 
 .projectText {
-    width: 50vw;
-    height: 45vh;
-    cursor: pointer;
+    width: 43vw;
+    height: 55vh;
     text-align: justify;
     font-family: "Darker Grotesque", sans-serif;
-    
+    color: rgb(0, 0, 0);
+    overflow-y: scroll;
+    margin-bottom: 1vmax;
+}
+
+.featuresContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#features {
+    margin-top: 4vmax;
+    width: 20vw;
+}
+.features {
+    margin: 1vmax 0;
+    font-size: 3vmax;
+    font-family: "Poller One", cursive;
+    width: 43vw;
+    border-bottom: 1px solid black;
+    text-align: center;
+}
+
+.feature {
+    text-align: justify;
 }
 
 .descLinks {
-    align-self: flex-end;
-    margin-bottom: -2vmax;
-}
-
-.git {
-    padding: 0 2vmax 0 1.5vmax;
+    margin-top: 1vmax;
 }
 
 .git img {
+    padding: 0 2vmax 0 1.5vmax;
     width: 2vmax;
     height: 2vmax;
     background-size: cover;
+    filter: invert(50%);
 }
 
+.git img:hover {
+    filter: invert(100%);
+}
+
+.linkPreview img:hover {
+    filter: invert(0%);
+}
 .linkPreview img {
     width: 3vmax;
     height: 2vmax;
-    background-color: white;
-    filter: invert(100%);
+    filter: invert(50%);
 }
 
 #one,
@@ -287,7 +400,6 @@ body {
         padding: 28px;
         width: 11vmax;
         height: 11vmax;
-      
     }
 }
 
@@ -328,7 +440,6 @@ body {
         height: 60vh !important;
         overflow-y: scroll;
         width: 90vw !important;
-       
     }
 
     .project {
@@ -363,14 +474,10 @@ body {
     }
 
     .emailFormContainer {
-        height:75vh !important;
+        height: 75vh !important;
         flex-direction: column;
-        width:90vw !important;
+        width: 90vw !important;
         border: 2px solid black !important;
-    }
-
-    .contact {
-        font-size: 5vmax !important;
     }
 
     .inputHeadline {
@@ -378,25 +485,23 @@ body {
     }
 
     input {
-        width:60vw !important;
+        width: 60vw !important;
         margin-bottom: 1vmax !important;
     }
 
-    textarea{
-        width:80vw !important;
-        height:45vh !important;
+    textarea {
+        width: 80vw !important;
+        height: 45vh !important;
     }
-
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-
     .introTitles {
-        margin-top:-2vmax;
+        margin-top: -2vmax;
     }
 
     .project {
-          margin-bottom: 3vmax;
+        margin-bottom: 3vmax;
     }
 
     .projectBox {
@@ -419,35 +524,29 @@ body {
         margin-bottom: 0.5vmax !important;
     }
 
-      .contact {
-        font-size: 5vmax !important;
-        margin-bottom: 1vmax !important;
-    }
-
     input {
-        width:30vw !important
+        width: 30vw !important;
     }
 
-        textarea{
-        width:55vw !important;
-        height:75vh !important;
+    textarea {
+        width: 55vw !important;
+        height: 75vh !important;
     }
 
-      .emailFormContainerBack{
-           height:75vh !important;
-      }
+    .emailFormContainerBack {
+        height: 75vh !important;
+    }
 
-       .emailFormContainer {
-        height:55vh !important;
+    .emailFormContainer {
+        height: 55vh !important;
         justify-content: space-evenly !important;
-        width:90vw !important;
+        width: 90vw !important;
         border: 2px solid black !important;
     }
 }
 
 .emailFormContainerBack {
-    height: 65vh;
-    width: 45vw;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -458,27 +557,33 @@ body {
 .emailFormContainer {
     display: flex;
     align-items: center;
-    height: 45vh;
-    width: fit-content;
+    width: 58vw;
+    height: fit-content;
     color: black;
     background-color: rgb(208, 255, 0);
-    border-radius: 1vh;
-    padding: 2vmax;
+
     border: 1px solid white;
+    padding: 2vmax;
 }
 
-.contact {
-    font-size: 3vmax;
-    margin-bottom: 1vmax;
-    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
-        -1px -1px 0 white;
+#mail {
+    width: 7.5vmax;
+    height: 4vmax;
+    margin: 0 0 1.5vmax -1vmax;
+    cursor: unset;
+    filter: invert(0%);
 }
 
 .inputHeadline {
-     text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
+    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
         -1px -1px 0 white;
     font-size: 2vmax;
-   
+}
+
+input {
+    border-radius: 1vh;
+    height: 3vmax;
+    border-color: transparent;
 }
 
 .userDetails {
@@ -495,10 +600,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 50vh;
+    padding: 0 2vmax;
 }
 
 textarea {
-    width: 50vh;
+    width: 40vw;
     height: 45vh;
     background-color: black;
     color: white;
@@ -506,7 +612,7 @@ textarea {
     outline: none;
     border-radius: 1vh;
     padding: 1vh;
-        border: 1px solid white;
+    border: 1px solid white;
 }
 
 input {
@@ -515,22 +621,31 @@ input {
     margin-bottom: 3vh;
 }
 
+.sendButtonDisabled {
+    margin-top: -0.5vmax;
+    font-size: 2vmax;
+    cursor: not-allowed;
+    color: grey;
+}
+
 .sendButton,
-.sent, .error {
-    margin-top: 0.5vmax;
+.sent {
+    margin-top: -0.5vmax;
     font-size: 2vmax;
     cursor: pointer;
+    color: black;
+    text-decoration: none;
 }
 
 .error {
     margin-top: 0.5vmax;
     font-size: 2vmax;
     color: red;
-      font-family: "Darker Grotesque", sans-serif;
+    font-family: "Darker Grotesque", sans-serif;
 }
 
 .sendButton:hover {
-    color: red;
+    color: lime;
 }
 
 .sending {
@@ -538,4 +653,158 @@ input {
     height: 4vmax;
     background-image: url("sending.gif");
     background-size: cover;
+    margin-top: -2.3vmax;
+}
+
+#closeTab {
+    margin: -1vmax -1vmax 0 0;
+    color: rgb(255, 166, 0);
+    text-shadow: -0.5px 0.5px 0 white, 0.5px -0.5px 0 white, 0.5px 0.5px 0 white,
+        -0.5px -0.5px 0 white;
+}
+
+#closeTab:hover {
+    color: red;
+}
+
+.closeTab {
+    align-self: flex-start;
+    margin-top: -1vmax;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: "Poller One", cursive;
+    padding: 0.2vmax 0.4vmax;
+    color: black;
+    text-decoration: none;
+    font-size: 1vmax;
+    margin: 0.5vmax;
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
+        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+    border-color: transparent;
+    transition: 0.5s;
+}
+
+.closeTab:hover {
+    color: rgb(243, 89, 89);
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.25), 0 -0 10px rgba(0, 0, 0, 0.25),
+        0 0 10px rgba(0, 0, 0, 0.25), -0 -0 10px rgba(0, 0, 0, 0.25);
+    border-color: transparent;
+    transition: 0.5s;
+}
+
+.galleryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    padding: 0 0 0 2vmax;
+}
+
+.galleryPic {
+    width: 32vw;
+    height: 18vw;
+    border-radius: 1vh;
+    border: 1px solid rgba(35, 182, 175, 0.678);
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
+        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+    margin-top: 2vmax;
+}
+
+.galleryPicWide {
+    width: 65vw;
+    height: 38vw;
+    border-radius: 1vh;
+    border: 1px solid rgba(35, 182, 175, 0.678);
+    box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
+        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+    margin-top: 2vmax;
+}
+
+.galleryControls {
+    margin-top: 1vh;
+    display: flex;
+    width: fit-content;
+    height: 1vmax;
+    justify-content: center;
+    align-content: center;
+    background-color: white;
+    color: rgb(35, 182, 174);
+}
+
+.galleryControls div:hover {
+    color: black;
+}
+
+.rangeInput {
+    height: 1vmax !important;
+    width: 20vmax !important;
+    margin: 0 0.5vmax !important;
+}
+
+.prvGallery,
+.nxtGallery {
+    font-size: 1vmax;
+    cursor: pointer;
+}
+
+.projectDown {
+    color: grey;
+    cursor: pointer;
+}
+.projectDown:hover {
+    color: black;
+}
+
+.techStack {
+    background-color: rgb(208, 255, 0);
+    width: 61vmax;
+    height: fit-content;
+    margin-bottom: 3vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    padding: 0.5vmax;
+    margin-top: -5vh;
+}
+
+#techPic {
+    width: 5vmax;
+    height: 3vmax;
+}
+
+#techPicX {
+    width: 5vmax;
+    height: 4vmax;
+}
+
+#trio {
+    width: 7vmax;
+    height: 3vmax;
+    padding: 1vmax 2vmax;
+}
+
+.techPic {
+    width: 3vmax;
+    height: 3vmax;
+    display: cover;
+    padding: 1vmax;
+}
+
+.zoom {
+    width: 1vmax;
+    height: 1vmax;
+    background-size: cover;
+    margin-left: 1vmax;
+    cursor: pointer;
+}
+
+.zoom:hover {
+    filter: invert(40%);
+}
+
+.galleryNumbers {
+    color: grey;
+    margin-right: 1vmax;
 }
