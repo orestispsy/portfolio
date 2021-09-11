@@ -44,7 +44,7 @@ export default function Project({
             <div
                 className="projectBoxBack"
                 style={{
-                    marginTop: selectedProject ? "4vmax" : "none",
+                    marginTop: selectedProject ? "3vmax" : "none",
                 }}
                 ref={galRef}
             >

@@ -171,46 +171,47 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: black;
+    color: white;
     font-size: 2vmax;
     width: 60vw;
-    border: 2px solid black;
-    border-radius: 2vh;
+
     height: fit-content;
-    background-color: rgb(255, 255, 255);
     text-align: center;
     font-family: "Darker Grotesque", sans-serif;
-    font-weight: bold;
     letter-spacing: 1px;
-    background-color: rgb(208, 255, 0);
-    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
-        -1px -1px 0 white;
-    box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
-        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 247, 255, 0.507);
 }
 
 .introTitles div:nth-child(1) {
-    font-family: "Poller One", cursive;
-    background-color: rgba(0, 247, 255, 0.507);
-    font-size: 2vmax;
+    font-size: 3vmax;
 
-    padding: 1vmax;
     width: fit-content;
     align-self: center;
     margin: 1vmax;
     color: black;
-    text-shadow: -1px 1px 0 white, 1px -1px 0 white, 1px 1px 0 white,
-        -1px -1px 0 white;
 }
 
 .bio {
     width: 50vw;
-    text-indent: 50px;
+    text-indent: 30px;
     padding-bottom: 1vmax;
     text-align: justify;
 }
 
-.introTitles div:nth-child(3) {
+#dots {
+     margin-left:0;
+     color:white;
+     font-size:2vmax
+}
+
+.bio span{
+    color:black;
+    margin-left:1vmax;
+    cursor:pointer;
+    font-size:1.5vmax;
+}
+
+.introTitles div:nth-child(6) {
     padding-bottom: 3vmax;
 }
 
@@ -238,7 +239,8 @@ body {
 }
 
 #projectBox {
-    padding-top:1vmax;
+    padding-top: 1vmax;
+    background-color: white;
 }
 
 .projectBox {
@@ -252,7 +254,10 @@ body {
     padding: 2vmax 0 1vmax 0;
     overflow-y: scroll;
     scrollbar-width: none;
-    background-color: rgba(255, 255, 255, 0);
+    border-radius: 5vh;
+
+    border-radius: 5vh;
+    background-color: rgba(72, 255, 0, 0.158);
 }
 
 .projectBox a {
@@ -264,7 +269,7 @@ body {
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
         0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
     border-radius: 5vh;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     border-radius: 5vh;
     width: 95vw;
     display: flex;
@@ -403,7 +408,7 @@ body {
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
     .appContainer {
-        width: 75vw !important;
+        width: 80vw !important;
     }
     .imgScr {
         padding: 2vw !important;
@@ -414,14 +419,13 @@ body {
     }
 
     .introTitles {
-        width: 90vw !important;
-        height: 40vh !important;
+        width: 80vw !important;
         overflow-y: scroll !important;
         margin-top: 1vmax !important;
     }
 
     .bio {
-        width: 70vw;
+        width: 75vw;
         text-indent: 10px;
         font-size: 3vmax;
     }
@@ -441,18 +445,22 @@ body {
         margin-bottom: 1vmax !important;
     }
 
+    #projectBox{
+        margin-top:0.5vmax !important
+    }
+
     .projectBox {
         align-items: center;
         justify-content: center;
         height: unset;
         min-height: 42vh !important;
         overflow-y: scroll;
-        width: 90vw !important;
+         width: 90vw !important;
+       
     }
 
-    
     .projectBoxBack {
-        margin-top:2vmax !important;
+         width: 90vw !important;
     }
 
     .project {
@@ -514,7 +522,7 @@ body {
         align-self: flex-end !important;
         font-size: 2.5vmax;
         padding: 0.4vmax 0.8vmax;
-        margin:-0.5vmax -0.5vmax 0 0 !important;
+        margin: -0.5vmax -0.5vmax 0 0 !important;
     }
 
     .closeTab {
@@ -613,7 +621,7 @@ body {
 
     .projectBoxBack {
         width: 94vw !important;
-        margin-top:2vmax !important;
+        margin-top: 2vmax !important;
     }
 
     #projectBox {
@@ -630,8 +638,17 @@ body {
         width: 50vw;
     }
 
-    .projectText {
-        font-size: 2.2vmax !important;
+    .introTitles{
+        width:84vw !important;
+    }
+
+    .introTitles div:nth-child(1) {
+        font-size: 4vmax !important;
+    }
+
+    .bio {
+        font-size: 3vmax !important;
+         width:75vw !important;
     }
 
     .imgScr {
@@ -649,22 +666,22 @@ body {
     }
 
     textarea {
-        width: 55vw !important;
+        width: 45vw !important;
         height: 75vh !important;
     }
 
     .emailFormContainerBack {
         height: 75vh !important;
+            margin-top:1vmax !important;
     }
 
     .emailFormContainer {
+    
         height: 55vh !important;
         justify-content: space-evenly !important;
-        width: 90vw !important;
-        border: 2px solid black !important;
-        border-radius: 5vh !important;
-            box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
-        0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+        width: 80vw !important;
+        box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
+            0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
     }
     .galleryNumbers {
         font-size: 1vmax !important;
@@ -698,21 +715,21 @@ body {
         height: 3vmax !important;
     }
 
-        .closeTab{
+    .closeTab {
         margin-right: 2vmax !important;
-        font-size:2vmax !important;
-            padding: 0.4vmax 0.8vmax;
+        font-size: 2vmax !important;
+        padding: 0.4vmax 0.8vmax;
     }
 
-    #closeTab{
+    #closeTab {
         margin-right: -3vmax !important;
-        font-size:2vmax !important;
-            padding: 0.4vmax 0.8vmax;
+        font-size: 2vmax !important;
+        padding: 0.4vmax 0.8vmax;
     }
 
     .error {
-        margin-top:-0.5vmax !important;
-    }    
+        margin-top: -0.5vmax !important;
+    }
     .sendButton,
     .sendButtonDisabled {
         font-size: 3vmax !important;
@@ -731,17 +748,18 @@ body {
     align-items: center;
     justify-content: flex-start;
     font-family: "Bangers", cursive;
+    margin-top:5vh;
+    
 }
 
 .emailFormContainer {
     display: flex;
     align-items: center;
-    width: 58vw;
+    width: 56vw;
     height: fit-content;
     color: black;
-    background-color: rgb(208, 255, 0);
+    background-color: rgba(0, 247, 255, 0.507);
 
-    border: 1px solid white;
     padding: 2vmax;
 }
 
@@ -780,6 +798,7 @@ input {
     justify-content: center;
     height: 50vh;
     padding: 0 2vmax;
+   
 }
 
 textarea {
@@ -789,7 +808,7 @@ textarea {
     color: white;
     resize: none;
     outline: none;
-    border-radius: 1vh;
+
     padding: 1vh;
     border: 1px solid white;
 }
@@ -824,7 +843,7 @@ input {
 }
 
 .sendButton:hover {
-    color: lime;
+    color: white;
 }
 
 .sending {
@@ -836,15 +855,20 @@ input {
 }
 
 #closeTab {
+    text-shadow: -1px 1px 0 black, 1px -1px 0 black, 1px 1px 0 black,
+        -1px -1px 0 black;
     margin: -1vmax -1vmax 0 0;
-    color: rgb(255, 166, 0);
-    text-shadow: -0.5px 0.5px 0 white, 0.5px -0.5px 0 white, 0.5px 0.5px 0 white,
-        -0.5px -0.5px 0 white;
-           align-self: flex-start;
+    color: white;
+
+    align-self: flex-start;
+    border: 1px solid white;
 }
 
 #closeTab:hover {
-    color: red;
+    box-shadow: -0 0 10px rgba(0, 0, 0, 0.25), 0 -0 10px rgba(0, 0, 0, 0.25),
+        0 0 10px rgba(0, 0, 0, 0.25), -0 -0 10px rgba(0, 0, 0, 0.25);
+        color:black;
+        text-shadow:none;
 }
 
 .closeTab {
@@ -859,8 +883,6 @@ input {
     margin: 1vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
         0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
-    border-color: transparent;
-    transition: 0.5s;
 }
 
 .closeTab:hover {
@@ -929,20 +951,21 @@ input {
 .projectUp {
     background-image: url("up.png");
     background-size: cover;
-    width:3vmax;
-    height:3vmax;
+    width: 3vmax;
+    height: 3vmax;
     cursor: pointer;
 }
 
 .projectDown {
     background-image: url("down.png");
     background-size: cover;
-    width:3vmax;
-    height:3vmax;
+    width: 3vmax;
+    height: 3vmax;
     cursor: pointer;
 }
-.projectDown:hover, .projectUp:hover {
-  filter:invert(50%)
+.projectDown:hover,
+.projectUp:hover {
+    filter: invert(50%);
 }
 
 .techStack {
