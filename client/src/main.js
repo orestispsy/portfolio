@@ -103,7 +103,7 @@ export default function Main({
                                         });
                                     }}
                                 >
-                                    show less
+                                    hide
                                 </span>
                             )}
                         </div>{" "}
