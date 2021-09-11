@@ -475,7 +475,7 @@ body {
 
     .extLinks {
         margin: 1vmax !important;
-        width: 60vw !important;
+        width: 40vw !important;
     }
 
     .projectText {
@@ -510,24 +510,28 @@ body {
         width: 80vw !important;
     }
 
+        .emailFormContainerBack {
+            margin-top:3vmax !important
+        }
+
     .emailFormContainer {
-        height: 75vh !important;
+        height: 70vh !important;
         flex-direction: column-reverse;
-        width: 80vw !important;
-        border: 2px solid black !important;
-        border-radius: 2vh !important;
+        width: 72vw !important;
+
+       
     }
 
     #closeTab {
         align-self: flex-end !important;
-        font-size: 2.5vmax;
+        font-size: 2vmax !important;
         padding: 0.4vmax 0.8vmax;
         margin: -0.5vmax -0.5vmax 0 0 !important;
     }
 
     .closeTab {
         margin: 2vmax 2vmax 0 0 !important;
-        font-size: 2.5vmax !important;
+        font-size: 2vmax !important;
         padding: 0.4vmax 0.8vmax !important;
     }
 
@@ -542,8 +546,9 @@ body {
     }
 
     textarea {
-        width: 75vw !important;
+        width: 65vw !important;
         height: 30vh !important;
+        margin-bottom: 1vmax !important;
     }
 
     #mail {
