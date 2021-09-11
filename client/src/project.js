@@ -46,7 +46,6 @@ export default function Project({
                 style={{
                     marginTop: selectedProject ? "3vmax" : "none",
                 }}
-                ref={galRef}
             >
                 {!toggleGallery && (
                     <Link
@@ -74,7 +73,11 @@ export default function Project({
                     projects.map((project) => (
                         <React.Fragment key={project.id}>
                             {selectedProject == project.id && (
-                                <div className="projectBox" id="projectBox">
+                                <div
+                                    className="projectBox"
+                                    id="projectBox"
+                                    ref={galRef}
+                                >
                                     <Gallery
                                         projects={projects}
                                         selectedProject={selectedProject}
@@ -166,9 +169,7 @@ export default function Project({
                                                         20
                                                     );
                                                 }}
-                                            >
-                                                
-                                            </div>
+                                            ></div>
 
                                             <div
                                                 className="projectDown"
@@ -190,9 +191,7 @@ export default function Project({
                                                         20
                                                     );
                                                 }}
-                                            >
-                                                
-                                            </div>
+                                            ></div>
                                         </div>
                                     )}
                                 </div>
