@@ -626,11 +626,17 @@ body {
 
     .projectBoxBack {
         width: 94vw !important;
-        margin-top: 2vmax !important;
+   
+    }
+
+     #projectBoxBack {
+        flex-wrap: nowrap;
+        margin-top: 3vmax !important;
     }
 
     #projectBox {
         flex-wrap: nowrap;
+     
     }
 
     .projectBox {

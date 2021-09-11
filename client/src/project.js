@@ -43,6 +43,7 @@ export default function Project({
         <>
             <div
                 className="projectBoxBack"
+                id="projectBoxBack"
                 style={{
                     marginTop: selectedProject ? "3vmax" : "none",
                 }}
