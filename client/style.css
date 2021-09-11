@@ -729,7 +729,7 @@ body {
     .closeTab {
         margin-right: 2vmax !important;
         font-size: 2vmax !important;
-        padding: 0.4vmax 0.8vmax;
+              padding: 0.4vmax 0.8vmax !important
     }
 
     #closeTab {
@@ -880,6 +880,7 @@ input {
         0 0 10px rgba(0, 0, 0, 0.25), -0 -0 10px rgba(0, 0, 0, 0.25);
         color:black;
         text-shadow:none;
+           transition: 0.5s;
 }
 
 .closeTab {
@@ -894,6 +895,7 @@ input {
     margin: 1vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
         0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
+            border: 1px solid black;
 }
 
 .closeTab:hover {
@@ -901,7 +903,6 @@ input {
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.25), 0 -0 10px rgba(0, 0, 0, 0.25),
         0 0 10px rgba(0, 0, 0, 0.25), -0 -0 10px rgba(0, 0, 0, 0.25);
     border-color: transparent;
-    transition: 0.5s;
 }
 
 .galleryContainer {
