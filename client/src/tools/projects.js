@@ -7,8 +7,8 @@ let projects = [
         No Create-React-App ! Then put down some basic React funtionalities, write Project / 
         Tech Stack / Features descriptions,
          create Photo Galleries and finally, the hardest part. Make a short text
-        speaking about myself ! Enjoy surfing while checking my latest
-        projects site.`,
+        speaking about myself ! Enjoy surfing this web-page while checking my latest
+         project sites.`,
         preview: "./../previewPortfolio.jpg",
         url: "https://zero-psy.herokuapp.com",
         git: "https://github.com/orestispsy/zero-psy",

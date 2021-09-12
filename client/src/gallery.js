@@ -93,7 +93,7 @@ export default function Gallery({
                             <React.Fragment key={project.id}>
                                 {projects[selectedProject].id == project.id && (
                                     <div className="descLinks" key={project.id}>
-                                        {project.url && (
+                                        {project.url && selectedProject != 0 && (
                                             <a
                                                 className="linkPreview"
                                                 href={project.url}
@@ -102,6 +102,15 @@ export default function Gallery({
                                             >
                                                 <img src="./linkPreview.png"></img>
                                             </a>
+                                        )}
+                                        {project.url && selectedProject == 0 && (
+                                            <Link
+                                                className="linkPreview"
+                                                to="/"
+                                                title="Open Project"
+                                            >
+                                                <img src="./linkPreview.png"></img>
+                                            </Link>
                                         )}
                                         {project.git && (
                                             <a

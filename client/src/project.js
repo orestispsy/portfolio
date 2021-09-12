@@ -148,7 +148,7 @@ export default function Project({
                                             </div>
                                         </div>
                                     )}
-                                    {project.features && !toggleGallery && (
+                                    {!toggleGallery && (
                                         <div className="projectScroll">
                                             <div
                                                 className="projectUp"
