@@ -4,11 +4,11 @@ let projects = [
         flag: "zero",
         name: "Portfolio",
         description: `Starting goal of my portfolio App was to set up Webpack from scratch. 
-        No Create-React-App ! Then put down some basic React funtionalities, write project / 
-        Tech Stack / Feature descriptions,
-         create Photo Galleries and finally, the hardest thing. Make a short text
-        speaking about myself ! Enjoy surfing, while checking my latest
-        projects on the same time !`,
+        No Create-React-App ! Then put down some basic React funtionalities, write Project / 
+        Tech Stack / Features descriptions,
+         create Photo Galleries and finally, the hardest part. Make a short text
+        speaking about myself ! Enjoy surfing while checking my latest
+        projects site.`,
         preview: "./../previewPortfolio.jpg",
         url: "https://zero-psy.herokuapp.com",
         git: "https://github.com/orestispsy/zero-psy",
