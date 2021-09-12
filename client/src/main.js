@@ -50,13 +50,7 @@ export default function Main({
                     Germany. First studies in electronics. Then, after times of
                     wandering, lots of luck and undeniable fate, life brought me
                     back into the web tech scene.{" "}
-                    {!bioView && (
-                        <span id="dots"
-                           
-                        >
-                           . .
-                        </span>
-                    )}
+                    {!bioView && <span id="dots">. .</span>}
                     {!bioView && (
                         <span
                             onClick={() => {
@@ -99,7 +93,6 @@ export default function Main({
                                         setBioView(!bioView);
                                         window.scrollTo({
                                             top: 0,
-                                           
                                         });
                                     }}
                                 >

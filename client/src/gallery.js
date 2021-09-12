@@ -103,14 +103,16 @@ export default function Gallery({
                                                 <img src="./linkPreview.png"></img>
                                             </a>
                                         )}
-                                     {project.git &&    <a
-                                            className="git"
-                                            href={project.git}
-                                            target="_blank"
-                                            title="Check Code"
-                                        >
-                                            <img src="./git.png"></img>
-                                        </a>}
+                                        {project.git && (
+                                            <a
+                                                className="git"
+                                                href={project.git}
+                                                target="_blank"
+                                                title="Check Code"
+                                            >
+                                                <img src="./git.png"></img>
+                                            </a>
+                                        )}
                                     </div>
                                 )}
                             </React.Fragment>

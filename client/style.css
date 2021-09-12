@@ -57,7 +57,7 @@ body {
     border-bottom: transparent;
     box-shadow: 0 0 10px black;
     transition: 2s;
-    background-color: white;
+          -webkit-transition:all .1s ease;
     margin-top: 0.5vmax;
     background-color: rgba(251, 255, 0, 0.144);
     margin-top: 1vmax;
@@ -69,7 +69,7 @@ body {
     width: 13vmax;
     height: 13vmax;
     animation: none;
-    transition: 3s;
+
     animation: blinker 2s linear infinite;
 }
 
@@ -167,12 +167,14 @@ body {
     text-decoration: none;
 }
 
+
+
 .introTitles {
     display: flex;
     flex-direction: column;
     align-items: center;
     color: rgb(249, 255, 169);
-    font-size: 2vmax;
+    font-size: 1.5vmax;
     width: 60vw;
 
     height: fit-content;
@@ -199,20 +201,20 @@ body {
 }
 
 #dots {
-     margin-left:0;
-     color:white;
-     font-size:2vmax
+    margin-left: 0;
+    color: white;
+    font-size: 2vmax;
 }
 
-.bio span{
-    color:black;
-    margin-left:1vmax;
-    cursor:pointer;
-    font-size:1.5vmax;
+.bio span {
+    color: black;
+    margin-left: 1vmax;
+    cursor: pointer;
+    font-size: 1.5vmax;
 }
 
 .bio span:hover {
-    color:rgb(208, 255, 0);
+    color: rgb(208, 255, 0);
 }
 
 .introTitles div:nth-child(6) {
@@ -258,8 +260,6 @@ body {
     padding-top: 2vmax;
     overflow-y: scroll;
     scrollbar-width: none;
-    border-radius: 5vh;
-
     border-radius: 5vh;
     background-color: rgba(72, 255, 0, 0.158);
 }
@@ -333,6 +333,7 @@ body {
     color: rgb(0, 0, 0);
     overflow-y: scroll;
     margin-bottom: 1vmax;
+    scrollbar-width: none;
 }
 
 .featuresContainer {
@@ -449,8 +450,8 @@ body {
         margin-bottom: 1vmax !important;
     }
 
-    #projectBox{
-        margin-top:0.5vmax !important
+    #projectBox {
+        margin-top: 0.5vmax !important;
     }
 
     .projectBox {
@@ -459,12 +460,11 @@ body {
         height: unset;
         min-height: 42vh !important;
         overflow-y: scroll;
-         width: 90vw !important;
-       
+        width: 90vw !important;
     }
 
     .projectBoxBack {
-         width: 90vw !important;
+        width: 90vw !important;
     }
 
     .project {
@@ -514,16 +514,14 @@ body {
         width: 80vw !important;
     }
 
-        .emailFormContainerBack {
-            margin-top:3vmax !important
-        }
+    .emailFormContainerBack {
+        margin-top: 3vmax !important;
+    }
 
     .emailFormContainer {
         height: 70vh !important;
         flex-direction: column-reverse;
         width: 72vw !important;
-
-       
     }
 
     #closeTab {
@@ -630,17 +628,15 @@ body {
 
     .projectBoxBack {
         width: 94vw !important;
-   
     }
 
-     #projectBoxBack {
+    #projectBoxBack {
         flex-wrap: nowrap;
         margin-top: 3vmax !important;
     }
 
     #projectBox {
         flex-wrap: nowrap;
-     
     }
 
     .projectBox {
@@ -653,8 +649,8 @@ body {
         width: 50vw;
     }
 
-    .introTitles{
-        width:84vw !important;
+    .introTitles {
+        width: 84vw !important;
     }
 
     .introTitles div:nth-child(1) {
@@ -663,7 +659,7 @@ body {
 
     .bio {
         font-size: 3vmax !important;
-         width:75vw !important;
+        width: 75vw !important;
     }
 
     .imgScr {
@@ -687,11 +683,10 @@ body {
 
     .emailFormContainerBack {
         height: 75vh !important;
-            margin-top:1vmax !important;
+        margin-top: 1vmax !important;
     }
 
     .emailFormContainer {
-    
         height: 55vh !important;
         justify-content: space-evenly !important;
         width: 80vw !important;
@@ -733,7 +728,7 @@ body {
     .closeTab {
         margin-right: 2vmax !important;
         font-size: 2vmax !important;
-              padding: 0.4vmax 0.8vmax !important
+        padding: 0.4vmax 0.8vmax !important;
     }
 
     #closeTab {
@@ -763,8 +758,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     font-family: "Bangers", cursive;
-    margin-top:5vh;
-    
+    margin-top: 5vh;
 }
 
 .emailFormContainer {
@@ -813,7 +807,6 @@ input {
     justify-content: center;
     height: 50vh;
     padding: 0 2vmax;
-   
 }
 
 textarea {
@@ -882,9 +875,9 @@ input {
 #closeTab:hover {
     box-shadow: -0 0 10px rgba(0, 0, 0, 0.25), 0 -0 10px rgba(0, 0, 0, 0.25),
         0 0 10px rgba(0, 0, 0, 0.25), -0 -0 10px rgba(0, 0, 0, 0.25);
-        color:black;
-        text-shadow:none;
-           transition: 0.5s;
+    color: black;
+    text-shadow: none;
+    transition: 0.5s;
 }
 
 .closeTab {
@@ -899,7 +892,7 @@ input {
     margin: 1vmax;
     box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
         0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
-            border: 1px solid black;
+    border: 1px solid black;
 }
 
 .closeTab:hover {
