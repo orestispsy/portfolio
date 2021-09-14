@@ -73,8 +73,7 @@ let projects = [
         git: "https://github.com/orestispsy/thousandgigsguide",
         pics: [
             { pic: "./../projectPics/gg1.jpg" },
-            { pic: "./../projectPics/gg2.gif" },
-            { pic: "./../projectPics/gg3.jpg" },
+
             { pic: "./../projectPics/gg4.gif" },
             { pic: "./../projectPics/gg5.jpg" },
             { pic: "./../projectPics/gg6.jpg" },
