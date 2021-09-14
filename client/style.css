@@ -561,6 +561,9 @@ body {
     .techStack {
         width: 60vw !important;
         flex-wrap: wrap;
+        border-radius: 2vmax!important;
+        border:none !important;
+        margin-top:-3vh !important;
     }
 
     .sendButton,
@@ -749,6 +752,11 @@ body {
     .galleryPicWide {
         width: 60vw !important;
         height: 36vw !important;
+    }
+
+    .techStack{
+        padding:0.5vmax !important;
+        border-radius: 20vh !important;
     }
 }
 
@@ -993,10 +1001,9 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0;
-    padding: 0.5vmax;
-    margin-top: -3vh;
-    border-radius: 2vh;
+    margin-top: -4vh;
+    border-radius: 10vh;
+    border:10px solid black;
 }
 
 #techPic {
