@@ -55,6 +55,7 @@ let projects = [
             "Admin Mode - Full Site View",
             "Super Admin Mode - User Rights Controls",
             "Chat Private Mode & Private Message Notifications",
+            "Guest Mode"
         ],
 
         stack: [
