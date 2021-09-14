@@ -192,7 +192,7 @@ body {
 }
 
 .bio {
-    width: 50vw;
+    width: 55vw;
     text-indent: 30px;
     padding-bottom: 1vmax;
     text-align: justify;
@@ -427,11 +427,15 @@ body {
         margin-bottom: 1vmax !important;
     }
 
+    .introTitles div:nth-child(1){
+        font-size:3.5vmax;
+    }
+
     .bio {
-        width: 65vw;
+        width: 60vw;
         text-indent: 10px;
         font-size: 3vmax;
-        margin:2vmax;
+        margin:1vmax;
     }
 
     
