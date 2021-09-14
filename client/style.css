@@ -259,7 +259,7 @@ body {
     overflow-y: scroll;
     scrollbar-width: none;
     border-radius: 5vh;
-    background-color: rgba(255, 255, 255, 0.158);
+    background-color: rgba(217, 255, 219, 0.11);
 }
 
 .projectBox a {
@@ -424,14 +424,17 @@ body {
     .introTitles {
         width: 80vw !important;
         overflow-y: scroll !important;
-        margin-top: 1vmax !important;
+        margin-bottom: 1vmax !important;
     }
 
     .bio {
-        width: 75vw;
+        width: 65vw;
         text-indent: 10px;
         font-size: 3vmax;
+        margin:2vmax;
     }
+
+    
 
     .description {
         flex-direction: column !important;
@@ -476,8 +479,8 @@ body {
     }
 
     .extLinks {
-        margin: 1vmax !important;
-        width: 55vw !important;
+        margin: 2vmax !important;
+        width: 49vw !important;
     }
 
     .projectText {
@@ -561,9 +564,9 @@ body {
     .techStack {
         width: 60vw !important;
         flex-wrap: wrap;
-        border-radius: 2vmax!important;
-        border:none !important;
-        margin-top:-3vh !important;
+        border-radius: 2vmax !important;
+        border: none !important;
+        margin-top: -3vh !important;
     }
 
     .sendButton,
@@ -623,6 +626,8 @@ body {
     .prvGallery {
         font-size: 3vmax !important;
     }
+
+
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -686,14 +691,12 @@ body {
     }
 
     .emailFormContainerBack {
-    
         margin-top: 1vmax !important;
     }
 
     .emailFormContainer {
- 
         justify-content: space-evenly !important;
-  
+
         box-shadow: -0 0 5px rgba(0, 0, 0, 0.25), 0 -0 5px rgba(0, 0, 0, 0.25),
             0 0 5px rgba(0, 0, 0, 0.25), -0 -0 5px rgba(0, 0, 0, 0.25);
     }
@@ -754,8 +757,8 @@ body {
         height: 36vw !important;
     }
 
-    .techStack{
-        padding:0.5vmax !important;
+    .techStack {
+        padding: 0.5vmax !important;
         border-radius: 20vh !important;
     }
 }
@@ -1003,7 +1006,7 @@ input {
     justify-content: center;
     margin-top: -4vh;
     border-radius: 10vh;
-    border:10px solid black;
+    border: 10px solid black;
 }
 
 #techPic {

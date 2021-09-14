@@ -66,7 +66,7 @@ export default function Main({
                         {" "}
                         <div className="bio">
                             {`I am a Javascript Developer and I code mainly with HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and 
-                Socket.io. Last year, I took part in the legendary Bootcamp of The Spiced Academy in Berlin. A camp that
+                Socket.io. Last year, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A camp that
                 altered my knowledge to the point and teached me how to activate super-powers again. `}
                         </div>
                         <div className="bio">
@@ -82,11 +82,11 @@ export default function Main({
                         </div>
                         <div className="bio">
                             I love Music too. I run a web-radio show. I also
-                            play the drums & percussion. A side of my life
+                            play the Drums & Percussion. A side of my life
                             includes the Sun, a Beach and a right place to
                             chill. I know what the Secret of Monkey Island is
                             and I still miss the times listening to the calling
-                            tone of a dial-up connection.{" "}
+                            tone of an old dial-up connection.{" "}
                             {bioView && (
                                 <span
                                     onClick={() => {
