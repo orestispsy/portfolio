@@ -105,6 +105,7 @@ export default function EmailForm({ setProjectView}) {
                     )}
                 </div>
                 <div className="textAreaBack">
+                    <div className="quickMessage">Get In Touch !</div>
                     <textarea
                         placeholder="Write something..."
                         onChange={(e) => handleEmailTextChange(e)}

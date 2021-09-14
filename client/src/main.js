@@ -47,9 +47,9 @@ export default function Main({
                 <div>Full-Stack Web Developer</div>
                 <div className="bio">
                     Born and raised in Greece, currently living in Berlin,
-                    Germany. First studies in electronics. Then, after times of
-                    wandering, lots of luck and undeniable fate, life brought me
-                    back into the web tech scene.{" "}
+                    Germany. First studies in Electronic Engineering. Then,
+                    after times of wandering, lots of luck and undeniable fate,
+                    life brought me back into the web tech scene.{" "}
                     {!bioView && <span id="dots">. .</span>}
                     {!bioView && (
                         <span
@@ -65,19 +65,19 @@ export default function Main({
                     <>
                         {" "}
                         <div className="bio">
-                            {`Last year, I took part in the legendary Bootcamp of The Spiced Academy in Berlin. A camp that
-                altered my knowledge to the point and teached me how to activate super-powers. I code mainly using Javascript/HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and 
-                Socket.io. `}
+                            {`I am a Javascript Developer and I code mainly with HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and 
+                Socket.io. Last year, I took part in the legendary Bootcamp of The Spiced Academy in Berlin. A camp that
+                altered my knowledge to the point and teached me how to activate super-powers again. `}
                         </div>
                         <div className="bio">
                             {` I like putting into my websites an old-School style approach, by using the aesthetics of the mid-late 90's  era.
                      Back then when I was a kid,
-                 accessing the Web for my very first time, like entering a never ending Game . . . 
+                 accessing the Web for my very first time, like entering a never ending Game !
                 `}
                         </div>
                         <div className="bio">
                             {` When building an App I never get bored.
-                I find coding creative to the point it reaches the element of Art. And I have a Mission through that. To reach up high & above.
+                I find coding so creative. Coding can create Elements of Art. And I have a Mission through That.
                 `}
                         </div>
                         <div className="bio">
