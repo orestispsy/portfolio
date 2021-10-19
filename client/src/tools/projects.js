@@ -15,11 +15,11 @@ let projects = [
         pics: [{ pic: "./../projectPics/pf1.jpg" }],
         features: [
             "Bio",
-            "Project Preview",
+            "Projects Preview",
             "Photo Galleries",
             "Tech-Stack & Project Features",
             "Quick Email Form",
-            ` 1st Page Load -> Music When Hitting Project "Hot" Button`,
+            `Easter Egg - Music`,
         ],
         stack: ["Webpack.js", "React.js", "Node.js", "Express.js", "Email.js"],
     },
@@ -124,7 +124,7 @@ let projects = [
             "Change Password With Email Confirmation",
             "Add/Edit User Bio",
             "Profile Image Upload",
-            " User Network Search",
+            "User Network Search",
             "Make / Cancel / Accept / Deny Friend Requests",
             "Un-Friend Users",
             "Chat Room",
@@ -229,3 +229,5 @@ let projects = [
 export default {
     projects,
 };
+
+

@@ -201,12 +201,13 @@ body {
 #dots {
     margin-left: 0;
     color: white;
+    font-size: unset;
 
 }
 
 .bio span {
     color: orange;
-    margin-left: 0.3vmax;
+    margin-left: 1vmax;
     cursor: pointer;
     font-size: 1.5vmax;
 }
@@ -630,6 +631,7 @@ body {
     .prvGallery {
         font-size: 3vmax !important;
     }
+
 
 
 }
