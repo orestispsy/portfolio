@@ -67,7 +67,7 @@ export default function Main({
                         <div className="bio">
                             {`I am a Javascript Developer and I code mainly with HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and 
                 Socket.io. Last year, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A camp that
-                altered my knowledge to the point and teached me how to activate super-powers again. `}
+                altered my knowledge to the point and taught me how to activate super-powers again. `}
                         </div>
                         <div className="bio">
                             {` I like putting into my websites an old-School style approach, by using the aesthetics of the mid-late 90's  era.

@@ -41,21 +41,27 @@ let projects = [
             "Add/Edit Gig Entry Section",
             "Coordinates Finder",
             "Poster Gallery/Editor",
-            "Gig Entry Timeline",
-            "Gig User Photo/Comment Contribution",
+            "Gig Entries Timeline",
+            "Gig Entry - User Photo/Comment Contribution",
             "Star Wars Intro Style Gig Entries Animation",
             "Chat Room",
             "Chat Online Users",
-            "User Enters/Exits Notifications & Sounds",
+            "User Edit Section",     
             "Chat Color & User Photo Options",
             "Custom Chat Emojis",
-            "Music Ticker",
+            "Chat Private Mode",
+            "Chat Warnings & Notifications With Sound!",
+            "Delete Chat Messages",
+            "Ticker",
             "Visitors Counter",
-            "User Network",
+            "Chat User Network Menu",
+            "Guest Mode - Limited Site View",
             "Admin Mode - Full Site View",
-            "Super Admin Mode - User Rights Controls",
-            "Chat Private Mode & Private Message Notifications",
-            "Guest Mode"
+            "Super Admin Mode - User Config Controls",
+            "Radio Shows Draggable Media Player",
+            "Dark / Light Switch Mode",
+            "User Nudge Chat Feature",
+            "Ban User - Super Admin Chat Feature"
         ],
 
         stack: [
@@ -73,7 +79,6 @@ let projects = [
         git: "https://github.com/orestispsy/thousandgigsguide",
         pics: [
             { pic: "./../projectPics/gg1.jpg" },
-
             { pic: "./../projectPics/gg4.gif" },
             { pic: "./../projectPics/gg5.jpg" },
             { pic: "./../projectPics/gg6.jpg" },
@@ -84,6 +89,7 @@ let projects = [
             { pic: "./../projectPics/gg11.jpg" },
             { pic: "./../projectPics/gg12.gif" },
             { pic: "./../projectPics/gg13.gif" },
+            { pic: "./../projectPics/gg14.jpg" },
         ],
     },
     {
