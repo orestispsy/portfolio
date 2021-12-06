@@ -47,6 +47,18 @@ body {
     margin-top: -3vmax;
 }
 
+.remastered{
+       position: sticky;
+           z-index: 2567234643;
+    margin-top: -2vmax;
+    font-size:2.5vmax;
+    color:red;
+        text-shadow: -1px 1px 0 yellow, 1px -1px 0 yellow, 1px 1px 0 yellow,
+        -1px -1px 0 yellow;
+  
+        
+}
+
 .imgScr {
     width: 9vmax;
     height: 9vmax;
@@ -843,7 +855,6 @@ textarea {
     color: white;
     resize: none;
     outline: none;
-
     padding: 2vh;
     border-radius: 1vmax !important;
 }

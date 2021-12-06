@@ -26,6 +26,25 @@ let projects = [
     {
         id: 1,
         flag: "one",
+        hot: false,
+        remastered: true,
+        name: "Connect4",
+        description: ``,
+
+        features: [],
+
+        stack: ["Vanilla JS"],
+        preview: "./../previewC4RE.jpg",
+        url: "/connect4-remastered/index.html",
+        git: "https://github.com/orestispsy/zero-psy/tree/master/client/public/connect4-remastered/",
+        pics: [
+            { pic: "./../projectPics/c4RE1.jpg" },
+           
+        ],
+    },
+    {
+        id: 2,
+        flag: "two",
         hot: true,
         name: "The Gig Guide",
         description: `The main idea behind the Gig Guide was to bring some order in the life of a rock n roll
@@ -46,7 +65,7 @@ let projects = [
             "Star Wars Intro Style Gig Entries Animation",
             "Chat Room",
             "Chat Online Users",
-            "User Edit Section",     
+            "User Edit Section",
             "Chat Color & User Photo Options",
             "Custom Chat Emojis",
             "Chat Private Mode",
@@ -61,7 +80,7 @@ let projects = [
             "Radio Shows Draggable Media Player",
             "Dark / Light Switch Mode",
             "User Nudge Chat Feature",
-            "Ban User - Super Admin Chat Feature"
+            "Ban User - Super Admin Chat Feature",
         ],
 
         stack: [
@@ -93,8 +112,8 @@ let projects = [
         ],
     },
     {
-        id: 2,
-        flag: "two",
+        id: 3,
+        flag: "three",
         name: "Social Network",
         description:
             "Under The Surface - Social Network. In this project I am landing into the React World. Understanding Component & State Use. Practicing Redux to build features like make/accept/deny friend requests & Socket.io to implement my first Chat Room ever !",
@@ -133,8 +152,8 @@ let projects = [
         ],
     },
     {
-        id: 3,
-        flag: "three",
+        id: 4,
+        flag: "four",
         name: "Imageboard",
         description:
             "My very first steps into Vue.js. In this application I am building an imageboard while using Amazon Web Services to store User photos on the Cloud.",
@@ -154,8 +173,8 @@ let projects = [
         ],
     },
     {
-        id: 4,
-        flag: "four",
+        id: 5,
+        flag: "five",
         name: "Petition",
         description:
             "A project made through my days in the Spiced Academy Bootcamp. Starting coding back-end with Node.js & Express.js, introducing register/login Section, CRUD operations & HTML Canvas drawing for the signing user ! Built with Javascript & Handlebars.",
@@ -179,8 +198,8 @@ let projects = [
         ],
     },
     {
-        id: 5,
-        flag: "five",
+        id: 6,
+        flag: "six",
         name: "Connect4",
         description: `What to say about this project ! You were a kid too, right !? Connect4 ! The classic game made from scratch with the use of jQuery. Go for Horizontal, Vertical & Diagonal victories in 2-Player Mode. Watch my first steps doing animation events too and don't forget to click the "Hit Me" Button !  `,
         preview: "./../connect4/preview.jpg",
@@ -201,8 +220,8 @@ let projects = [
         ],
     },
     {
-        id: 6,
-        flag: "six",
+        id: 7,
+        flag: "seven",
         name: "spotiFIRE!",
         description:
             "The SpotiFIRE ! In this project I am practicing with asynchronous HTTP/Ajax requests with jQuery for the first time. Calling an external api which retrieves data libraries from Spotify and throws the results on screen. A Spotify search-engine, just outside of it ! Give it a try and have patience for a couple of seconds while waiting for the results. Sometimes free data needs time on its way back home ! ",

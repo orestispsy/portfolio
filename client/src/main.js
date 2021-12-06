@@ -147,6 +147,14 @@ export default function Main({
                                                             }}
                                                         ></img>
                                                     )}
+                                                {project.remastered &&
+                                                    selectedProject == 0 && (
+                                                        <div
+                                                           
+                                                            className="remastered"
+                                                      
+                                                        >Remastered</div>
+                                                    )}
                                             </div>
                                         </div>
                                     </div>

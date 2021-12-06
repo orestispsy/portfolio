@@ -1,0 +1,396 @@
+var main = document.querySelectorAll("main");
+var dot = document.createElement("div");
+var token = document.querySelectorAll(".token");
+var user = document.querySelectorAll(".user");
+var desc = document.querySelectorAll(".description");
+var clear = document.querySelectorAll(".clear");
+var mute = document.querySelectorAll(".mute");
+var controls = document.querySelectorAll(".controls");
+var headline = document.querySelectorAll(".headline");
+var audio = document.querySelectorAll(".audio");
+var hand = document.querySelectorAll(".hand");
+var endGame = false;
+var goButton = false;
+var player = 1;
+var gameBoard = document.querySelectorAll(".gameBoard");
+var createDotsCounter = 1;
+var headlineIntroFXCounter = 0;
+var headlineStartGameFXCounter = 0;
+var headlineVictoryFXCounter = 0;
+var box;
+var columns = {};
+var count = 0;
+var start = false;
+var allDots;
+var myAudio = new Audio("./assets/throw.mp3");
+var myAudioVictory = new Audio("./assets/victory.mp3");
+var letMusicPlay = true;
+
+////////////////////////////////////Start CREATE BOARD //////////////////////////////
+
+const createDots = () => {
+    if (createDotsCounter < 43) {
+        dot.className = "dot";
+        dot.id = createDotsCounter;
+
+        gameBoard[0].appendChild(dot.cloneNode(true));
+
+        createDotsCounter++;
+
+        setTimeout(() => {
+            createDots();
+        }, 15);
+    }
+    box = document.querySelectorAll(".dot");
+};
+
+createDots();
+
+const generateColumns = () => {
+    for (let col = 1; col <= 7; col++) {
+        columns[col] = [];
+    }
+};
+
+generateColumns();
+
+const fillColumns = (e) => {
+    if (count <= 42) {
+        columns[e].push(box[count]);
+        count = count + 7;
+        fillColumns(e);
+    }
+};
+
+const buildColumns = (e) => {
+    for (let i = 1; i <= 7; i++) {
+        fillColumns(i);
+        count = i;
+    }
+    delete columns[1][6];
+};
+
+setTimeout(() => {
+    buildColumns();
+    allDots = document.querySelectorAll(".dot");
+    controls[0].style = `visibility:visible;animation:fadeInControls 1.8s;`;
+}, 1000);
+
+///////////////////////////////////////// End CREATE BOARD /////////////////////////////////
+
+document.addEventListener("mousedown", function (e) {
+    if (e.target.className == "token" && !endGame) {
+        goButton = true;
+        if (letMusicPlay) {
+            audio[0].play();
+        }
+        startGameHeadlineEffect();
+        desc[0].remove();
+        document.addEventListener("mousemove", function (ev) {
+            if (goButton) {
+                for (let j = 1; j <= 7; j++) {
+                    for (let jj = 5; jj >= 0; jj--) {
+                        if (columns[j][jj].id == ev.target.id) {
+                            let filteredSlots = columns[j].filter((obj) => {
+                                return obj.className == "dot";
+                            });
+
+                            for (let i = 0; i < filteredSlots.length; i++) {
+                                filteredSlots[
+                                    i
+                                ].style = `background-color:white`;
+                            }
+                            setTimeout(() => {
+                                for (let i = 0; i < filteredSlots.length; i++) {
+                                    filteredSlots[
+                                        i
+                                    ].style = `background-color:orange`;
+                                }
+                            }, 100);
+                        }
+                    }
+                }
+
+                e.target.style = `position:fixed; top:${
+                    ev.pageY - e.screenY * 0.03
+                }px; left:${ev.clientX - e.clientX * 0.02}px`;
+            }
+        });
+    }
+});
+
+document.addEventListener("mouseup", function (e) {
+    if (goButton) {
+        if (
+            e.target.className == "dot" ||
+            e.target.className == "player1" ||
+            e.target.className == "player2"
+        ) {
+            for (let j = 1; j <= 7; j++) {
+                for (let jj = 5; jj >= 0; jj--) {
+                    if (columns[j][jj].id == e.target.id) {
+                        let index = columns[j].findIndex(
+                            (x) => x.id === e.target.id
+                        );
+
+                        let filteredSlots = columns[j].filter((obj) => {
+                            return obj.className === "dot";
+                        });
+
+                        if (
+                            columns[j][index].className == "player1" ||
+                            columns[j][index].className == "player2"
+                        ) {
+                            return;
+                        } else {
+                            if (letMusicPlay) {
+                                myAudio.play();
+                            }
+
+                            setTimeout(() => {
+                                for (let i = 0; i < filteredSlots.length; i++) {
+                                    if (player == 2) {
+                                        filteredSlots[
+                                            i
+                                        ].style = `background-color:cyan !important; box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);`;
+                                    } else if (player == 1) {
+                                        filteredSlots[
+                                            i
+                                        ].style = `background-color:rgb(204, 0, 255) !important; box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);`;
+                                    }
+                                }
+                            }, 150);
+                            setTimeout(() => {
+                                for (let i = 0; i < filteredSlots.length; i++) {
+                                    filteredSlots[
+                                        i
+                                    ].style = `background-color:orange`;
+                                }
+                            }, 300);
+
+                            if (player == 1) {
+                                filteredSlots.reverse()[0].className =
+                                    "player1";
+
+                                victoryCheck();
+
+                                player = 2;
+                            } else {
+                                filteredSlots.reverse()[0].className =
+                                    "player2";
+
+                                victoryCheck();
+
+                                player = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    token[0].style = `position:unset; `;
+    changeTokenColor();
+    goButton = false;
+});
+
+const changeTokenColor = (e) => {
+    if (!endGame) {
+        if (player == 1) {
+            token[0].id = `p1`;
+
+            user[0].innerHTML = "Player <span style='color:cyan'>1</span>";
+        } else if (player == 2) {
+            token[0].id = `p2`;
+            user[0].innerHTML =
+                "Player <span style='color:rgb(204, 0, 255) !important;'>2</span>";
+        }
+    } else {
+        if (player == 1) {
+            user[0].innerHTML = "Player 2 Wins";
+        } else if (player == 2) {
+            user[0].innerHTML = "Player 1 Wins";
+        }
+    }
+};
+
+changeTokenColor();
+
+const victoryCheck = () => {
+    for (let i = allDots.length - 1; i >= 0; i--) {
+//////////////////////////// START CHECKING FOR VERTICAL VICTORIES///////////////////////////////////////
+
+        if (allDots[i].className == `player${player}`) {
+            if (i - 7 < 0 || i - 14 < 0 || i - 21 < 0) {
+                return;
+            }
+            if (
+                allDots[i].className == `player${player}` &&
+                allDots[i - 7].className == `player${player}` &&
+                allDots[i - 14].className == `player${player}` &&
+                allDots[i - 21].className == `player${player}`
+            ) {
+                if (
+                    allDots[i - 7].className &&
+                    allDots[i - 14].className &&
+                    allDots[i - 21].className
+                ) {
+                }
+                allDots[i].className = `winner`;
+                allDots[i - 7].className = `winner`;
+                allDots[i - 14].className = `winner`;
+                allDots[i - 21].className = `winner`;
+                runVictoryEffects();
+            }
+///////////////////////////// END CHECKING FOR VERTICAL VICTORIES///////////////////////////////////////////
+
+///////////////////////////// START CHECKING FOR HORIZONTAL VICTORIES//////////////////////////////////////
+
+            for (let ii = 3; ii <= allDots.length - 1; ii++) {
+                if (
+                    allDots[ii].className == `player${player}` &&
+                    allDots[ii - 1].className == `player${player}` &&
+                    allDots[ii - 2].className == `player${player}` &&
+                    allDots[ii - 3].className == `player${player}`
+                ) {
+                    if (
+                        ///////////////////// START BLOCK SIDE COUNT /////////////////////
+                        (ii >= 3 && ii <= 6) ||
+                        (ii >= 10 && ii <= 13) ||
+                        (ii >= 17 && ii <= 20) ||
+                        (ii >= 24 && ii <= 27) ||
+                        (ii >= 31 && ii <= 34) ||
+                        (ii >= 38 && ii <= 41)
+                        ///////////////////// END BLOCK SIDE COUNT /////////////////////
+                    ) {
+                        allDots[ii].className = `winner`;
+                        allDots[ii - 1].className = `winner`;
+                        allDots[ii - 2].className = `winner`;
+                        allDots[ii - 3].className = `winner`;
+                        runVictoryEffects();
+                    }
+                }
+            }
+
+///////////////////////////////// END CHECKING FOR HORIZONTAL VICTORIES//////////////////////////////////
+
+///////////////////////////////// START CHECKING FOR DIAGONAL VICTORIES/////////////////////////////////
+            for (let x = allDots.length - 1; x >= 21; x--) {
+                if (
+                    allDots[x].className == `player${player}` &&
+                    allDots[x - 8].className == `player${player}` &&
+                    allDots[x - 16].className == `player${player}` &&
+                    allDots[x - 24].className == `player${player}`
+                ) {
+                    if (
+            ///////////////////// START BLOCK SIDE COUNT /////////////////////
+                        (x >= 38 && x <= 41) ||
+                        (x >= 31 && x <= 34) ||
+                        (x >= 24 && x <= 27)
+            ///////////////////// END BLOCK SIDE COUNT /////////////////////
+                    ) {
+                        allDots[x].className = `winner`;
+                        allDots[x - 8].className = `winner`;
+                        allDots[x - 16].className = `winner`;
+                        allDots[x - 24].className = `winner`;
+                        runVictoryEffects();
+                    }
+                } else if (
+                    allDots[x].className == `player${player}` &&
+                    allDots[x - 6].className == `player${player}` &&
+                    allDots[x - 12].className == `player${player}` &&
+                    allDots[x - 18].className == `player${player}`
+                ) {
+                    if (
+            ///////////////////// START BLOCK SIDE COUNT /////////////////////
+                        (x >= 35 && x <= 38) ||
+                        (x >= 28 && x <= 31) ||
+                        (x >= 21 && x <= 24)
+            ///////////////////// END BLOCK SIDE COUNT /////////////////////
+                    ) {
+                        allDots[x].className = `winner`;
+                        allDots[x - 6].className = `winner`;
+                        allDots[x - 12].className = `winner`;
+                        allDots[x - 18].className = `winner`;
+                        runVictoryEffects();
+                    }
+                }
+            }
+//////////////////////////////// END CHECKING FOR DIAGONAL VICTORIES/////////////////////////////////////
+        }
+    }
+};
+
+document.addEventListener("click", function (e) {
+    if (e.target.className === "mute") {
+        e.target.className = "play";
+        letMusicPlay = true;
+        audio[0].play();
+    } else if (e.target.className === "play") {
+        e.target.className = "mute";
+        letMusicPlay = false;
+        audio[0].pause();
+    }
+    if (e.target.className === "clear") {
+        this.location.reload();
+    }
+});
+
+
+
+
+const introHeadlineEffect = () => {
+    if (headlineIntroFXCounter < headline[0].children.length) {
+        setTimeout(() => {
+            headline[0].children[headlineIntroFXCounter].style = `visibility:visible`;
+            headlineIntroFXCounter++;
+            introHeadlineEffect();
+        }, 100);
+    }
+};
+
+introHeadlineEffect();
+
+
+const startGameHeadlineEffect = (e) => {
+    if (headlineStartGameFXCounter < headline[0].children.length) {
+        headline[0].children[
+            headlineStartGameFXCounter
+        ].style = `    animation: updown 1s infinite ease-in-out; visibility:visible;`;
+        headlineStartGameFXCounter++;
+        setTimeout(() => {
+            if (headline[0].children[headlineStartGameFXCounter]) {
+                headline[0].children[
+                    headlineStartGameFXCounter
+                ].style = `animation: updown 1s infinite ease-in-out;`;
+            }
+            startGameHeadlineEffect();
+        }, 50);
+    }
+};
+
+
+const victoryHeadlineEffect = (e) => {
+    setTimeout(() => {
+        if (headline[0].children[headlineVictoryFXCounter]) {
+            headline[0].children[
+                headlineVictoryFXCounter
+            ].style = `animation:textDot 1s infinite ; visibility:visible;`;
+            headlineVictoryFXCounter++;
+        }
+        victoryHeadlineEffect();
+    }, 50);
+};
+
+const runVictoryEffects = () => {
+    endGame = true;
+    audio[0].volume = 0.8;
+    myAudioVictory.play();
+    clear[0].innerHTML = "Clear Table";
+    setTimeout(() => {
+        audio[0].volume = 1;
+    }, 1000);
+    gameBoard[0].style = `animation: backLight 2s infinite`;
+    victoryHeadlineEffect();
+    hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;    animation: fadeIn 1.5s;  height:22vh !important;`;
+};

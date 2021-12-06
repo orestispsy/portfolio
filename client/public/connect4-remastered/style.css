@@ -1,0 +1,309 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+}
+
+.headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 10vw;
+    font-size: 7vh;
+    height: 90vh;
+    margin-right: 2vmax;
+    border: 1px solid white;
+    border-radius: 1vh;
+    animation: fadeIn 2s;
+    background-color: rgba(255, 255, 255, 0.11);
+}
+
+.headline div {
+    visibility: hidden;
+    border: 1px solid cyan;
+    padding: 0 1vmax;
+    border-radius: 50%;
+    margin-bottom: 1vh;
+    color: yellow;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.158);
+    padding: 1vmax;
+    border-radius: 1vh;
+}
+
+.gameBoard {
+    background-color: rgba(0, 0, 0, 0.678);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-row-gap: 1vmax;
+    grid-column-gap: 1vmax;
+    justify-items: center;
+    height: 90vh;
+    min-width: 60vw;
+    border-radius: 1vh;
+    border: 1px solid white;
+    animation: fadeIn 1s;
+}
+
+.dot,
+.player1,
+.player2,
+.winner {
+    width: 8vh;
+    height: 8vh;
+    background-color: orange;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.player {
+    z-index: 2;
+}
+
+.player1 {
+    background-color: cyan !important;
+    z-index: 2;
+    animation: updown 0.5s 2;
+}
+
+.player2 {
+    background-color: rgb(204, 0, 255) !important;
+    z-index: 2;
+    animation: updown 0.5s 2;
+}
+
+.winner {
+    background-color: red !important;
+
+    animation: updownWin 1s infinite ease-in-out;
+}
+
+#p1 {
+    background-color: cyan;
+   
+}
+
+#p2 {
+    background-color: rgb(204, 0, 255);
+    
+}
+
+.controls {
+    width: 20vw;
+    height: 90vh;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.11);
+    border-radius: 1vh;
+    margin-left: 2vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    align-self: center;
+    animation: fadeInControls 1.5s;
+    visibility: hidden;
+}
+
+.controlsTop{
+    min-height:38vh;
+    max-height: 50vh;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.token {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    margin-top: 2vmax;
+    z-index: 3;
+    animation: updown 3s infinite ease-in-out;
+}
+
+.token:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 166, 0, 0.885);
+    animation: none;
+}
+
+.user {
+    text-align: center;
+    margin-top: 1vmax;
+    font-size: 3vmax;
+    color: white;
+    letter-spacing: 5px;
+}
+
+.user span {
+    letter-spacing: 0;
+    font-size: 1.5vmax;
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 0.5vmax 1vmax;
+    text-shadow: -0 0 7px rgb(0, 0, 0, 0.5), 0 -0 7px rgb(0, 0, 0, 0.5),
+        -0 -0 7px rgb(0, 0, 0, 0.5), 0 0 7px rgb(0, 0, 0, 0.5);
+}
+
+.description {
+    animation: bounceDesc 3s infinite, textDot 3s infinite;
+    margin-top: 2vmax;
+    color: white;
+
+    width: 10vw;
+    text-align: center;
+}
+
+.arrow {
+    font-size: 3vmax;
+    color: white;
+}
+
+.clear {
+    color: white;
+    cursor: pointer;
+    letter-spacing: 2px;
+       animation: textDot 0.5s infinite;
+}
+
+.clear:hover {
+    animation: none;
+    color:yellow
+}
+
+.mute,
+.play {
+    background-image: url("./assets/mute.png");
+    background-size: cover;
+    width: 1vmax;
+    height: 1vmax;
+    position: fixed;
+    bottom: 1vmax;
+    right: 1vmax;
+    cursor: pointer;
+}
+
+.play {
+    background-image: url("./assets/play.png");
+}
+
+.audio {
+    width: 18vw;
+    height: 3vmax;
+    visibility: hidden;
+}
+
+.hand{
+margin-top:-2vmax;
+    background-image: url("./assets/hand.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width:12vw;
+    height:11vh;
+filter:invert(100%);
+transform: scaleX(-1);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeInControls {
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes bounceDesc {
+    0% {
+        margin-top: 0;
+    }
+    50% {
+        margin-top: 2vmax;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes backLight {
+    0% {
+        background-color: cyan;
+        box-shadow: 0 0 7px cyan;
+    }
+
+    50% {
+        background-color: rgb(204, 0, 255);
+        box-shadow: 0 0 7px rgb(204, 0, 255);
+    }
+
+    100% {
+        background-color: cyan;
+        box-shadow: 0 0 7px cyan;
+    }
+}
+
+@keyframes updown {
+    50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);
+    }
+}
+
+@keyframes updownWin {
+    0% {
+        width: 6vh;
+        height: 6vh;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.685);
+    }
+    50% {
+        width: 9vh;
+        height: 9vh;
+    }
+    100% {
+        width: 6vh;
+        height: 6vh;
+    }
+}
+
+@keyframes textDot {
+    0% {
+        color: cyan;
+    }
+
+    50% {
+        color: rgb(204, 0, 255);
+    }
+
+    100% {
+        color: cyan;
+    }
+}
