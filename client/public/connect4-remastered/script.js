@@ -1,4 +1,4 @@
-var main = document.querySelectorAll("main");
+var gameBoard = document.querySelectorAll(".gameBoard");
 var dot = document.createElement("div");
 var token = document.querySelectorAll(".token");
 var user = document.querySelectorAll(".user");
@@ -6,13 +6,13 @@ var desc = document.querySelectorAll(".description");
 var clear = document.querySelectorAll(".clear");
 var mute = document.querySelectorAll(".mute");
 var controls = document.querySelectorAll(".controls");
+var controlsTop = document.querySelectorAll(".controlsTop");
 var headline = document.querySelectorAll(".headline");
 var audio = document.querySelectorAll(".audio");
 var hand = document.querySelectorAll(".hand");
 var endGame = false;
 var goButton = false;
-var player = 1;
-var gameBoard = document.querySelectorAll(".gameBoard");
+var player = 0;
 var createDotsCounter = 1;
 var headlineIntroFXCounter = 0;
 var headlineStartGameFXCounter = 0;
@@ -25,6 +25,7 @@ var allDots;
 var myAudio = new Audio("./assets/throw.mp3");
 var myAudioVictory = new Audio("./assets/victory.mp3");
 var letMusicPlay = true;
+var firstClick = 0;
 
 ////////////////////////////////////Start CREATE BOARD //////////////////////////////
 
@@ -79,14 +80,19 @@ setTimeout(() => {
 ///////////////////////////////////////// End CREATE BOARD /////////////////////////////////
 
 document.addEventListener("mousedown", function (e) {
-    if (e.target.className == "token" && !endGame) {
-        goButton = true;
-        if (letMusicPlay) {
-            audio[0].play();
+    if (
+        (e.target.className == "token" && !endGame) ||
+        (e.target.className == "dot" && !endGame)
+    ) {
+        if (firstClick === 0) {
+            player = 1;
+            changeTokenColor();
+            firstClick++;
         }
-        startGameHeadlineEffect();
+        goButton = true;
+
         desc[0].remove();
-        document.addEventListener("mousemove", function (ev) {
+        document.addEventListener("mousemove" || "mouseup", function (ev) {
             if (goButton) {
                 for (let j = 1; j <= 7; j++) {
                     for (let jj = 5; jj >= 0; jj--) {
@@ -110,10 +116,11 @@ document.addEventListener("mousedown", function (e) {
                         }
                     }
                 }
-
-                e.target.style = `position:fixed; top:${
-                    ev.pageY - e.screenY * 0.03
-                }px; left:${ev.clientX - e.clientX * 0.02}px`;
+                if (e.target.className === "token") {
+                    e.target.style = `margin-top:0; position:fixed; top:${
+                        ev.pageY + e.screenY * 0.01
+                    }px; left:${ev.clientX - e.clientX * 0.02}px`;
+                }
             }
         });
     }
@@ -126,6 +133,10 @@ document.addEventListener("mouseup", function (e) {
             e.target.className == "player1" ||
             e.target.className == "player2"
         ) {
+            if (letMusicPlay) {
+                audio[0].play();
+                startGameHeadlineEffect();
+            }
             for (let j = 1; j <= 7; j++) {
                 for (let jj = 5; jj >= 0; jj--) {
                     if (columns[j][jj].id == e.target.id) {
@@ -204,6 +215,9 @@ const changeTokenColor = (e) => {
             token[0].id = `p2`;
             user[0].innerHTML =
                 "Player <span style='color:rgb(204, 0, 255) !important;'>2</span>";
+        } else if (player == 0) {
+            token[0].id = `p0`;
+            user[0].innerHTML = "Welcome";
         }
     } else {
         if (player == 1) {
@@ -216,9 +230,23 @@ const changeTokenColor = (e) => {
 
 changeTokenColor();
 
+const drawCheck = () => {
+    let emptySlots = 0;
+    allDots.forEach((dot) => {
+        if (dot.className === "dot") {
+            emptySlots++;
+        }
+    });
+
+    if (emptySlots === 0) {
+        noWinner();
+    }
+};
+
 const victoryCheck = () => {
+    drawCheck();
     for (let i = allDots.length - 1; i >= 0; i--) {
-//////////////////////////// START CHECKING FOR VERTICAL VICTORIES///////////////////////////////////////
+        //////////////////////////// START CHECKING FOR VERTICAL VICTORIES///////////////////////////////////////
 
         if (allDots[i].className == `player${player}`) {
             if (i - 7 < 0 || i - 14 < 0 || i - 21 < 0) {
@@ -242,9 +270,9 @@ const victoryCheck = () => {
                 allDots[i - 21].className = `winner`;
                 runVictoryEffects();
             }
-///////////////////////////// END CHECKING FOR VERTICAL VICTORIES///////////////////////////////////////////
+            ///////////////////////////// END CHECKING FOR VERTICAL VICTORIES///////////////////////////////////////////
 
-///////////////////////////// START CHECKING FOR HORIZONTAL VICTORIES//////////////////////////////////////
+            ///////////////////////////// START CHECKING FOR HORIZONTAL VICTORIES//////////////////////////////////////
 
             for (let ii = 3; ii <= allDots.length - 1; ii++) {
                 if (
@@ -272,10 +300,10 @@ const victoryCheck = () => {
                 }
             }
 
-///////////////////////////////// END CHECKING FOR HORIZONTAL VICTORIES//////////////////////////////////
+            ///////////////////////////////// END CHECKING FOR HORIZONTAL VICTORIES//////////////////////////////////
 
-///////////////////////////////// START CHECKING FOR DIAGONAL VICTORIES/////////////////////////////////
-            for (let x = allDots.length - 1; x >= 21; x--) {
+            ///////////////////////////////// START CHECKING FOR DIAGONAL VICTORIES/////////////////////////////////
+            for (let x = allDots.length - 1; x >= 24; x--) {
                 if (
                     allDots[x].className == `player${player}` &&
                     allDots[x - 8].className == `player${player}` &&
@@ -283,11 +311,11 @@ const victoryCheck = () => {
                     allDots[x - 24].className == `player${player}`
                 ) {
                     if (
-            ///////////////////// START BLOCK SIDE COUNT /////////////////////
+                        ///////////////////// START BLOCK SIDE COUNT /////////////////////
                         (x >= 38 && x <= 41) ||
                         (x >= 31 && x <= 34) ||
                         (x >= 24 && x <= 27)
-            ///////////////////// END BLOCK SIDE COUNT /////////////////////
+                        ///////////////////// END BLOCK SIDE COUNT /////////////////////
                     ) {
                         allDots[x].className = `winner`;
                         allDots[x - 8].className = `winner`;
@@ -295,18 +323,21 @@ const victoryCheck = () => {
                         allDots[x - 24].className = `winner`;
                         runVictoryEffects();
                     }
-                } else if (
+                }
+            }
+            for (let x = allDots.length - 1; x >= 21; x--) {
+                if (
                     allDots[x].className == `player${player}` &&
                     allDots[x - 6].className == `player${player}` &&
                     allDots[x - 12].className == `player${player}` &&
                     allDots[x - 18].className == `player${player}`
                 ) {
                     if (
-            ///////////////////// START BLOCK SIDE COUNT /////////////////////
+                        ///////////////////// START BLOCK SIDE COUNT /////////////////////
                         (x >= 35 && x <= 38) ||
                         (x >= 28 && x <= 31) ||
                         (x >= 21 && x <= 24)
-            ///////////////////// END BLOCK SIDE COUNT /////////////////////
+                        ///////////////////// END BLOCK SIDE COUNT /////////////////////
                     ) {
                         allDots[x].className = `winner`;
                         allDots[x - 6].className = `winner`;
@@ -316,7 +347,7 @@ const victoryCheck = () => {
                     }
                 }
             }
-//////////////////////////////// END CHECKING FOR DIAGONAL VICTORIES/////////////////////////////////////
+            //////////////////////////////// END CHECKING FOR DIAGONAL VICTORIES/////////////////////////////////////
         }
     }
 };
@@ -336,13 +367,12 @@ document.addEventListener("click", function (e) {
     }
 });
 
-
-
-
 const introHeadlineEffect = () => {
     if (headlineIntroFXCounter < headline[0].children.length) {
         setTimeout(() => {
-            headline[0].children[headlineIntroFXCounter].style = `visibility:visible`;
+            headline[0].children[
+                headlineIntroFXCounter
+            ].style = `visibility:visible`;
             headlineIntroFXCounter++;
             introHeadlineEffect();
         }, 100);
@@ -350,7 +380,6 @@ const introHeadlineEffect = () => {
 };
 
 introHeadlineEffect();
-
 
 const startGameHeadlineEffect = (e) => {
     if (headlineStartGameFXCounter < headline[0].children.length) {
@@ -368,7 +397,6 @@ const startGameHeadlineEffect = (e) => {
         }, 50);
     }
 };
-
 
 const victoryHeadlineEffect = (e) => {
     setTimeout(() => {
@@ -392,5 +420,19 @@ const runVictoryEffects = () => {
     }, 1000);
     gameBoard[0].style = `animation: backLight 2s infinite`;
     victoryHeadlineEffect();
-    hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;    animation: fadeIn 1.5s;  height:22vh !important;`;
+    user[0].style = `margin-bottom:4vmax;`;
+      
+    hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;   animation: fadeIn 1.5s;  height:22vh !important;`;
+};
+
+const noWinner = () => {
+    endGame = true;
+    clear[0].innerHTML = "Clear Table";
+    gameBoard[0].style = `animation: backLight 4s infinite`;
+    victoryHeadlineEffect();
+    user[0].remove();
+    hand[0].remove();
+    token[0].id = "draw";
+    controlsTop[0].style = `min-height:unset;`;
+    controls[0].style = `justify-content:center; visibility:visible; `;
 };

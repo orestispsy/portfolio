@@ -12,6 +12,7 @@ body {
     width: 100vw;
     height: 100vh;
     user-select: none;
+     font-family: "Darker Grotesque", sans-serif;
 }
 
 .headline {
@@ -100,12 +101,29 @@ main {
 
 #p1 {
     background-color: cyan;
-   
+    animation: updown 3s infinite ease-in-out;
 }
 
 #p2 {
     background-color: rgb(204, 0, 255);
-    
+    animation: updown 3s infinite ease-in-out;
+}
+
+#p0 {
+    background-color: orange;
+    animation: updown 3s infinite ease-in-out;
+    margin: 2vmax;
+
+}
+
+#draw {
+        background: linear-gradient(
+        90deg,
+        cyan 50.927083333333334%,
+        rgb(204, 0, 255) 50.84374999999999%
+    );
+    animation: drawFX 6s infinite ease-in-out, updown 3s infinite ease-in-out;
+    margin: 2vmax;
 }
 
 .controls {
@@ -124,10 +142,10 @@ main {
     visibility: hidden;
 }
 
-.controlsTop{
-    min-height:38vh;
+.controlsTop {
+    min-height: 38vh;
     max-height: 50vh;
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -137,7 +155,7 @@ main {
     width: 8vh;
     height: 8vh;
     border-radius: 50%;
-    margin-top: 2vmax;
+    margin-top: -2vmax;
     z-index: 3;
     animation: updown 3s infinite ease-in-out;
 }
@@ -170,8 +188,7 @@ main {
     animation: bounceDesc 3s infinite, textDot 3s infinite;
     margin-top: 2vmax;
     color: white;
-
-    width: 10vw;
+    width: 16vw;
     text-align: center;
 }
 
@@ -184,12 +201,12 @@ main {
     color: white;
     cursor: pointer;
     letter-spacing: 2px;
-       animation: textDot 0.5s infinite;
+    animation: textDot 0.5s infinite;
 }
 
 .clear:hover {
     animation: none;
-    color:yellow
+    color: white;
 }
 
 .mute,
@@ -214,15 +231,15 @@ main {
     visibility: hidden;
 }
 
-.hand{
-margin-top:-2vmax;
+.hand {
+    margin-top: -2vmax;
     background-image: url("./assets/hand.png");
     background-size: contain;
     background-repeat: no-repeat;
-    width:12vw;
-    height:11vh;
-filter:invert(100%);
-transform: scaleX(-1);
+    width: 12vw;
+    height: 11vh;
+    filter: invert(100%);
+    transform: scaleX(-1);
 }
 
 @keyframes fadeIn {
@@ -306,4 +323,11 @@ transform: scaleX(-1);
     100% {
         color: cyan;
     }
+}
+
+@keyframes drawFX {
+    0% {
+        transform: rotate(-2turn);
+        transition: 2s;
+    }   
 }
