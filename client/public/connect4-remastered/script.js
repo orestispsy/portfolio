@@ -421,7 +421,6 @@ const runVictoryEffects = () => {
     gameBoard[0].style = `animation: backLight 2s infinite`;
     victoryHeadlineEffect();
     user[0].style = `margin-bottom:4vmax;`;
-      
     hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;   animation: fadeIn 1.5s;  height:22vh !important;`;
 };
 
