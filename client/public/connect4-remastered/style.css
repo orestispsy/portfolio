@@ -5,14 +5,19 @@
 }
 
 body {
-    display: flex;
+   
+
+    user-select: none;
+     font-family: "Darker Grotesque", sans-serif;
+}
+
+.container {
+ display: flex;
     background-color: black;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+       width: 100vw;
     height: 100vh;
-    user-select: none;
-     font-family: "Darker Grotesque", sans-serif;
 }
 
 .headline {
@@ -190,11 +195,21 @@ main {
     color: white;
     width: 16vw;
     text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .arrow {
     font-size: 3vmax;
     color: white;
+    background-image: url("./assets/arrowUp.png");
+    background-size: cover;
+    width:2vmax;
+    height:2vmax;
+    filter: invert(100%);
+    margin-top:2vmax;
 }
 
 .clear {
@@ -226,8 +241,8 @@ main {
 }
 
 .audio {
-    width: 18vw;
-    height: 3vmax;
+    width: 0;
+    height: 0;
     visibility: hidden;
 }
 
@@ -330,4 +345,40 @@ main {
         transform: rotate(-2turn);
         transition: 2s;
     }   
+}
+
+
+@media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
+.container {visibility: hidden;
+   
+  
+}
+
+body{
+ background-color:black !important;
+}
+  .controls {
+      visibility: hidden !important;
+  }
+
+  .turnScreen{
+
+     visibility: visible !important;
+
+  }
+}
+
+@media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+}
+
+.turnScreen {
+          color:white;
+ position:fixed;
+bottom:50%;
+left:30vw;
+      width:60vw;
+      text-align: center;
+      animation: fadeIn 2s infinite;
+      visibility: hidden;
 }
