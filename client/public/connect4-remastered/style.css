@@ -110,15 +110,22 @@ main {
     animation: updownWin 1s infinite ease-in-out;
 }
 
+#p1:hover, #p2:hover {
+animation:shakeHover 4s infinite ease-in-out !important
+
+}
+
 #p1 {
     background-color: cyan;
-    animation: backlight 3s infinite ease-in-out, updownWin2 3s infinite ease-in-out;
+    animation: backlight 3s infinite ease-in-out,
+        updownWin2 3s infinite ease-in-out;
     margin-top: 0;
 }
 
 #p2 {
     background-color: rgb(204, 0, 255);
-    animation: backlight 3s infinite ease-in-out, updownWin2 3s infinite ease-in-out;
+    animation: backlight 3s infinite ease-in-out,
+        updownWin2 3s infinite ease-in-out;
     margin-top: 0;
 }
 
@@ -130,7 +137,6 @@ main {
         cyan 50.927083333333334%,
         rgb(204, 0, 255) 50.84374999999999%
     );
-    
 }
 
 .draw {
@@ -194,19 +200,16 @@ main {
     font-size: 3vmax;
     color: white;
     letter-spacing: 3px;
-    width:16vw;
-    margin-left:2vw;
-
+    width: 16vw;
+    margin-left: 2vw;
 }
 
 .user span {
     letter-spacing: 0;
-
-
 }
 
 .description {
-max-height: 42vh;
+    max-height: 42vh;
     margin-top: 2vmax;
     color: white;
     width: 16vw;
@@ -215,13 +218,13 @@ max-height: 42vh;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-     animation: textDot 3s infinite;
-     margin-bottom:2vmax;
-    font-size: 1.8vmax;
+    animation: textDot 3s infinite;
+    margin-bottom: 2vmax;
+    font-size: 1.7vmax;
 }
 
 .arrow {
-        animation: bounceDesc 4s infinite ease-in-out;
+    animation: bounceDesc 4s infinite ease-in-out;
     font-size: 3vmax;
     color: white;
     background-image: url("./assets/arrowUp.png");
@@ -229,7 +232,7 @@ max-height: 42vh;
     width: 2vmax;
     height: 2vmax;
     filter: invert(100%);
-   margin-bottom:1vmax;
+    margin-bottom: 1vmax;
 }
 
 .clear {
@@ -237,9 +240,9 @@ max-height: 42vh;
     cursor: pointer;
     letter-spacing: 2px;
     animation: textDot 0.5s infinite;
-        font-family: "Poller One", cursive;
-        font-size:1.3vmax;
-        margin-top:1vmax;
+    font-family: "Poller One", cursive;
+    font-size: 1.3vmax;
+    margin-top: 1vmax;
 }
 
 .clear:hover {
@@ -301,33 +304,27 @@ max-height: 42vh;
     0% {
         transform: scaleX(-1);
         transition: 1s;
-        width:3.5vmax;
-        height:3.5vmax;
-margin:1vmax
+        width: 3.5vmax;
+        height: 3.5vmax;
+        margin: 0 0 1vmax 0;
     }
     50% {
-      
-    
-         transform: rotate(-0.25turn);
+        transform: rotate(-0.25turn);
         transition: 2s;
-        margin:1.5vmax;
-         width:3vmax;
-        height:3vmax;
+        margin: 1.5vmax;
+        width: 3vmax;
+        height: 3vmax;
     }
-75% {
-      
-    transform: scaleX(-1);
+    75% {
+        transform: scaleX(-1);
         transition: 1s;
-}
+    }
     100% {
-        
         transform: scaleX(1);
         transition: 1s;
-      width:3.5vmax;
-        height:3.5vmax;
-        margin:1vmax
-     
-   
+        width: 3.5vmax;
+        height: 3.5vmax;
+      margin: 0 0 1vmax 0;
     }
 }
 
@@ -356,18 +353,16 @@ margin:1vmax
 
 @keyframes backlight2 {
     0% {
-               box-shadow: none
+        box-shadow: none;
     }
 
-     50% {
-
+    50% {
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);
     }
 
-     100% {
-            box-shadow: none
+    100% {
+        box-shadow: none;
     }
-
 }
 
 @keyframes updownWin {
@@ -407,10 +402,9 @@ margin:1vmax
     }
 }
 
-
 @keyframes shake {
     0% {
-        transform: translate(1px, 1px) rotate(0deg);
+       transform: translate(1px, 1px) rotate(0.5deg);
     }
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
@@ -436,11 +430,47 @@ margin:1vmax
     80% {
         transform: translate(-1px, -1px) rotate(1deg);
     }
-    90% {
-        transform: translate(1px, 2px) rotate(0deg);
+    95% {
+        transform: translate(1px, -1px) rotate(0.5deg);
     }
     100% {
-      transform: translate(1px, 1px) rotate(0deg);
+        transform: translate(1px, 1px) rotate(0.5deg);
+    }
+}
+
+@keyframes shakeHover {
+    0% {
+       transform: translate(1px, 10px) rotate(0.5deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(10px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(-10px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, -10px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    95% {
+        transform: translate(1px, 10px) rotate(0.5deg);
+    }
+    100% {
+        transform: translate(1px, 10px) rotate(0.5deg);
     }
 }
 

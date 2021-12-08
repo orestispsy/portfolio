@@ -10,7 +10,7 @@ var controls = document.querySelectorAll(".controls");
 var controlsTop = document.querySelectorAll(".controlsTop");
 var headline = document.querySelectorAll(".headline");
 var audio = document.querySelectorAll(".audio");
-audio[0].volume=0.6
+audio[0].volume = 0.6;
 var hand = document.querySelectorAll(".hand");
 
 var endGame = false;
@@ -27,7 +27,7 @@ var start = false;
 var allDots;
 var myAudio = new Audio("./assets/throw.mp3");
 var myAudioVictory = new Audio("./assets/victory.mp3");
-myAudioVictory.volume=0.5;
+myAudioVictory.volume = 0.4;
 var myAudioDraw = new Audio("./assets/draw.mp3");
 
 var letMusicPlay = true;
@@ -217,7 +217,6 @@ const changeTokenColor = (e) => {
             token[0].id = `p1`;
 
             user[0].innerHTML = "PLAYER <span style='color:cyan'>1</span>";
-           
         } else if (player == 2) {
             token[0].id = `p2`;
             user[0].innerHTML =
@@ -359,6 +358,19 @@ const victoryCheck = () => {
     }
 };
 
+document.addEventListener("mouseover", function (e) {
+    // console.log(e.clientX, e.clientY);
+    // console.log(e)
+    // if(endGame){
+    //     document.addEventListener("mousemove", function (e) {
+    //     if (e.target.id === "p1" || e.target.id === "p2") {
+    //       e.target.style = `margin-top:0; position:fixed; top:${
+    //           e.clientY - (e.clientY + e.screenY)
+    //       }px; left:${e.clientX + 5}px`;
+    //     }
+    // })}
+});
+
 document.addEventListener("click", function (e) {
     if (e.target.className === "mute") {
         e.target.className = "play";
@@ -420,20 +432,33 @@ const victoryHeadlineEffect = (e) => {
 const runVictoryEffects = () => {
     endGame = true;
     audio[0].volume = 0.5;
-       audio[0].currentTime = 70.25;
+    audio[0].currentTime = 66;
     myAudioVictory.play();
     clear[0].innerHTML = "Clear Board";
     setTimeout(() => {
         audio[0].volume = 0.6;
     }, 3000);
-   
+
     victoryHeadlineEffect();
     hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;   animation: fadeIn 1.5s;  height:22vh !important;`;
     user[0].style = `margin-bottom:2vmax; text-align:center; margin-left:0;`;
-    setTimeout(() => {
-         gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
+
+    ///////////////////////////////////////////////////////////// START MUSIC ANIMATION FX////////////////////////////////////////////////
+    gameBoard[0].style = `animation: backLight 2.5s infinite alternate`;
+    if (!letMusicPlay) {
+        gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
         token[0].style = `animation:shake 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
-    }, 300);
+    } else {
+        setTimeout(() => {
+            gameBoard[0].style = `animation: backLight 1s infinite alternate`;
+        }, 2500);
+        setTimeout(() => {
+            gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
+            token[0].style = `animation:shake 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
+        }, 5500);
+    }
+
+    /////////////////////////////////////////////////////////////END MUSIC ANIMATION FX////////////////////////////////////////////////
 };
 
 const noWinner = () => {
