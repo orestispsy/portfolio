@@ -1,3 +1,4 @@
+var body = document.querySelectorAll("body");
 var gameBoard = document.querySelectorAll(".gameBoard");
 var elem = document.createElement("div");
 var dot = document.createElement("div");
@@ -94,11 +95,14 @@ document.addEventListener("mousedown", function (e) {
             player = 1;
             changeTokenColor();
             firstClick++;
+           
         }
         goButton = true;
 
         desc[0].remove();
+               body[0].style = `cursor:none !important;`;
         document.addEventListener("mousemove" || "mouseup", function (ev) {
+     
             if (goButton) {
                 for (let j = 1; j <= 7; j++) {
                     for (let jj = 5; jj >= 0; jj--) {
@@ -129,6 +133,7 @@ document.addEventListener("mousedown", function (e) {
                 }
             }
         });
+        
     }
 });
 
@@ -143,6 +148,8 @@ document.addEventListener("mouseup", function (e) {
                 audio[0].play();
                 startGameHeadlineEffect();
             }
+                 clear[0].innerHTML = "Clear Board";
+                   clear[0].style = "margin-top:3vmax;";
             for (let j = 1; j <= 7; j++) {
                 for (let jj = 5; jj >= 0; jj--) {
                     if (columns[j][jj].id == e.target.id) {
@@ -209,6 +216,7 @@ document.addEventListener("mouseup", function (e) {
     token[0].style = `position:unset; `;
     changeTokenColor();
     goButton = false;
+           body[0].style = `cursor:unset !important;`;
 });
 
 const changeTokenColor = (e) => {
@@ -434,23 +442,28 @@ const runVictoryEffects = () => {
     audio[0].volume = 0.5;
     audio[0].currentTime = 66;
     myAudioVictory.play();
-    clear[0].innerHTML = "Clear Board";
+    clear[0].style="margin-top:2vmax"
     setTimeout(() => {
         audio[0].volume = 0.6;
     }, 3000);
 
     victoryHeadlineEffect();
-    hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;   animation: fadeIn 1.5s;  height:22vh !important;`;
+    hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0; margin-bottom:1vmax;   animation: fadeIn 1.5s;  height:22vh !important;`;
     user[0].style = `margin-bottom:2vmax; text-align:center; margin-left:0;`;
 
     ///////////////////////////////////////////////////////////// START MUSIC ANIMATION FX////////////////////////////////////////////////
     gameBoard[0].style = `animation: backLight 2.5s infinite alternate`;
+
     if (!letMusicPlay) {
         gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
-        token[0].style = `animation:shake 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
+        token[0].style = `animation:shake 6s infinite ease-in-out !important, backlight2 2.5s infinite ease-in-out; !important`;
     } else {
         setTimeout(() => {
             gameBoard[0].style = `animation: backLight 1s infinite alternate`;
+            token[0].style = `animation:shakeHover 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
+        }, 500);
+        setTimeout(() => {
+            token[0].style = `animation:shakeHover 4s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
         }, 2500);
         setTimeout(() => {
             gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
@@ -462,8 +475,8 @@ const runVictoryEffects = () => {
 };
 
 const noWinner = () => {
+        clear[0].style = "margin-top:0vmax";
     endGame = true;
-    clear[0].innerHTML = "Clear Board";
     gameBoard[0].style = `animation: backLight 4s infinite`;
     victoryHeadlineEffect();
     user[0].remove();
