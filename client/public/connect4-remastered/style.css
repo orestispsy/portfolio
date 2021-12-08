@@ -1,3 +1,10 @@
+/*
+font-family: 'Bangers', cursive;
+font-family: 'Black Ops One', cursive;
+font-family: 'Molle', cursive;
+font-family: 'Poller One', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Ultra', serif; */
 * {
     padding: 0;
     margin: 0;
@@ -5,18 +12,16 @@
 }
 
 body {
-   
-
     user-select: none;
-     font-family: "Darker Grotesque", sans-serif;
+    font-family: "Darker Grotesque", sans-serif;
 }
 
 .container {
- display: flex;
+    display: flex;
     background-color: black;
     justify-content: center;
     align-items: center;
-       width: 100vw;
+    width: 100vw;
     height: 100vh;
 }
 
@@ -27,13 +32,14 @@ body {
     justify-content: center;
     color: white;
     width: 10vw;
-    font-size: 7vh;
+    font-size: 6vh;
     height: 90vh;
     margin-right: 2vmax;
     border: 1px solid white;
     border-radius: 1vh;
     animation: fadeIn 2s;
     background-color: rgba(255, 255, 255, 0.11);
+    font-family: "Poller One", cursive;
 }
 
 .headline div {
@@ -41,7 +47,7 @@ body {
     border: 1px solid cyan;
     padding: 0 1vmax;
     border-radius: 50%;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     color: yellow;
 }
 
@@ -89,13 +95,13 @@ main {
 .player1 {
     background-color: cyan !important;
     z-index: 2;
-    animation: updown 0.5s 2;
+    animation: backlight 0.5s 2;
 }
 
 .player2 {
     background-color: rgb(204, 0, 255) !important;
     z-index: 2;
-    animation: updown 0.5s 2;
+    animation: backlight 0.5s 2;
 }
 
 .winner {
@@ -106,28 +112,39 @@ main {
 
 #p1 {
     background-color: cyan;
-    animation: updown 3s infinite ease-in-out;
+    animation: backlight 3s infinite ease-in-out, updownWin2 3s infinite ease-in-out;
+    margin-top: 0;
 }
 
 #p2 {
     background-color: rgb(204, 0, 255);
-    animation: updown 3s infinite ease-in-out;
+    animation: backlight 3s infinite ease-in-out, updownWin2 3s infinite ease-in-out;
+    margin-top: 0;
 }
 
 #p0 {
-    background-color: orange;
-    animation: updown 3s infinite ease-in-out;
+    animation: backlight 3s infinite ease-in-out, drawFX 6s infinite ease-in-out;
     margin: 2vmax;
-
-}
-
-#draw {
-        background: linear-gradient(
+    background: linear-gradient(
         90deg,
         cyan 50.927083333333334%,
         rgb(204, 0, 255) 50.84374999999999%
     );
-    animation: drawFX 6s infinite ease-in-out, updown 3s infinite ease-in-out;
+    
+}
+
+.draw {
+    font-size: 3vmax;
+    color: white;
+}
+
+#draw {
+    background: linear-gradient(
+        90deg,
+        cyan 50.927083333333334%,
+        rgb(204, 0, 255) 50.84374999999999%
+    );
+    animation: drawFX 6s infinite ease-in-out;
     margin: 2vmax;
 }
 
@@ -149,7 +166,7 @@ main {
 
 .controlsTop {
     min-height: 38vh;
-    max-height: 50vh;
+    max-height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,7 +179,7 @@ main {
     border-radius: 50%;
     margin-top: -2vmax;
     z-index: 3;
-    animation: updown 3s infinite ease-in-out;
+    animation: backlight 3s infinite ease-in-out;
 }
 
 .token:hover {
@@ -172,44 +189,47 @@ main {
 }
 
 .user {
-    text-align: center;
+    text-align: left;
     margin-top: 1vmax;
     font-size: 3vmax;
     color: white;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
+    width:16vw;
+    margin-left:2vw;
+
 }
 
 .user span {
     letter-spacing: 0;
-    font-size: 1.5vmax;
-    border-radius: 50%;
-    border: 1px solid white;
-    padding: 0.5vmax 1vmax;
-    text-shadow: -0 0 7px rgb(0, 0, 0, 0.5), 0 -0 7px rgb(0, 0, 0, 0.5),
-        -0 -0 7px rgb(0, 0, 0, 0.5), 0 0 7px rgb(0, 0, 0, 0.5);
+
+
 }
 
 .description {
-    animation: bounceDesc 3s infinite, textDot 3s infinite;
+max-height: 42vh;
     margin-top: 2vmax;
     color: white;
     width: 16vw;
     text-align: center;
-    display:flex;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+     animation: textDot 3s infinite;
+     margin-bottom:2vmax;
+    font-size: 1.8vmax;
 }
 
 .arrow {
+        animation: bounceDesc 4s infinite ease-in-out;
     font-size: 3vmax;
     color: white;
     background-image: url("./assets/arrowUp.png");
     background-size: cover;
-    width:2vmax;
-    height:2vmax;
+    width: 2vmax;
+    height: 2vmax;
     filter: invert(100%);
-    margin-top:2vmax;
+   margin-bottom:1vmax;
 }
 
 .clear {
@@ -217,11 +237,14 @@ main {
     cursor: pointer;
     letter-spacing: 2px;
     animation: textDot 0.5s infinite;
+        font-family: "Poller One", cursive;
+        font-size:1.3vmax;
+        margin-top:1vmax;
 }
 
 .clear:hover {
     animation: none;
-    color: white;
+    color: yellowgreen;
 }
 
 .mute,
@@ -247,7 +270,6 @@ main {
 }
 
 .hand {
-    margin-top: -2vmax;
     background-image: url("./assets/hand.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -277,13 +299,35 @@ main {
 
 @keyframes bounceDesc {
     0% {
-        margin-top: 0;
+        transform: scaleX(-1);
+        transition: 1s;
+        width:3.5vmax;
+        height:3.5vmax;
+margin:1vmax
     }
     50% {
-        margin-top: 2vmax;
+      
+    
+         transform: rotate(-0.25turn);
+        transition: 2s;
+        margin:1.5vmax;
+         width:3vmax;
+        height:3vmax;
     }
+75% {
+      
+    transform: scaleX(-1);
+        transition: 1s;
+}
     100% {
-        margin-top: 0;
+        
+        transform: scaleX(1);
+        transition: 1s;
+      width:3.5vmax;
+        height:3.5vmax;
+        margin:1vmax
+     
+   
     }
 }
 
@@ -304,10 +348,26 @@ main {
     }
 }
 
-@keyframes updown {
+@keyframes backlight {
     50% {
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);
     }
+}
+
+@keyframes backlight2 {
+    0% {
+               box-shadow: none
+    }
+
+     50% {
+
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);
+    }
+
+     100% {
+            box-shadow: none
+    }
+
 }
 
 @keyframes updownWin {
@@ -344,41 +404,73 @@ main {
     0% {
         transform: rotate(-2turn);
         transition: 2s;
-    }   
+    }
 }
 
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+}
 
 @media only screen and (min-device-width: 100px) and (max-device-width: 480px) and (orientation: portrait) {
-.container {visibility: hidden;
-   
-  
-}
+    .container {
+        visibility: hidden;
+    }
 
-body{
- background-color:black !important;
-}
-  .controls {
-      visibility: hidden !important;
-  }
+    body {
+        background-color: black !important;
+    }
+    .controls {
+        visibility: hidden !important;
+    }
 
-  .turnScreen{
-
-     visibility: visible !important;
-
-  }
+    .turnScreen {
+        visibility: visible !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
-
 }
 
 .turnScreen {
-          color:white;
- position:fixed;
-bottom:50%;
-left:30vw;
-      width:60vw;
-      text-align: center;
-      animation: fadeIn 2s infinite;
-      visibility: hidden;
+    color: white;
+    position: fixed;
+    bottom: 50%;
+    left: 30vw;
+    width: 60vw;
+    text-align: center;
+    animation: fadeIn 2s infinite;
+    visibility: hidden;
 }

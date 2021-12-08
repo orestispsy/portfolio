@@ -1,4 +1,5 @@
 var gameBoard = document.querySelectorAll(".gameBoard");
+var elem = document.createElement("div");
 var dot = document.createElement("div");
 var token = document.querySelectorAll(".token");
 var user = document.querySelectorAll(".user");
@@ -9,7 +10,9 @@ var controls = document.querySelectorAll(".controls");
 var controlsTop = document.querySelectorAll(".controlsTop");
 var headline = document.querySelectorAll(".headline");
 var audio = document.querySelectorAll(".audio");
+audio[0].volume=0.6
 var hand = document.querySelectorAll(".hand");
+
 var endGame = false;
 var goButton = false;
 var player = 0;
@@ -24,6 +27,9 @@ var start = false;
 var allDots;
 var myAudio = new Audio("./assets/throw.mp3");
 var myAudioVictory = new Audio("./assets/victory.mp3");
+myAudioVictory.volume=0.5;
+var myAudioDraw = new Audio("./assets/draw.mp3");
+
 var letMusicPlay = true;
 var firstClick = 0;
 
@@ -81,8 +87,8 @@ setTimeout(() => {
 
 document.addEventListener("mousedown", function (e) {
     if (
-        (e.target.className == "token" && !endGame) ||
-        (e.target.className == "dot" && !endGame)
+        (e.target.className == "token" && !endGame && allDots) ||
+        (e.target.className == "dot" && !endGame && allDots)
     ) {
         if (firstClick === 0) {
             player = 1;
@@ -210,20 +216,21 @@ const changeTokenColor = (e) => {
         if (player == 1) {
             token[0].id = `p1`;
 
-            user[0].innerHTML = "Player <span style='color:cyan'>1</span>";
+            user[0].innerHTML = "PLAYER <span style='color:cyan'>1</span>";
+           
         } else if (player == 2) {
             token[0].id = `p2`;
             user[0].innerHTML =
-                "Player <span style='color:rgb(204, 0, 255) !important;'>2</span>";
+                "PLAYER <span style='color:rgb(204, 0, 255) !important;'>2</span>";
         } else if (player == 0) {
             token[0].id = `p0`;
-            user[0].innerHTML = "Welcome";
+            user[0].innerHTML = "WELCOME";
         }
     } else {
         if (player == 1) {
-            user[0].innerHTML = "Player 2 Wins";
+            user[0].innerHTML = "PLAYER 2 WINS";
         } else if (player == 2) {
-            user[0].innerHTML = "Player 1 Wins";
+            user[0].innerHTML = "PLAYER 1 WINS";
         }
     }
 };
@@ -385,13 +392,13 @@ const startGameHeadlineEffect = (e) => {
     if (headlineStartGameFXCounter < headline[0].children.length) {
         headline[0].children[
             headlineStartGameFXCounter
-        ].style = `    animation: updown 1s infinite ease-in-out; visibility:visible;`;
+        ].style = `    animation: backlight2 1s infinite ease-in-out; visibility:visible;`;
         headlineStartGameFXCounter++;
         setTimeout(() => {
             if (headline[0].children[headlineStartGameFXCounter]) {
                 headline[0].children[
                     headlineStartGameFXCounter
-                ].style = `animation: updown 1s infinite ease-in-out;`;
+                ].style = `animation: backlight2 1s infinite ease-in-out;`;
             }
             startGameHeadlineEffect();
         }, 50);
@@ -412,21 +419,26 @@ const victoryHeadlineEffect = (e) => {
 
 const runVictoryEffects = () => {
     endGame = true;
-    audio[0].volume = 0.8;
+    audio[0].volume = 0.5;
+       audio[0].currentTime = 70.25;
     myAudioVictory.play();
-    clear[0].innerHTML = "Clear Table";
+    clear[0].innerHTML = "Clear Board";
     setTimeout(() => {
-        audio[0].volume = 1;
-    }, 1000);
-    gameBoard[0].style = `animation: backLight 2s infinite`;
+        audio[0].volume = 0.6;
+    }, 3000);
+   
     victoryHeadlineEffect();
-    user[0].style = `margin-bottom:4vmax;`;
     hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0;   animation: fadeIn 1.5s;  height:22vh !important;`;
+    user[0].style = `margin-bottom:2vmax; text-align:center; margin-left:0;`;
+    setTimeout(() => {
+         gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
+        token[0].style = `animation:shake 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
+    }, 300);
 };
 
 const noWinner = () => {
     endGame = true;
-    clear[0].innerHTML = "Clear Table";
+    clear[0].innerHTML = "Clear Board";
     gameBoard[0].style = `animation: backLight 4s infinite`;
     victoryHeadlineEffect();
     user[0].remove();
@@ -434,4 +446,8 @@ const noWinner = () => {
     token[0].id = "draw";
     controlsTop[0].style = `min-height:unset;`;
     controls[0].style = `justify-content:center; visibility:visible; `;
+    elem.className = "draw";
+    elem.innerHTML = "DRAW";
+    controlsTop[0].prepend(elem);
+    myAudioDraw.play();
 };
