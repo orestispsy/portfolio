@@ -92,21 +92,22 @@ document.addEventListener("mousedown", function (e) {
         (e.target.className == "dot" && !endGame && allDots)
     ) {
         if (firstClick === 0) {
+            gameTimeCount();
             player = 1;
             changeTokenColor();
             firstClick++;
-           
         }
         goButton = true;
 
-        desc[0].remove();
-               body[0].style = `cursor:none !important;`;
+        body[0].style = `cursor:none !important;`;
         document.addEventListener("mousemove" || "mouseup", function (ev) {
-     
             if (goButton) {
                 for (let j = 1; j <= 7; j++) {
                     for (let jj = 5; jj >= 0; jj--) {
-                        if (columns[j][jj].id == ev.target.id) {
+                        if (
+                            columns[j][jj].id &&
+                            columns[j][jj].id == ev.target.id
+                        ) {
                             let filteredSlots = columns[j].filter((obj) => {
                                 return obj.className == "dot";
                             });
@@ -133,12 +134,11 @@ document.addEventListener("mousedown", function (e) {
                 }
             }
         });
-        
     }
 });
 
 document.addEventListener("mouseup", function (e) {
-    if (goButton) {
+    if (goButton && !endGame) {
         if (
             e.target.className == "dot" ||
             e.target.className == "player1" ||
@@ -148,11 +148,12 @@ document.addEventListener("mouseup", function (e) {
                 audio[0].play();
                 startGameHeadlineEffect();
             }
-                 clear[0].innerHTML = "Clear Board";
-                   clear[0].style = "margin-top:3vmax;";
+
+            clear[0].innerHTML = "Clear Board";
+
             for (let j = 1; j <= 7; j++) {
                 for (let jj = 5; jj >= 0; jj--) {
-                    if (columns[j][jj].id == e.target.id) {
+                    if (columns[j][jj].id && columns[j][jj].id == e.target.id) {
                         let index = columns[j].findIndex(
                             (x) => x.id === e.target.id
                         );
@@ -216,7 +217,7 @@ document.addEventListener("mouseup", function (e) {
     token[0].style = `position:unset; `;
     changeTokenColor();
     goButton = false;
-           body[0].style = `cursor:unset !important;`;
+    body[0].style = `cursor:unset !important;`;
 });
 
 const changeTokenColor = (e) => {
@@ -224,9 +225,18 @@ const changeTokenColor = (e) => {
         if (player == 1) {
             token[0].id = `p1`;
 
+            token[0].style = `box-shadow:0 0 25px yellow`;
+            setTimeout(() => {
+                token[0].style = `animation: backlight2 2s infinite alternate,shake 4s infinite alternate`;
+            }, 2000);
+
             user[0].innerHTML = "PLAYER <span style='color:cyan'>1</span>";
         } else if (player == 2) {
             token[0].id = `p2`;
+            token[0].style = `box-shadow:0 0 25px yellow`;
+            setTimeout(() => {
+                token[0].style = `animation: backlight2 2s infinite alternate,shake 4s infinite alternate`;
+            }, 2000);
             user[0].innerHTML =
                 "PLAYER <span style='color:rgb(204, 0, 255) !important;'>2</span>";
         } else if (player == 0) {
@@ -440,42 +450,48 @@ const victoryHeadlineEffect = (e) => {
 const runVictoryEffects = () => {
     endGame = true;
     audio[0].volume = 0.5;
-    audio[0].currentTime = 66;
+    audio[0].currentTime = 65.5;
     myAudioVictory.play();
-    clear[0].style="margin-top:2vmax"
+    clear[0].style = "margin-top:2vmax";
     setTimeout(() => {
         audio[0].volume = 0.6;
     }, 3000);
-
+    setDotHoverFX();
     victoryHeadlineEffect();
     hand[0].style = ` background-image: url("./assets/handsOpen.png");  width:12vw !important; margin-top:0; margin-bottom:1vmax;   animation: fadeIn 1.5s;  height:22vh !important;`;
     user[0].style = `margin-bottom:2vmax; text-align:center; margin-left:0;`;
 
     ///////////////////////////////////////////////////////////// START MUSIC ANIMATION FX////////////////////////////////////////////////
-    gameBoard[0].style = `animation: backLight 2.5s infinite alternate`;
+    gameBoard[0].style = `animation: backLight 2s infinite alternate`;
 
     if (!letMusicPlay) {
         gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
         token[0].style = `animation:shake 6s infinite ease-in-out !important, backlight2 2.5s infinite ease-in-out; !important`;
     } else {
         setTimeout(() => {
-            gameBoard[0].style = `animation: backLight 1s infinite alternate`;
+            token[0].style = `box-shadow:0 0 50px  rgba(255, 255, 255)!important;`;
+        }, 100);
+        setTimeout(() => {
             token[0].style = `animation:shakeHover 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
         }, 500);
         setTimeout(() => {
+            gameBoard[0].style = `animation: backLight 1s infinite alternate`;
             token[0].style = `animation:shakeHover 4s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
-        }, 2500);
+        }, 3000);
         setTimeout(() => {
+            token[0].style = `box-shadow:0 0 50px yellow`;
             gameBoard[0].style = `animation: backLight 0.5s infinite alternate`;
-            token[0].style = `animation:shake 6s infinite ease-in-out, backlight2 2.5s infinite ease-in-out; !important`;
-        }, 5500);
+        }, 6000);
+        setTimeout(() => {
+            token[0].style = `cursor:none; animation: shake 6s infinite ease-in-out, backlight3 2.5s infinite ease-in-out; !important`;
+        }, 7500);
     }
 
     /////////////////////////////////////////////////////////////END MUSIC ANIMATION FX////////////////////////////////////////////////
 };
 
 const noWinner = () => {
-        clear[0].style = "margin-top:0vmax";
+    clear[0].style = "margin-top:0vmax";
     endGame = true;
     gameBoard[0].style = `animation: backLight 4s infinite`;
     victoryHeadlineEffect();
@@ -488,4 +504,49 @@ const noWinner = () => {
     elem.innerHTML = "DRAW";
     controlsTop[0].prepend(elem);
     myAudioDraw.play();
+};
+
+const setDotHoverFX = () => {
+    document.addEventListener("mouseover", function (e) {
+        let color = e.target.color;
+        if (
+            e.target.className == "dot" ||
+            e.target.className == "player1" ||
+            e.target.className == "player2"
+        ) {
+            allDots[e.target.id - 1].style =
+                "background-color:unset !important";
+
+            setTimeout(() => {
+                allDots[e.target.id - 1].style = `${color} !important`;
+            }, 500);
+        }
+    });
+};
+
+let seconds = 1;
+let minutes = 0;
+const gameTimeCount = () => {
+    if (endGame) {
+        return;
+    }
+    setTimeout(() => {
+        if (seconds >= 59) {
+            minutes++;
+        }
+        seconds++;
+        gameTimeCount();
+    }, 1000);
+    if (seconds >= 60) {
+        seconds = 0;
+    }
+    if (minutes >= 1) {
+        desc[0].innerHTML = `TIME ELAPSED <div>${minutes} MIN  ${seconds} SEC</div>`;
+    } else {
+        desc[0].innerHTML = `TIME ELAPSED <div> SEC ${seconds}</div>`;
+        desc[0].style = `height:unset; animation:none;`;
+    }
+    if (minutes >= 1) {
+        desc[0].style = `height:unset;animation: fadeIn 1s !imoprtant;`;
+    }
 };

@@ -110,9 +110,10 @@ main {
     animation: updownWin 1s infinite ease-in-out;
 }
 
-#p1:hover, #p2:hover {
-animation:shakeHover 6s infinite ease-in-out !important;
-cursor:grab;
+#p1:hover,
+#p2:hover {
+    animation: shakeHover 4s infinite ease-in-out !important;
+    cursor: grab;
 }
 
 #p1 {
@@ -209,45 +210,45 @@ cursor:grab;
 }
 
 .description {
-    max-height: 42vh;
-    margin-top: 2vmax;
+    height: 42vh;
+   
     color: white;
     width: 16vw;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     animation: textDot 3s infinite;
-    margin-bottom: 2vmax;
+
     font-size: 1.7vmax;
 }
 
 .arrow {
-    animation: bounceDesc 4s infinite ease-in-out;
+    animation: bounceDesc 3s infinite ease-in-out;
     font-size: 3vmax;
     color: white;
     background-image: url("./assets/arrowUp.png");
     background-size: cover;
-    width: 2vmax;
-    height: 2vmax;
+    width: 3vmax;
+    height: 3vmax;
     filter: invert(100%);
-    margin-bottom: 1vmax;
+    margin-bottom: 1.5vmax;
+    margin-top:-3vmax !important;
 }
 
 .clear {
     color: white;
     cursor: pointer;
     letter-spacing: 2px;
-    animation: textDot 0.5s infinite;
     font-family: "Poller One", cursive;
     font-size: 1.3vmax;
- 
+    margin:3vmax 0 2vmax 0;
+        color: yellowgreen;
 }
 
 .clear:hover {
-    animation: none;
-    color: yellowgreen;
+  animation: textDot 0.5s infinite;
 }
 
 .mute,
@@ -302,29 +303,37 @@ cursor:grab;
 
 @keyframes bounceDesc {
     0% {
-        transform: scaleX(-1);
-        transition: 1s;
-        width: 3.5vmax;
-        height: 3.5vmax;
-        margin: 0 0 1vmax 0;
+        transform: scaleX(1);
     }
+
+    15% {
+        margin-left: -5vmax;
+        transform: scaleX(1) rotate(-90deg);
+    }
+
     50% {
-        transform: rotate(-0.25turn);
-        transition: 2s;
-        margin: 1.5vmax;
-        width: 3vmax;
-        height: 3vmax;
+        opacity: 0%;
     }
-    75% {
-        transform: scaleX(-1);
-        transition: 1s;
-    }
-    100% {
+
+    80% {
         transform: scaleX(1);
         transition: 1s;
-        width: 3.5vmax;
-        height: 3.5vmax;
-      margin: 0 0 1vmax 0;
+    }
+
+    70% {
+        opacity: 0%;
+        transform: scaleX(1);
+        transition: 1s;
+    }
+    75% {
+        opacity: 100%;
+        transform: scaleX(-1);
+        transition: 1s;
+    }
+
+    100% {
+        transform: scaleX(1);
+        transition: 0.1s;
     }
 }
 
@@ -357,6 +366,17 @@ cursor:grab;
     }
 
     50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+@keyframes backlight3 {
+    0% {
+        box-shadow: none;
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.685);
     }
 
@@ -404,7 +424,7 @@ cursor:grab;
 
 @keyframes shake {
     0% {
-       transform: translate(1px, 1px) rotate(0.5deg);
+        transform: translate(1px, 1px) rotate(0.5deg);
     }
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
@@ -440,7 +460,7 @@ cursor:grab;
 
 @keyframes shakeHover {
     0% {
-       transform: translate(1px, -5px) rotate(0.5deg);
+        transform: translate(1px, -5px) rotate(0.5deg);
     }
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
@@ -459,6 +479,7 @@ cursor:grab;
     }
     60% {
         transform: translate(-3px, 1px) rotate(0deg);
+
     }
     70% {
         transform: translate(3px, -5px) rotate(-1deg);
