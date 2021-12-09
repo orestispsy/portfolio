@@ -36,10 +36,12 @@ let projects = [
         stack: ["Vanilla JS"],
         preview: "./../previewC4RE.jpg",
         url: "https://zero-psy.com/c4/",
-        git: "",
+        git: "https://github.com/orestispsy/c4-remastered",
         pics: [
             { pic: "./../projectPics/c4RE1.jpg" },
-           
+            { pic: "./../projectPics/c4RE2.jpg" },
+            { pic: "./../projectPics/c4RE3.jpg" },
+            { pic: "./../projectPics/c4RE4.gif" },
         ],
     },
     {
