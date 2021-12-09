@@ -35,8 +35,8 @@ let projects = [
 
         stack: ["Vanilla JS"],
         preview: "./../previewC4RE.jpg",
-        url: "/connect4-remastered/index.html",
-        git: "https://github.com/orestispsy/zero-psy/tree/master/client/public/connect4-remastered/",
+        url: "https://zero-psy.com/c4/",
+        git: "",
         pics: [
             { pic: "./../projectPics/c4RE1.jpg" },
            
