@@ -78,6 +78,11 @@ export default function Project({
                                     className="projectBox"
                                     id="projectBox"
                                     ref={galRef}
+                                    style={{
+                                        flexDirection:
+                                            selectedProject &&
+                                            `row`,
+                                    }}
                                 >
                                     <Gallery
                                         projects={projects}

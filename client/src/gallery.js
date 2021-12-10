@@ -32,6 +32,8 @@ export default function Gallery({
                             (toggleGallery && "galleryPicWide")
                         }
                         src={projects[selectedProject].pics[counter].pic}
+                        style={{animation:`fadeIn 2s`}}
+
                     ></img>
 
                     {selectedProject != 0 && (

@@ -23,30 +23,10 @@ let projects = [
         ],
         stack: ["Webpack.js", "React.js", "Node.js", "Express.js", "Email.js"],
     },
+
     {
         id: 1,
         flag: "one",
-        hot: false,
-        remastered: true,
-        name: "Connect4",
-        description: ``,
-
-        features: [],
-
-        stack: ["Vanilla JS"],
-        preview: "./../previewC4RE.jpg",
-        url: "https://zero-psy.com/c4/",
-        git: "https://github.com/orestispsy/c4-remastered",
-        pics: [
-            { pic: "./../projectPics/c4RE1.jpg" },
-            { pic: "./../projectPics/c4RE2.jpg" },
-            { pic: "./../projectPics/c4RE3.jpg" },
-            { pic: "./../projectPics/c4RE4.gif" },
-        ],
-    },
-    {
-        id: 2,
-        flag: "two",
         hot: true,
         name: "The Gig Guide",
         description: `The main idea behind the Gig Guide was to bring some order in the life of a rock n roll
@@ -111,6 +91,36 @@ let projects = [
             { pic: "./../projectPics/gg12.gif" },
             { pic: "./../projectPics/gg13.gif" },
             { pic: "./../projectPics/gg14.jpg" },
+        ],
+    },
+    {
+        id: 2,
+        flag: "two",
+        hot: false,
+        remastered: true,
+        name: "Connect4",
+        description: `The story goes like this : I was creating DOM elements with Javascript and started building shapes, styling with CSS Grid. At some point, my screen
+        started looking similar to the Board of Connect 4, the old Game for kids I've made with jQuery about a year ago. I decided to move on
+        and add functionalities. After a few hundreds of lines I came up with this version ! Made with love for the game & pure Vanilla JS. `,
+
+        features: [
+            "2-Player Game Mode",
+            "Draggable Playing Dot",
+            "Music & Sound Effects",
+            "Gameplay Music Interactions",
+            "Horizontal, Vertical & Diagonal Victories",
+            "Victory Board Animations",
+        ],
+
+        stack: ["Vanilla JS"],
+        preview: "./../previewC4RE.jpg",
+        url: "https://zero-psy.com/c4/",
+        git: "https://github.com/orestispsy/c4-remastered",
+        pics: [
+            { pic: "./../projectPics/c4RE1.jpg" },
+            { pic: "./../projectPics/c4RE2.jpg" },
+            { pic: "./../projectPics/c4RE3.jpg" },
+            { pic: "./../projectPics/c4RE4.gif" },
         ],
     },
     {
