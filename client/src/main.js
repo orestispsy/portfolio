@@ -112,7 +112,8 @@ export default function Main({
                     {projects &&
                         projects.map((project) => (
                             <Link
-                                to={`/projects/${project.id}`}
+                                to={`/projects/${project.id
+                                }`}
                                 key={project.id}
                                 className="description"
                             >
