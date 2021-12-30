@@ -32,9 +32,16 @@ export default function Gallery({
                             (!toggleGallery && "galleryPic") ||
                             (toggleGallery && "galleryPicWide")
                         }
-                        src={loaded && projects[selectedProject].pics[counter].pic || "./loading.gif"}
-                        style={{animation:`fadeIn 2s`}}
-onLoad={(e)=>{setLoaded(true)}}
+                 
+                        src={
+                            (loaded &&
+                                projects[selectedProject].pics[counter].pic) ||
+                            "./loading.jpg"
+                        }
+                        style={{ animation: !loaded && `fadeIn 0.5s infinite linear`|| `fadeIn 2s`    }}
+                        onLoad={(e) => {
+                            setLoaded(true);
+                        }}
                     ></img>
 
                     {selectedProject != 0 && (
@@ -73,7 +80,7 @@ onLoad={(e)=>{setLoaded(true)}}
                                 onClick={() => {
                                     if (counter < maxItems || counter == 0) {
                                         setCounter(counter + 1);
-                                           setLoaded(false);
+                                        setLoaded(false);
                                     }
                                 }}
                             >
