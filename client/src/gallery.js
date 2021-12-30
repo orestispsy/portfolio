@@ -23,11 +23,25 @@ export default function Gallery({
         [maxItems]
     );
 
+        useEffect(
+            function () {
+                setLoaded(false)
+            },
+            [counter]
+        );
+
     return (
         <>
             {selectedProject && projects[selectedProject].pics && (
                 <div className="galleryContainer">
-                    {!loaded && <div className="loading">LOADING</div>}
+                    {!loaded && (
+                        <div
+                            className="loading"
+                         
+                        >
+                            LOADING
+                        </div>
+                    )}
                     <img
                         className={
                             (!toggleGallery && "galleryPic") ||
@@ -40,6 +54,7 @@ export default function Gallery({
                         }
                         style={{ animation: `fadeIn 2s` }}
                         onLoad={(e) => {
+                            console.log(e.target.complete)
                             setLoaded(true);
                         }}
                     ></img>
@@ -56,7 +71,7 @@ export default function Gallery({
                                 onClick={() => {
                                     if (counter > 0) {
                                         setCounter(counter - 1);
-                                        setLoaded(false);
+                                     
                                     } else {
                                         return;
                                     }
@@ -80,7 +95,7 @@ export default function Gallery({
                                 onClick={() => {
                                     if (counter < maxItems || counter == 0) {
                                         setCounter(counter + 1);
-                                        setLoaded(false);
+                                  
                                     }
                                 }}
                             >
