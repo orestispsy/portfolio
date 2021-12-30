@@ -10,6 +10,7 @@ export default function Gallery({
 }) {
     const [counter, setCounter] = useState(0);
     const [maxItems, setMaxItems] = useState(0);
+        const [loaded, setLoaded] = useState(false);
 
     useEffect(
         function () {
@@ -31,9 +32,9 @@ export default function Gallery({
                             (!toggleGallery && "galleryPic") ||
                             (toggleGallery && "galleryPicWide")
                         }
-                        src={projects[selectedProject].pics[counter].pic}
+                        src={loaded && projects[selectedProject].pics[counter].pic || "./loading.gif"}
                         style={{animation:`fadeIn 2s`}}
-
+onLoad={(e)=>{setLoaded(true)}}
                     ></img>
 
                     {selectedProject != 0 && (
