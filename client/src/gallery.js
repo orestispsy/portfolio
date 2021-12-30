@@ -49,6 +49,7 @@ onLoad={(e)=>{setLoaded(true)}}
                                 onClick={() => {
                                     if (counter > 0) {
                                         setCounter(counter - 1);
+                                        setLoaded(false);
                                     } else {
                                         return;
                                     }
@@ -72,6 +73,7 @@ onLoad={(e)=>{setLoaded(true)}}
                                 onClick={() => {
                                     if (counter < maxItems || counter == 0) {
                                         setCounter(counter + 1);
+                                           setLoaded(false);
                                     }
                                 }}
                             >
