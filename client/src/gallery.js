@@ -38,7 +38,7 @@ export default function Gallery({
                                 projects[selectedProject].pics[counter].pic) ||
                             "./loading.jpg"
                         }
-                        style={{ animation: !loaded && `fadeIn 0.5s infinite linear`|| `fadeIn 2s`    }}
+                        style={{ animation: `fadeIn 2s` }}
                         onLoad={(e) => {
                             setLoaded(true);
                         }}
