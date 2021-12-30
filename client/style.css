@@ -944,6 +944,11 @@ input {
     padding: 0 0 0 2vmax;
 }
 
+.loading {
+    margin-top:-1vmax;
+    animation:fadeIn 0.5s infinite
+}
+
 .galleryPic {
     width: 32vw;
     height: 18vw;

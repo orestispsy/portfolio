@@ -27,16 +27,15 @@ export default function Gallery({
         <>
             {selectedProject && projects[selectedProject].pics && (
                 <div className="galleryContainer">
+                    {!loaded && <div className="loading">LOADING</div>}
                     <img
                         className={
                             (!toggleGallery && "galleryPic") ||
                             (toggleGallery && "galleryPicWide")
                         }
-                 
                         src={
-                            (loaded &&
-                                projects[selectedProject].pics[counter].pic) ||
-                            "./loading.jpg"
+                        
+                                projects[selectedProject].pics[counter].pic
                         }
                         style={{ animation: `fadeIn 2s` }}
                         onLoad={(e) => {
