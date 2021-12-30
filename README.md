@@ -1,7 +1,7 @@
 <div align=center>
  <h1>Portfolio</h1>
  <br>React single-page app, introducing past & current projects I develope.</br>
- <div>https://zero-psy.herokuapp.com/</div>
+ <div>https://zero-psy.com/portfolio</div>
  </div>
  
  <div align=center>
