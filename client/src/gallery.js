@@ -34,14 +34,7 @@ export default function Gallery({
         <>
             {selectedProject && projects[selectedProject].pics && (
                 <div className="galleryContainer">
-                    {!loaded && (
-                        <div
-                            className="loading"
-                         
-                        >
-                            LOADING
-                        </div>
-                    )}
+            
                     <img
                         className={
                             (!toggleGallery && "galleryPic") ||
@@ -50,11 +43,11 @@ export default function Gallery({
                         src={
                             (loaded &&
                                 projects[selectedProject].pics[counter].pic) ||
-                            "./wait.jpg"
+                            "./loading.gif"
                         }
                         style={{ animation: `fadeIn 2s` }}
                         onLoad={(e) => {
-                            console.log(e.target.complete)
+                 
                             setLoaded(true);
                         }}
                     ></img>
