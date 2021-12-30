@@ -34,8 +34,9 @@ export default function Gallery({
                             (toggleGallery && "galleryPicWide")
                         }
                         src={
-                        
-                                projects[selectedProject].pics[counter].pic
+                            (loaded &&
+                                projects[selectedProject].pics[counter].pic) ||
+                            "./wait.jpg"
                         }
                         style={{ animation: `fadeIn 2s` }}
                         onLoad={(e) => {

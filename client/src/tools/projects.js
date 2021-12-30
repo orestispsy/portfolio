@@ -20,7 +20,7 @@ let projects = [
             "Tech-Stack & Project Features",
             "Quick Email Form",
             `Easter Egg - Music`,
-            `Loading`
+            `PLEASE WAIT`
         ],
         stack: ["Webpack.js", "React.js", "Node.js", "Express.js", "Email.js"],
     },

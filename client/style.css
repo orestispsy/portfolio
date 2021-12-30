@@ -946,7 +946,7 @@ input {
 
 .loading {
     margin-top:-1vmax;
-    animation:fadeIn 0.5s infinite
+    animation:fadeIn 1s infinite
 }
 
 .galleryPic {
