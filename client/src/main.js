@@ -63,11 +63,13 @@ export default function Main({
                 </div>
                 {bioView && (
                     <>
-                        {" "}
                         <div className="bio">
-                            {`I am a Javascript Developer and I code mainly with HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and 
-                Socket.io. Last year, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A camp that
+                            {`Last year, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A camp that
                 altered my knowledge to the point and taught me how to activate super-powers again. `}
+                        </div>
+                        <div className="bio">
+                            {`I am a Javascript Developer and I code mainly with HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and
+                Socket.io. Recently I have added Typescript, Jest & React Testing Library to my Stack.`}
                         </div>
                         <div className="bio">
                             {` I like putting into my websites an old-School style approach, by using the aesthetics of the mid-late 90's  era.
@@ -112,8 +114,7 @@ export default function Main({
                     {projects &&
                         projects.map((project) => (
                             <Link
-                                to={`/projects/${project.id
-                                }`}
+                                to={`/projects/${project.id}`}
                                 key={project.id}
                                 className="description"
                             >
@@ -132,11 +133,7 @@ export default function Main({
                                                 <img
                                                     className="imgScr"
                                                     src={project.preview}
-                                                    id={
-                                                        selectedProject != 0
-                                                            ? project.flag
-                                                            : undefined
-                                                    }
+                                                    
                                                 ></img>
                                                 {project.hot &&
                                                     selectedProject == 0 && (
@@ -150,11 +147,9 @@ export default function Main({
                                                     )}
                                                 {project.remastered &&
                                                     selectedProject == 0 && (
-                                                        <div
-                                                           
-                                                            className="remastered"
-                                                      
-                                                        >Remastered</div>
+                                                        <div className="remastered">
+                                                            Remastered
+                                                        </div>
                                                     )}
                                             </div>
                                         </div>
@@ -168,37 +163,37 @@ export default function Main({
                 <img
                     className="techPic"
                     id="trio"
-                    src="./../tech/trio.png"
+                    src="./tech/trio.png"
                 ></img>
                 <img
                     className="techPic"
                     id="techPic"
-                    src="./../tech/nodejs.png"
+                    src="./tech/nodejs.png"
                 ></img>
                 <img
                     className="techPic"
                     id="techPicX"
-                    src="./../tech/expressjs.png"
+                    src="./tech/expressjs.png"
                 ></img>
-                <img className="techPic" src="./../tech/react.png"></img>
+                <img className="techPic" src="./tech/react.png"></img>
 
-                <img className="techPic" src="./../tech/redux.png"></img>
+                <img className="techPic" src="./tech/redux.png"></img>
 
                 <img
                     className="techPic"
                     id="techPic"
-                    src="./../tech/socketio.png"
+                    src="./tech/socketio.png"
                 ></img>
-                <img className="techPic" src="./../tech/postgresql.png"></img>
+                <img className="techPic" src="./tech/postgresql.png"></img>
                 <img
                     className="techPic"
                     id="techPic"
-                    src="./../tech/gcloud.png"
+                    src="./tech/gcloud.png"
                 ></img>
                 <img
                     className="techPic"
                     id="techPic"
-                    src="./../tech/aws.png"
+                    src="./tech/aws.png"
                 ></img>
             </div>
         </div>

@@ -18,22 +18,23 @@ export default function Project({
 
     const galRef = useRef();
 
+    const scrollTo = (top) => {
+        window.scrollTo({
+            top: top,
+            behavior: "smooth",
+        });
+    };
+
     useEffect(function () {
         setProject(match.params.id);
         setProjectView(false);
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth",
-        });
+        scrollTo(0);
     }, []);
 
     useEffect(
         function () {
             if (toggleGallery) {
-                window.scrollTo({
-                    top: galRef.current.offsetTop,
-                    behavior: "smooth",
-                });
+                scrollTo(galRef.current.offsetTop);
             }
         },
         [toggleGallery]
@@ -79,9 +80,7 @@ export default function Project({
                                     id="projectBox"
                                     ref={galRef}
                                     style={{
-                                        flexDirection:
-                                            selectedProject &&
-                                            `row`,
+                                        flexDirection: selectedProject && `row`,
                                     }}
                                 >
                                     <Gallery

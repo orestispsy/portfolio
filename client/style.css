@@ -226,7 +226,7 @@ body {
     color: rgb(255, 255, 255);
 }
 
-.introTitles div:nth-child(6) {
+.introTitles div:nth-child(7) {
     padding-bottom: 3vmax;
 }
 
@@ -396,23 +396,7 @@ body {
     filter: invert(50%);
 }
 
-#one,
-#two,
-#three,
-#four,
-#five,
-#six {
-    animation: blinker 2s linear infinite;
-}
 
-#one:hover,
-#two:hover,
-#three:hover,
-#four:hover,
-#five:hover,
-#six:hover {
-    animation: none;
-}
 
 @keyframes blinker {
     50% {

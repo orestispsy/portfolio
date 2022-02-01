@@ -96,7 +96,7 @@ export default function Gallery({
                             </div>
                             {!toggleGallery && (
                                 <img
-                                    src="./../zoom.png"
+                                    src="./zoom.png"
                                     className="zoom"
                                     title="Zoom"
                                     onClick={() => {
