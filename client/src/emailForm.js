@@ -1,62 +1,58 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import React from "react";
-import emailjs from "emailjs-com";
+import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import React from 'react'
+import emailjs from 'emailjs-com'
 
-export default function EmailForm({ setProjectView}) {
-    const [name, setName] = useState(false);
-    const [email, setEmail] = useState(false);
-    const [emailText, setEmailText] = useState(false);
-    const [sending, setSending] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [error, setError] = useState(false);
+export default function EmailForm({ setProjectView }) {
+    const [name, setName] = useState(false)
+    const [email, setEmail] = useState(false)
+    const [emailText, setEmailText] = useState(false)
+    const [sending, setSending] = useState(false)
+    const [success, setSuccess] = useState(false)
+    const [error, setError] = useState(false)
 
-        useEffect(
-            function () {
-               setProjectView(false)
-            },
-            []
-        );
-
+    useEffect(function () {
+        setProjectView(false)
+    }, [])
 
     const handleNameChange = (e) => {
-        setName(e.target.value);
-    };
+        setName(e.target.value)
+    }
 
     const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-    };
+        setEmail(e.target.value)
+    }
 
     const handleEmailTextChange = (e) => {
-        setEmailText(e.target.value);
-    };
+        setEmailText(e.target.value)
+    }
 
     const sendEmail = () => {
         const templateParams = {
             userName: name,
             userEmail: email,
             text: emailText,
-        };
+        }
         emailjs
             .send(
-                "service_uruuovk",
-                "template_vlxhcdm",
+                'service_uruuovk',
+                'template_vlxhcdm',
                 templateParams,
-                "user_Y2KOkk3fOb66K8J9CajaN"
+                'user_Y2KOkk3fOb66K8J9CajaN'
             )
             .then(
                 (response) => {
-                    setSending(false);
-                    setSuccess(true);
-                    console.log("SUCCESS!", response.status, response.text);
+                    setSending(false)
+                    setSuccess(true)
+                    console.log('SUCCESS!', response.status, response.text)
                 },
                 (err) => {
-                    setError(true);
-                    setSending(false);
-                    console.log("FAILED...", err);
+                    setError(true)
+                    setSending(false)
+                    console.log('FAILED...', err)
                 }
-            );
-    };
+            )
+    }
 
     return (
         <div className="emailFormContainerBack">
@@ -67,7 +63,7 @@ export default function EmailForm({ setProjectView}) {
                         className="mail"
                         id="mail"
                         onClick={() => {
-                            this.setProject(false);
+                            this.setProject(false)
                         }}
                     ></div>
                     <div className="inputHeadline">Your Name</div>
@@ -89,9 +85,9 @@ export default function EmailForm({ setProjectView}) {
                         <div
                             className="sendButton"
                             onClick={() => {
-                                setSending(true);
-                                sendEmail();
-                                setError(false);
+                                setSending(true)
+                                sendEmail()
+                                setError(false)
                             }}
                         >
                             Send
@@ -99,7 +95,7 @@ export default function EmailForm({ setProjectView}) {
                     )}
                     {sending && <div className="sending"></div>}
                     {success && (
-                        <Link to={"/"} className="sent">
+                        <Link to={'/'} className="sent">
                             Done !
                         </Link>
                     )}
@@ -111,7 +107,7 @@ export default function EmailForm({ setProjectView}) {
                         onChange={(e) => handleEmailTextChange(e)}
                     ></textarea>
                 </div>
-                <Link to={"/"} className="closeTab" id="closeTab">
+                <Link to={'/'} className="closeTab" id="closeTab">
                     X
                 </Link>
             </div>
@@ -122,5 +118,5 @@ export default function EmailForm({ setProjectView}) {
                 </div>
             )}
         </div>
-    );
+    )
 }

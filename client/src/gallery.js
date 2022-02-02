@@ -1,54 +1,54 @@
-import { useState, useEffect, Fragment } from "react";
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Gallery({
     projects,
     selectedProject,
     toggleGallery,
     setToggleGallery,
+    scrollTo,
+    galRef,
 }) {
-    const [counter, setCounter] = useState(0);
-    const [maxItems, setMaxItems] = useState(0);
-        const [loaded, setLoaded] = useState(false);
+    const [counter, setCounter] = useState(0)
+    const [maxItems, setMaxItems] = useState(0)
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(
         function () {
             if (projects && selectedProject) {
                 if (projects[selectedProject].pics) {
-                    setMaxItems(projects[selectedProject].pics.length - 1);
+                    setMaxItems(projects[selectedProject].pics.length - 1)
                 }
             }
         },
         [maxItems]
-    );
+    )
 
-        useEffect(
-            function () {
-                setLoaded(false)
-            },
-            [counter]
-        );
+    useEffect(
+        function () {
+            setLoaded(false)
+        },
+        [counter]
+    )
 
     return (
         <>
             {selectedProject && projects[selectedProject].pics && (
                 <div className="galleryContainer">
-            
                     <img
                         className={
-                            (!toggleGallery && "galleryPic") ||
-                            (toggleGallery && "galleryPicWide")
+                            (!toggleGallery && 'galleryPic') ||
+                            (toggleGallery && 'galleryPicWide')
                         }
                         src={
                             (loaded &&
                                 projects[selectedProject].pics[counter].pic) ||
-                            "./loading.gif"
+                            './loading.gif'
                         }
                         style={{ animation: `fadeIn 2s` }}
                         onLoad={(e) => {
-                 
-                            setLoaded(true);
+                            setLoaded(true)
                         }}
                     ></img>
 
@@ -63,10 +63,9 @@ export default function Gallery({
                                 title="Previous"
                                 onClick={() => {
                                     if (counter > 0) {
-                                        setCounter(counter - 1);
-                                     
+                                        setCounter(counter - 1)
                                     } else {
-                                        return;
+                                        return
                                     }
                                 }}
                             >
@@ -79,7 +78,7 @@ export default function Gallery({
                                 min={0}
                                 max={maxItems}
                                 onChange={(e) => {
-                                    setCounter(parseInt(e.target.value));
+                                    setCounter(parseInt(e.target.value))
                                 }}
                             ></input>
                             <div
@@ -87,23 +86,31 @@ export default function Gallery({
                                 title="Next"
                                 onClick={() => {
                                     if (counter < maxItems || counter == 0) {
-                                        setCounter(counter + 1);
-                                  
+                                        setCounter(counter + 1)
                                     }
                                 }}
                             >
                                 ►
                             </div>
-                            {!toggleGallery && (
-                                <img
-                                    src="./zoom.png"
-                                    className="zoom"
-                                    title="Zoom"
-                                    onClick={() => {
-                                        setToggleGallery(true);
-                                    }}
-                                ></img>
-                            )}
+
+                            <img
+                                src="./zoom.png"
+                                className="zoom"
+                                title="Zoom"
+                                onClick={() => {
+                                    if (!toggleGallery) {
+                                        setToggleGallery(true)
+                                        setTimeout(() => {
+                                            scrollTo(
+                                                galRef.current.offsetTop,
+                                                'smooth'
+                                            )
+                                        }, 700)
+                                    } else {
+                                        setToggleGallery(false)
+                                    }
+                                }}
+                            ></img>
                         </div>
                     )}
 
@@ -149,5 +156,5 @@ export default function Gallery({
                 </div>
             )}
         </>
-    );
+    )
 }

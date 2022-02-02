@@ -1,38 +1,38 @@
-const path = require("path");
+const path = require('path')
 
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     entry: [
-        "@babel/polyfill",
-        path.join(__dirname, "client", "style.css"),
-        path.join(__dirname, "client", "src", "start.js"),
+        '@babel/polyfill',
+        path.join(__dirname, 'client', 'style.css'),
+        path.join(__dirname, 'client', 'src', 'start.js'),
     ],
 
     output: {
-        path: path.join(__dirname, "client", "public"),
-        filename: "bundle.js",
+        path: path.join(__dirname, 'client', 'public'),
+        filename: 'bundle.js',
     },
     performance: {
         hints: false,
     },
     devServer: {
-        contentBase: path.join(__dirname, "client", "public"),
+        contentBase: path.join(__dirname, 'client', 'public'),
         proxy: {
-            "/": {
-                target: "http://localhost:3001",
+            '/': {
+                target: 'http://localhost:3001',
             },
         },
-        port: "3000",
+        port: '3000',
     },
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 use: {
-                    loader: "babel-loader",
+                    loader: 'babel-loader',
                 },
             },
             {
@@ -40,7 +40,7 @@ module.exports = {
                 use: [
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
                             url: false,
                         },
@@ -49,16 +49,16 @@ module.exports = {
             },
             {
                 test: /\.mp3$/,
-                loader: "file-loader",
+                loader: 'file-loader',
                 options: {
-                    name: "[path][name].[ext]",
+                    name: '[path][name].[ext]',
                 },
             },
             {
                 test: /\.html$/,
                 use: [
                     {
-                        loader: "html-loader",
+                        loader: 'html-loader',
                     },
                 ],
             },
@@ -66,11 +66,11 @@ module.exports = {
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: "./client/index.html",
-            filename: "./index.html",
+            template: './client/index.html',
+            filename: './index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: "bundle.css",
+            filename: 'bundle.css',
         }),
     ],
-};
+}

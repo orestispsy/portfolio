@@ -1,21 +1,21 @@
-import React from "react";
-import { Route, Link, HashRouter } from "react-router-dom";
-import Project from "./project";
-import EmailForm from "./emailForm";
+import React from 'react'
+import { Route, Link, HashRouter } from 'react-router-dom'
+import Project from './project'
+import EmailForm from './emailForm'
 
-import Main from "./main";
+import Main from './main'
 
-import projects from "./tools/projects.js";
+import projects from './tools/projects.js'
 
 export default class App extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             selectedProject: false,
             emailForm: false,
             mute: false,
             projectView: false,
-        };
+        }
     }
 
     componentDidMount() {}
@@ -23,19 +23,19 @@ export default class App extends React.Component {
     setProjectView(e) {
         this.setState({
             projectView: e,
-        });
+        })
     }
 
     setMute(e) {
         this.setState({
             mute: e,
-        });
+        })
     }
 
     setProject(e) {
         this.setState({
             selectedProject: e,
-        });
+        })
     }
 
     toggleEmailForm() {
@@ -45,7 +45,14 @@ export default class App extends React.Component {
             }
             // ,
             // () => console.log("State after setState: ", this.state)
-        );
+        )
+    }
+
+    scrollTo(top, behavior) {
+        window.scrollTo({
+            top: top,
+            behavior: behavior || 'auto',
+        })
     }
 
     render() {
@@ -54,9 +61,9 @@ export default class App extends React.Component {
                 <div className="appContainer">
                     <div className="appBox">
                         <div className="introMenu">
-                            <Link to={"/"} className="introText">
+                            <Link to={'/'} className="introText">
                                 {!this.state.selectedProject &&
-                                    "Orestis Psycharis"}{" "}
+                                    'Orestis Psycharis'}{' '}
                                 {this.state.selectedProject &&
                                     projects.projects[
                                         this.state.selectedProject
@@ -106,12 +113,12 @@ export default class App extends React.Component {
                                     ></img>
                                 </a>
 
-                                <Link to={"/contact"}>
+                                <Link to={'/contact'}>
                                     <div
                                         title="Send Quick Message"
                                         className="mail"
                                         onClick={() => {
-                                            this.setProject(false);
+                                            this.setProject(false)
                                         }}
                                     ></div>
                                 </Link>
@@ -130,6 +137,7 @@ export default class App extends React.Component {
                                 setMute={(e) => this.setMute(e)}
                                 mute={this.state.mute}
                                 projectView={this.state.projectView}
+                                scrollTo={(e1, e2) => this.scrollTo(e1, e2)}
                             />
                         )}
                     />
@@ -154,11 +162,12 @@ export default class App extends React.Component {
                                 setMute={(e) => this.setMute(e)}
                                 projectView={this.state.projectView}
                                 setProjectView={(e) => this.setProjectView(e)}
+                                scrollTo={(e1, e2) => this.scrollTo(e1, e2)}
                             />
                         )}
                     />
                 </div>
             </HashRouter>
-        );
+        )
     }
 }

@@ -1,8 +1,8 @@
-import { useState, useEffect, Fragment, useRef } from "react";
-import React from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-import Gallery from "./gallery";
+import Gallery from './gallery'
 
 export default function Project({
     setProject,
@@ -11,34 +11,19 @@ export default function Project({
     match,
     setMute,
     setProjectView,
+    scrollTo,
 }) {
-    const [toggleGallery, setToggleGallery] = useState(false);
+    const [toggleGallery, setToggleGallery] = useState(false)
 
-    const elemRef = useRef();
+    const elemRef = useRef()
 
-    const galRef = useRef();
-
-    const scrollTo = (top) => {
-        window.scrollTo({
-            top: top,
-            behavior: "smooth",
-        });
-    };
+    const galRef = useRef()
 
     useEffect(function () {
-        setProject(match.params.id);
-        setProjectView(false);
-        scrollTo(0);
-    }, []);
-
-    useEffect(
-        function () {
-            if (toggleGallery) {
-                scrollTo(galRef.current.offsetTop);
-            }
-        },
-        [toggleGallery]
-    );
+        setProject(match.params.id)
+        setProjectView(false)
+        scrollTo(0)
+    }, [])
 
     return (
         <>
@@ -46,31 +31,22 @@ export default function Project({
                 className="projectBoxBack"
                 id="projectBoxBack"
                 style={{
-                    marginTop: selectedProject ? "3vmax" : "none",
+                    marginTop: selectedProject ? '3vmax' : 'none',
                 }}
             >
                 {!toggleGallery && (
                     <Link
-                        to={"/"}
+                        to={'/'}
                         className="closeTab"
                         onClick={() => {
-                            setMute(true);
-                            setProjectView(true);
+                            setMute(true)
+                            setProjectView(true)
                         }}
                     >
                         X
                     </Link>
                 )}
-                {toggleGallery && (
-                    <div
-                        className="closeTab"
-                        onClick={() => {
-                            setToggleGallery(false);
-                        }}
-                    >
-                        X
-                    </div>
-                )}
+
                 {projects &&
                     projects.map((project) => (
                         <React.Fragment key={project.id}>
@@ -88,6 +64,8 @@ export default function Project({
                                         selectedProject={selectedProject}
                                         toggleGallery={toggleGallery}
                                         setToggleGallery={setToggleGallery}
+                                        scrollTo={scrollTo}
+                                        galRef={galRef}
                                     />
                                     {!toggleGallery && (
                                         <div className="description">
@@ -158,21 +136,21 @@ export default function Project({
                                                 className="projectUp"
                                                 title="Top"
                                                 onMouseDown={() => {
-                                                    var i = 10;
+                                                    var i = 10
                                                     var int = setInterval(
                                                         function () {
                                                             elemRef.current.scrollTop =
                                                                 elemRef.current
                                                                     .scrollTop -
-                                                                i;
-                                                            i += 10;
+                                                                i
+                                                            i += 10
                                                             if (i >= 200)
                                                                 clearInterval(
                                                                     int
-                                                                );
+                                                                )
                                                         },
                                                         20
-                                                    );
+                                                    )
                                                 }}
                                             ></div>
 
@@ -180,21 +158,21 @@ export default function Project({
                                                 className="projectDown"
                                                 title="Scroll Down"
                                                 onMouseDown={() => {
-                                                    var i = 0;
+                                                    var i = 0
                                                     var int = setInterval(
                                                         function () {
                                                             elemRef.current.scrollTop =
                                                                 elemRef.current
                                                                     .scrollTop +
-                                                                i;
-                                                            i += 1;
+                                                                i
+                                                            i += 1
                                                             if (i >= 20)
                                                                 clearInterval(
                                                                     int
-                                                                );
+                                                                )
                                                         },
                                                         20
-                                                    );
+                                                    )
                                                 }}
                                             ></div>
                                         </div>
@@ -205,5 +183,5 @@ export default function Project({
                     ))}
             </div>
         </>
-    );
+    )
 }

@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
-import React from "react";
-import useSound from "use-sound";
+import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import React from 'react'
+import useSound from 'use-sound'
 
-import music from "./../public/music.mp3";
+import music from './../public/music.mp3'
 
 export default function Main({
     setProject,
@@ -12,34 +12,32 @@ export default function Main({
     mute,
     setMute,
     projectView,
+    scrollTo,
 }) {
-    const [play, { stop }] = useSound(music, { volume: 0.75 });
-    const [bioView, setBioView] = useState(false);
+    const [play, { stop }] = useSound(music, { volume: 0.75 })
+    const [bioView, setBioView] = useState(false)
 
-    const projRef = useRef();
+    const projRef = useRef()
 
     const letMusic = (e) => {
         if (!mute) {
-            play();
-            setMute(true);
+            play()
+            setMute(true)
         }
-    };
+    }
 
     useEffect(function () {
-        setProject(false);
-    }, []);
+        setProject(false)
+    }, [])
 
     useEffect(function () {
         if (projectView) {
-            clearTimeout(timer);
+            clearTimeout(timer)
             const timer = setTimeout(() => {
-                window.scrollTo({
-                    top: projRef.current.offsetTop,
-                    behavior: "smooth",
-                });
-            }, 0);
+                scrollTo(projRef.current.offsetTop, 'smooth')
+            }, 0)
         }
-    }, []);
+    }, [])
 
     return (
         <div className="mainContainer">
@@ -49,12 +47,12 @@ export default function Main({
                     Born and raised in Greece, currently living in Berlin,
                     Germany. First studies in Electronic Engineering. Then,
                     after times of wandering, lots of luck and undeniable fate,
-                    life brought me back into the web tech scene.{" "}
+                    life brought me back into the web tech scene.{' '}
                     {!bioView && <span id="dots">. .</span>}
                     {!bioView && (
                         <span
                             onClick={() => {
-                                setBioView(!bioView);
+                                setBioView(!bioView)
                             }}
                         >
                             show more
@@ -64,12 +62,14 @@ export default function Main({
                 {bioView && (
                     <>
                         <div className="bio">
-                            {`Last year, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A camp that
-                altered my knowledge to the point and taught me how to activate super-powers again. `}
+                            {`I have worked in TV & Event Production Industry as an electronic engineer.
+                            Although, I always wanted to make the right turn.
+                            One year ago, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A coding-camp
+                             that altered my knowledge to the point and taught me how to activate super-powers again. `}
                         </div>
                         <div className="bio">
                             {`I am a Javascript Developer and I code mainly with HTML/CSS, Node.js, Express.js, React.js, Redux, PostgreSQL and
-                Socket.io. Recently I have added Typescript, Jest & React Testing Library to my Stack.`}
+                Socket.io. Recently I have added Typescript & Testing to my Stack.`}
                         </div>
                         <div className="bio">
                             {` I like putting into my websites an old-School style approach, by using the aesthetics of the mid-late 90's  era.
@@ -88,20 +88,18 @@ export default function Main({
                             includes the Sun, a Beach and a right place to
                             chill. I know what the Secret of Monkey Island is
                             and I still miss the times listening to the calling
-                            tone of an old dial-up connection.{" "}
+                            tone of an old dial-up connection.
                             {bioView && (
                                 <span
                                     onClick={() => {
-                                        setBioView(!bioView);
-                                        window.scrollTo({
-                                            top: 0,
-                                        });
+                                        setBioView(!bioView)
+                                        scrollTo(0)
                                     }}
                                 >
                                     hide
                                 </span>
                             )}
-                        </div>{" "}
+                        </div>{' '}
                     </>
                 )}
             </div>
@@ -122,7 +120,7 @@ export default function Main({
                                     selectedProject == project.id) && (
                                     <div
                                         onClick={(e) => {
-                                            setProject(project.id);
+                                            setProject(project.id)
                                         }}
                                     >
                                         <div className="projectBack">
@@ -133,7 +131,6 @@ export default function Main({
                                                 <img
                                                     className="imgScr"
                                                     src={project.preview}
-                                                    
                                                 ></img>
                                                 {project.hot &&
                                                     selectedProject == 0 && (
@@ -141,7 +138,7 @@ export default function Main({
                                                             src="./hot.png"
                                                             className="hot"
                                                             onClick={() => {
-                                                                letMusic();
+                                                                letMusic()
                                                             }}
                                                         ></img>
                                                     )}
@@ -160,11 +157,7 @@ export default function Main({
                 </div>
             </div>
             <div className="techStack">
-                <img
-                    className="techPic"
-                    id="trio"
-                    src="./tech/trio.png"
-                ></img>
+                <img className="techPic" id="trio" src="./tech/trio.png"></img>
                 <img
                     className="techPic"
                     id="techPic"
@@ -196,6 +189,12 @@ export default function Main({
                     src="./tech/aws.png"
                 ></img>
             </div>
+            <div className="footer">
+                © 2022{' '}
+                <a href="https://zero-psy.com" target="_blank">
+                    zero-psy.com{' '}
+                </a>
+            </div>
         </div>
-    );
+    )
 }
