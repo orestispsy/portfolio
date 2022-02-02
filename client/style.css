@@ -623,6 +623,11 @@ body {
     .prvGallery {
         font-size: 3vmax !important;
     }
+
+    #muted,
+    #muted {
+        font-size: 3vmax !important;
+    }
 }
 
 @media only screen and (min-device-width: 273px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -756,6 +761,11 @@ body {
         padding: 0.5vmax !important;
         border-radius: 20vh !important;
         margin-bottom: -3vh !important;
+    }
+
+    #muted,
+    #muted {
+        font-size: 3vmax !important;
     }
 }
 
@@ -1080,4 +1090,25 @@ input {
     text-decoration: none;
     color: white;
     cursor: pointer;
+}
+
+.mute {
+    text-align: center;
+    color: rgba(200, 255, 0, 0.849) !important;
+    font-size: 1.5vmax !important;
+}
+
+.mute:hover {
+    color: rgba(255, 60, 0, 0.849) !important;
+}
+
+#mute {
+    color: rgba(255, 60, 0, 0.849) !important;
+    animation: fader 1s infinite;
+}
+
+@keyframes fader {
+    50% {
+        opacity: 0%;
+    }
 }

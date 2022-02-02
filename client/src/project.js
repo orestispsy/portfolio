@@ -9,7 +9,6 @@ export default function Project({
     selectedProject,
     projects,
     match,
-    setMute,
     setProjectView,
     scrollTo,
 }) {
@@ -39,7 +38,6 @@ export default function Project({
                         to={'/'}
                         className="closeTab"
                         onClick={() => {
-                            setMute(true)
                             setProjectView(true)
                         }}
                     >

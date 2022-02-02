@@ -10,7 +10,7 @@ let projects = [
          project sites.`,
         preview: './previewPortfolio.jpg',
         url: 'https://zero-psy.com/portfolio',
-        git: 'https://github.com/orestispsy/zero-psy',
+        git: 'https://github.com/orestispsy/portfolio',
         pics: [{ pic: './projectPics/pf1.jpg' }],
         features: [
             'Bio',
@@ -95,6 +95,7 @@ let projects = [
     {
         id: 2,
         name: 'Fee Calculator',
+
         description: `This project is the assessment for an intership. 
         A React App, calculating the given values, returning as result the total fee
         according to rules. Written in Typescript & tested with Jest and React Testing Library.`,

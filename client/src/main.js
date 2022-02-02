@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import React from 'react'
 import useSound from 'use-sound'
 
-import music from './../public/music.mp3'
+import music from './../public/alice.mp3'
 
 export default function Main({
     setProject,
@@ -14,15 +14,24 @@ export default function Main({
     projectView,
     scrollTo,
 }) {
-    const [play, { stop }] = useSound(music, { volume: 0.75 })
+    const [play, { stop }] = useSound(music, {
+        volume: 0.75,
+        onend: (e) => {
+            setMute(false)
+        },
+    })
+
     const [bioView, setBioView] = useState(false)
 
     const projRef = useRef()
 
     const letMusic = (e) => {
         if (!mute) {
-            play()
             setMute(true)
+            play()
+        } else {
+            stop()
+            setMute(false)
         }
     }
 
@@ -43,6 +52,7 @@ export default function Main({
         <div className="mainContainer">
             <div className="introTitles">
                 <div>Full-Stack Web Developer</div>
+
                 <div className="bio">
                     Born and raised in Greece, currently living in Berlin,
                     Germany. First studies in Electronic Engineering. Then,
@@ -63,8 +73,27 @@ export default function Main({
                     <>
                         <div className="bio">
                             {`I have worked in TV & Event Production Industry as an electronic engineer.
-                            Although, I always wanted to make the right turn.
-                            One year ago, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A coding-camp
+                            Although, I always wanted to make the`}
+                            <span
+                                id={(mute && 'mute') || 'muted'}
+                                onClick={() => {
+                                    letMusic()
+                                }}
+                            >
+                                right turn
+                                {mute && (
+                                    <span
+                                        className="mute"
+                                        onClick={(e) => {
+                                            setMute(false)
+                                            stop()
+                                        }}
+                                    >
+                                        ►
+                                    </span>
+                                )}
+                            </span>
+                            {`. One year ago, I took part in the legendary Bootcamp of Spiced Academy in Berlin. A coding-camp
                              that altered my knowledge to the point and taught me how to activate super-powers again. `}
                         </div>
                         <div className="bio">
@@ -120,6 +149,9 @@ export default function Main({
                                     selectedProject == project.id) && (
                                     <div
                                         onClick={(e) => {
+                                            setMute(false)
+                                            stop()
+
                                             setProject(project.id)
                                         }}
                                     >
@@ -137,9 +169,6 @@ export default function Main({
                                                         <img
                                                             src="./hot.png"
                                                             className="hot"
-                                                            onClick={() => {
-                                                                letMusic()
-                                                            }}
                                                         ></img>
                                                     )}
                                                 {project.remastered &&

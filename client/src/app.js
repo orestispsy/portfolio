@@ -12,7 +12,6 @@ export default class App extends React.Component {
         super(props)
         this.state = {
             selectedProject: false,
-            emailForm: false,
             mute: false,
             projectView: false,
         }
@@ -36,16 +35,6 @@ export default class App extends React.Component {
         this.setState({
             selectedProject: e,
         })
-    }
-
-    toggleEmailForm() {
-        this.setState(
-            {
-                emailForm: !this.state.emailForm,
-            }
-            // ,
-            // () => console.log("State after setState: ", this.state)
-        )
     }
 
     scrollTo(top, behavior) {
